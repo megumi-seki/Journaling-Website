@@ -16,12 +16,14 @@
     --black: #000000;
     --main-color: #EE827D;
     --body-color:#FFF9E2;
-    --body-color-stronger: #ffe57b;
+    --bc-stronger: #ffe57b;
+    --bc-much-stronger: #fdd949;
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
+    padding: 0;
 }
 
 .default-body {
@@ -50,14 +52,17 @@
 
 .btn {
     height: 2.3rem;
-    width: 5rem;
+    width: 8rem;
     border-radius: 8px;
+    border: 1px solid var(--main-color);
+    background-color: var(--main-color);
+    color: var(--white);
 }
 
 .nav-btn {
-    border: 1px solid var(--main-color);
     background-color: var(--white);
     color: var(--main-color);
+    width: 6rem;
 }
 
 .title {
@@ -70,6 +75,10 @@
 
 .p-all-large {
     padding: 5rem 6rem;
+}
+
+.p-all-small {
+    padding: 2rem;
 }
 
 .pb-medium {
@@ -97,7 +106,7 @@
     width: 500px;
     height: 2.3rem;
     border-radius: 5px;
-    border: 1px solid var(--body-color-stronger);
+    border: 1px solid var(--bc-stronger);
     padding-left: 1rem;
 }
 
@@ -134,10 +143,6 @@
     width: 23px;
     height: 23px;
 }
-
-/* .inline-flex {
-    display: inline-flex;
-} */
 
 .auth-btn {
     height: 2.3rem;
@@ -177,4 +182,65 @@
 
 .color-main {
     color: var(--main-color)
+}
+
+.font-small {
+    font-size: 0.85rem;
+}
+
+.txta-def {
+    width: 100%;
+    margin: auto;
+    height: 5rem;
+    border-radius: 5px;
+    resize: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    /* font-family: "Special Elite", system-ui;
+    font-weight: 400;
+    font-style: normal; */
+}
+
+.texa-new {
+    height: 30rem;
+}
+
+.block {
+    display: block;
+}
+
+.w-80 {
+    width: 80%;
+}
+
+.m-auto {
+    margin: auto;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+.ddown {
+    width: 120px;
+    height: 1.2rem;
+    border: 1px solid var(--bc-much-stronger);
+}
+
+.search-btn {
+    height: 1.2rem;
+    background-color: var(--bc-stronger);
+    color: var(--black);
+    border-color: var(--bc-much-stronger);
+}
+
+.form-group {
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--bc-much-stronger);
+}
+
+.bg-white {
+    background-color: var(--white);
 }
