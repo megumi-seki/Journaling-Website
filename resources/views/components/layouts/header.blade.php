@@ -1,7 +1,7 @@
 <div class="header">
-    <img class="icon" src="{{ asset("img/icon.png") }}" alt="icon">
+    <img class="icon" src="{{ 'img/icon-new.png' }}" alt="icon">
     <div class="header-navs">
-        <button class="nav-btn">Signup</button>
-        <button class="nav-btn">Login</button>
+        <button class="btn nav-btn">Signup</button>
+        <button class="btn nav-btn">Login</button>
     </div>
 </div>

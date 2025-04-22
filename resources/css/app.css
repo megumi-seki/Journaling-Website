@@ -13,13 +13,19 @@
 
 :root {
     --white: #ffffff;
-
-    /* button */
-    --nav-btn: #7C1034;
+    --black: #000000;
+    --main-color: #EE827D;
+    --body-color:#FFF9E2;
+    --body-color-stronger: #ffe57b;
 }
 
 * {
     box-sizing: border-box;
+    margin: 0;
+}
+
+.default-body {
+    background-color: var(--body-color);
 }
 
 .header {
@@ -28,7 +34,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 5%;
+    padding: 0.8rem 5%;
+    background-color: var(--white);
 }
 
 .icon {
@@ -41,18 +48,133 @@
     gap: 2rem;
 }
 
-.nav-btn {
-    height: 2rem;
+.btn {
+    height: 2.3rem;
     width: 5rem;
-    border: 1.5px solid var(--nav-btn);
     border-radius: 8px;
+}
+
+.nav-btn {
+    border: 1px solid var(--main-color);
     background-color: var(--white);
-    color: var(--nav-btn);
+    color: var(--main-color);
 }
 
-main {
-    padding-top: 3.9rem;
+.title {
+    font-weight: normal;
 }
 
+.main-top-p {
+    padding-top: 5rem;
+}
 
+.p-all-large {
+    padding: 5rem 6rem;
+}
 
+.pb-medium {
+    padding-bottom: 2rem;
+}
+
+.pb-small {
+    padding-bottom: 1rem;
+}
+
+.ta-center {
+    text-align: center;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.gap-small {
+    gap: 1rem;
+}
+
+.auth-input {
+    width: 500px;
+    height: 2.3rem;
+    border-radius: 5px;
+    border: 1px solid var(--body-color-stronger);
+    padding-left: 1rem;
+}
+
+.primary-btn {
+    background-color: var(--main-color);
+    height: 2.5rem;
+    width: 500px;
+    border-radius: 2rem;
+    border: none;
+    color: white;
+    font-size: large;
+}
+
+.mr-small {
+    margin-right: 0.5rem;
+}
+
+.mtb-small {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.mtb-smaller {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.facebook-img {
+    width: 20px;
+    height: 20px;
+}
+
+.google-img {
+    width: 23px;
+    height: 23px;
+}
+
+/* .inline-flex {
+    display: inline-flex;
+} */
+
+.auth-btn {
+    height: 2.3rem;
+    background-color: var(--white);
+    width: 180px;
+    border: 1px solid var(--main-color);
+}
+
+.inline-flex {
+    display: inline-flex;
+}
+
+.flex {
+    display: flex;
+}
+
+.gap-1 {
+    gap: 1rem;
+}
+
+.gap-2 {
+    gap: 2rem;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.reset-def {
+    text-decoration: none;
+    color: inherit;
+}
+
+.color-main {
+    color: var(--main-color)
+}

@@ -7,7 +7,7 @@
     <title>MEGUSTO</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-    <body>
+    <body class="default-body">
     {{ $slot }}
     </body>
 </html>
