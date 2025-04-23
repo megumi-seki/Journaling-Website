@@ -15,18 +15,22 @@
     --white: #ffffff;
     --black: #000000;
     --main-color: #EE827D;
+    --main-lighter: #f8b0ac;
     --body-color:#FFF9E2;
     --bc-stronger: #ffe57b;
     --bc-much-stronger: #fdd949;
+    --tagged: #BA0009;
+    --not-tagged: #ba000957;
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    /* overflow-x: hidden; */
 }
 
-.default-body {
+.bc-body-color {
     background-color: var(--body-color);
 }
 
@@ -38,16 +42,24 @@
     align-items: center;
     padding: 0.8rem 5%;
     background-color: var(--white);
+    z-index: 1;
+}
+
+.txta-def {
+    width: 100%;
+    height: 10rem;
+    border-radius: 5px;
+    resize: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    /* font-family: "Special Elite", system-ui;
+    font-weight: 400;
+    font-style: normal; */
 }
 
 .icon {
     height: 3.4rem;
-}
-
-.header-navs {
-    display: flex;
-    align-items: flex-end;
-    gap: 2rem;
 }
 
 .btn {
@@ -65,20 +77,40 @@
     width: 6rem;
 }
 
+.max-w-80 {
+    max-width: 80%;
+}
+
 .title {
     font-weight: normal;
 }
 
-.main-top-p {
+/* .main-top-p {
     padding-top: 5rem;
-}
+} */
 
-.p-all-large {
+/* .p-all-large {
+    padding: 5rem 480px;
+} */
+
+.p-all-medium {
     padding: 5rem 6rem;
 }
 
-.p-all-small {
-    padding: 2rem;
+/* .p-all-small {
+    padding: 2rem 6rem;
+} */
+
+.pt-large {
+    padding-top: 6rem;
+}
+
+.pt-medium {
+    padding-top: 5rem;
+}
+
+.pt-small {
+    padding-top: 2rem;
 }
 
 .pb-medium {
@@ -87,6 +119,14 @@
 
 .pb-small {
     padding-bottom: 1rem;
+}
+
+.pl-small {
+    padding-left: 1rem;
+}
+
+.pl-medium {
+    padding-left: 5rem;
 }
 
 .ta-center {
@@ -102,7 +142,7 @@
     gap: 1rem;
 }
 
-.auth-input {
+.input-def {
     width: 500px;
     height: 2.3rem;
     border-radius: 5px;
@@ -120,8 +160,12 @@
     font-size: large;
 }
 
-.mr-small {
+.mr-smaller {
     margin-right: 0.5rem;
+}
+
+.mr-small {
+    margin-right: 1rem;
 }
 
 .mtb-small {
@@ -132,6 +176,36 @@
 .mtb-smaller {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
+}
+
+.heart {
+    width: 15px;
+    height: 15px;
+}
+
+.heart-big {
+    width: 30px;
+    height: 30px;
+}
+
+.heart-t-big {
+    width: 24px;
+    height: 24px;
+}
+
+.hug {
+    width: 18px;
+    height: 18px;
+}
+
+.hug-big {
+    width: 36px;
+    height: 36px;
+}
+
+.hug-t-big {
+    width: 33px;
+    height: 33px;
 }
 
 .facebook-img {
@@ -159,6 +233,9 @@
     display: flex;
 }
 
+.gap-smallest {
+    gap: 0.5rem;
+}
 .gap-1 {
     gap: 1rem;
 }
@@ -170,6 +247,7 @@
 .justify-center {
     justify-content: center;
 }
+
 
 .align-center {
     align-items: center;
@@ -188,19 +266,6 @@
     font-size: 0.85rem;
 }
 
-.txta-def {
-    width: 100%;
-    margin: auto;
-    height: 5rem;
-    border-radius: 5px;
-    resize: none;
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    line-height: 1.5rem;
-    /* font-family: "Special Elite", system-ui;
-    font-weight: 400;
-    font-style: normal; */
-}
 
 .texa-new {
     height: 30rem;
@@ -222,20 +287,29 @@
     margin-left: auto;
 }
 
-.ddown {
-    width: 120px;
-    height: 1.2rem;
+.ml-small {
+    margin-left: 1rem;
+}
+
+.m-zero {
+    margin: 0;
+    padding: 0;
+}
+
+.search-input {
+    width: 122px;
+    height: 1.3rem;
     border: 1px solid var(--bc-much-stronger);
 }
 
 .search-btn {
-    height: 1.2rem;
+    height: 1.3rem;
     background-color: var(--bc-stronger);
     color: var(--black);
     border-color: var(--bc-much-stronger);
 }
 
-.form-group {
+.search-group {
     padding: 0.5rem;
     border-radius: 8px;
     border: 1px solid var(--bc-much-stronger);
@@ -243,4 +317,182 @@
 
 .bg-white {
     background-color: var(--white);
+}
+
+/* tagged */
+.tag-t {
+    width: 18px;
+    height: 16px;
+    background-color: var(--tagged);
+}
+
+.tag-l {
+    width: 0px;
+    height: 0px;
+    border-left: 9px solid var(--tagged);
+    border-bottom: 16px solid transparent;
+}
+
+.tag-r {
+    width: 0px;
+    height: 0px;
+    border-right: 9px solid var(--tagged);
+    border-bottom: 16px solid transparent;
+    position: absolute;
+    right: -0.1px;
+    top: 16px;
+}
+
+
+/* not tagged */
+.not-tagged-t {
+        background-color: var(--not-tagged);
+}
+
+.not-tagged-l {
+        border-left: 9px solid var(--not-tagged);
+}
+
+.not-tagged-r {
+    border-right: 9px solid var(--not-tagged);
+}
+
+.txta-wrapper {
+    position: relative;
+    flex: 1;
+}
+
+.tag-wrapper {
+    position: absolute;
+    right: 2rem;
+}
+
+.small-btn {
+    width: 2.5rem;
+    height: 1.2rem;
+    font-size: 0.7rem;
+    border-radius: unset;
+    background-color: var(--main-lighter);
+    /* color: var(--main-color); */
+    border-color: var(--main-lighter);
+    border-right: 0.5px solid var(--white);
+}
+
+.absolute-in-txta {
+    position: absolute;
+    bottom: 5.5px;
+    right: 1px;
+}
+
+.btn-wrapper {
+    position: absolute;
+    bottom: 5.5px;
+    right: 1px;
+}
+
+.border-lt {
+  border-radius: 5px 0 0 0;
+}
+
+.border-rb {
+    border-radius: 0 0 4px 0;
+}
+
+.border-r-unset {
+    border-right: none;
+}
+
+.justify-end{
+    justify-content: flex-end;
+}
+
+.width-max {
+    width: 100%;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.width-small {
+    width: 8rem;
+}
+
+.width-medium {
+    width: 13rem;
+}
+
+.ver-al {
+    vertical-align: -1px;
+}
+
+.icons-on-pub {
+    position: absolute;
+    right: calc(1rem + 5px);
+    top: 4rem;
+}
+
+.ml-minus {
+    margin-left: -3px;
+}
+
+.user-icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
+    background-color: var(--main-lighter);
+}
+
+.user-name {
+    position: absolute;
+    top: 3rem;
+    left: 5px;
+}
+
+.bc-main {
+    background-color: var(--main-color);
+}
+
+.c-white {
+    color: var(--white);
+}
+
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    padding-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+        .search-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        padding-bottom: unset;
+    }
+
+    .search-group {
+        padding: 0.3rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .mr-smaller {
+        margin-right: unset;
+    }
+
+    .mr-small {
+        margin-right: 0.5rem;
+    }
+
+    .search-input {
+        width: 120px;
+    }
+
+    .search-btn {
+        width: 120px;
+    }
 }

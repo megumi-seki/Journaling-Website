@@ -3,8 +3,8 @@
         <form action="#" method="GET" class="flex-col align-center gap-small mtb-small">
             @csrf
             <h2 class="title">Login</h2>
-            <input type="text" name="email" placeholder="Enter your name" class="auth-input">
-            <input type="email" name="password" placeholder="Enter your password" class="auth-input">
+            <input type="email" name="email" placeholder="Enter your name" class="input-def">
+            <input type="password" name="password" placeholder="Enter your password" class="input-def">
             <button class="primary-btn">Login</button>
         </form>
 

@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet"> --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-    <body class="default-body">
+    <body class="bc-body-color">
     {{ $slot }}
     </body>
 </html>
