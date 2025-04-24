@@ -6,6 +6,7 @@ $days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Satu
 
 <x-app-layout mainPadding="pt-small" pageTitle="Your Journals">
     <div id="search-bar" class="search-wrapper mtb-small">
+    <x-filter-button />
     <form action="#" class="search-group bg-white">   
         @csrf
         <select name="year" id="" class="search-input mr-smaller">

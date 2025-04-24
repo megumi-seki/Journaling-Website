@@ -50,7 +50,7 @@
     height: 10rem;
     border-radius: 5px;
     resize: none;
-    padding: 1rem 2rem;
+    padding: 1rem 4.5rem;
     font-size: 1rem;
     line-height: 1.5rem;
     /* font-family: "Special Elite", system-ui;
@@ -77,6 +77,13 @@
     width: 6rem;
 }
 
+.nav-bar {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    align-items: center;
+}
+
 .max-w-80 {
     max-width: 80%;
 }
@@ -85,21 +92,10 @@
     font-weight: normal;
 }
 
-/* .main-top-p {
-    padding-top: 5rem;
-} */
-
-/* .p-all-large {
-    padding: 5rem 480px;
-} */
-
 .p-all-medium {
     padding: 5rem 6rem;
 }
 
-/* .p-all-small {
-    padding: 2rem 6rem;
-} */
 
 .pt-large {
     padding-top: 6rem;
@@ -143,7 +139,7 @@
 }
 
 .input-def {
-    width: 500px;
+    width: 30rem;
     height: 2.3rem;
     border-radius: 5px;
     border: 1px solid var(--bc-stronger);
@@ -153,7 +149,7 @@
 .primary-btn {
     background-color: var(--main-color);
     height: 2.5rem;
-    width: 500px;
+    width: 30rem;
     border-radius: 2rem;
     border: none;
     color: white;
@@ -221,7 +217,7 @@
 .auth-btn {
     height: 2.3rem;
     background-color: var(--white);
-    width: 180px;
+    width: 11rem;
     border: 1px solid var(--main-color);
 }
 
@@ -291,6 +287,10 @@
     margin-left: 1rem;
 }
 
+.ml-medium {
+    margin-left: 2rem;
+}
+
 .m-zero {
     margin: 0;
     padding: 0;
@@ -321,26 +321,26 @@
 
 /* tagged */
 .tag-t {
-    width: 18px;
-    height: 16px;
+    width: 1.125rem;
+    height: 1rem;
     background-color: var(--tagged);
 }
 
 .tag-l {
-    width: 0px;
-    height: 0px;
-    border-left: 9px solid var(--tagged);
-    border-bottom: 16px solid transparent;
+    /* width: 0px;
+    height: 0px; */
+    border-left: 0.6rem solid var(--tagged);
+    border-bottom: 1rem solid transparent;
 }
 
 .tag-r {
-    width: 0px;
-    height: 0px;
-    border-right: 9px solid var(--tagged);
-    border-bottom: 16px solid transparent;
+    /* width: 0px;
+    height: 0px; */
+    border-right: 0.6rem solid var(--tagged);
+    border-bottom: 1rem solid transparent;
     position: absolute;
-    right: -0.1px;
-    top: 16px;
+    right: -0.05px;
+    top: 1rem;
 }
 
 
@@ -466,33 +466,237 @@
     padding-bottom: 1rem;
 }
 
-@media (max-width: 768px) {
-        .search-wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: 0.3rem;
-        padding-bottom: unset;
+.sidebar-icon {
+    width: 2.8rem;
+    height: 2.8rem;
+    background-color: var(--white);
+    border-radius: 5px;
+    border: 1.8px solid var(--main-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 6px 0;
+}
+
+.sidebar-icon-hide {
+    display: none;
+}
+
+.sidebar-line {
+    width: 1.25rem;
+    height: 1.5px;
+    background-color: var(--main-color);
+}
+
+/* .hidden {
+    display: none;
+} */
+
+
+.sidebar {
+    position: fixed;
+    background-color: var(--white);
+    top: 0;
+    bottom: 0;
+    right: -250px;
+    width: 250px;
+    height: 100dvh;
+    border-left: 1px solid var(--bc-stronger);
+    transition: right 0.3s ease-in-out;
+    z-index: 2;
+}
+
+.sidebar.open {
+    right: 0px;
+}
+
+.filter-icon {
+    width: 20px;
+    height: 1.3rem;
+    justify-content: space-evenly;
+    padding: 2.5px;
+}
+
+.filter-icon-line1 {
+    width: 14px;
+    height: 1px;
+    background-color: var(--black);
+}
+
+.filter-icon-line2 {
+    width: 9px;
+    height: 1px;
+    background-color: var(--black);
+}
+
+.filter-icon-line3 {
+    width: 4px;
+    height: 1px;
+    background-color: var(--black);
+}
+
+.filter-btn {
+    display: none;
+}
+
+@media (max-width: 1250px) {
+.search-group {
+    padding-right: unset;
+    padding-left: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    row-gap: 0.3rem;
+}
+
+.width-medium {
+    width: 122px;
+}
+
+.search-btn {
+    width: 122px;
+}
+
+.nav-bar {
+    gap: 0.3rem;
+}
+
+}
+
+@media (max-width: 900px) {
+    .nav-bar {
+        display: none;
     }
+
+    .sidebar-icon-hide {
+        display: block;
+    }
+
+    .pt-small {
+        padding-top: 1rem;
+    }
+
+
+}
+
+@media (max-width: 705px) {
+    .search-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    /* padding-bottom: unset; */
+    align-items: flex-end;
+    /* justify-content: flex-end; */
+}
+
+.search-group {
+    padding-right: unset;
+    padding-left: 0.3rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.mr-smaller {
+    margin-right: 0.3rem;
+}
+
+.mr-small {
+    margin-right: 0.3rem;
+}
+
+.input-def {
+        width: 25rem;
+    }
+
+.primary-btn {
+    width: 25rem;
+}
+
+.s-btn {
+    width: 5rem;
+}
+}
+
+
+@media (max-width:480px) {
+    html {
+        font-size: 14px; 
+      }
 
     .search-group {
-        padding: 0.3rem;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        display: none;
     }
 
-    .mr-smaller {
-        margin-right: unset;
+    .filter-btn {
+        display: block;
     }
 
-    .mr-small {
-        margin-right: 0.5rem;
+    .search-wrapper {
+        flex-direction: unset;
     }
 
-    .search-input {
-        width: 120px;
+    .txta-def {
+        padding: 0.5rem 4rem;
     }
 
-    .search-btn {
-        width: 120px;
+    .tag-wrapper {
+        right: 9px;
     }
+
+    .icons-on-pub {
+        right: 4px;
+    }
+
+
+    .heart-t-big {
+        width: 18px;
+        height: 18px;
+    }
+
+    .hug-t-big {
+        width: 25px;
+        height: 25px;
+    }
+ 
+    .heart-big {
+        width: 21px;
+        height: 21px;
+    }
+
+    .hug-big {
+        width: 26px;
+        height: 26px;
+    }
+
+    .pl-medium {
+        padding-left: 4.25rem;
+    }
+
+    .max-w-80 {
+        max-width: 95%;
+    }
+
+    .pt-small {
+        padding-top: 0;
+    }
+
+    .input-def {
+        width: 20rem;
+    }
+    
+    .primary-btn {
+        width: 20rem;
+    }
+
+    .auth-btn {
+        width: 8rem;
+    }
+
 }
+
+
+/* {{-- TODO
+    --javascript: when click the sidebar-icon, add w-80 to all 
+    --add filter-bar
+    --}} */
