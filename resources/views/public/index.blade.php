@@ -1,27 +1,26 @@
 <x-app-layout mainPadding="pt-small" pageTitle="Everyone's Journals">
 
     <section id="filter-weapper" class="hidden">
-    <form action="#" class=" filter-group bg-white">   
-        @csrf
-        <x-hashtag-dropdown />
-        <x-keyword-dropdown />
-        <x-year-month-dropdown />
-        <x-tag-dropdown />
-        <x-reset-search-button />
-    </form>
-</section>
+        <form action="#" class=" filter-group bg-white">   
+            @csrf
+            <x-hashtag-dropdown />
+            <x-keyword-dropdown />
+            <x-year-month-dropdown />
+            <x-tag-dropdown />
+            <x-reset-search-button />
+        </form>
+    </section>
 
     <section id="search-section" class="search-wrapper mtb-small">
         <x-filter-button />
-    <form action="#" class="search-group bg-white">   
-        @csrf
-        <x-hashtag-dropdown />
-        <x-year-month-dropdown />
-        <x-tag-dropdown />
-        <x-keyword-dropdown />
-        <x-reset-search-button />
-
-    </form>
+        <form action="#" class="search-group bg-white">   
+            @csrf
+            <x-hashtag-dropdown />
+            <x-year-month-dropdown />
+            <x-tag-dropdown />
+            <x-keyword-dropdown />
+            <x-reset-search-button />
+        </form>
     <x-order-dropdown-form />
 
 </section>  

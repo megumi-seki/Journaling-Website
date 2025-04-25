@@ -1,2 +1,2 @@
-<button class="btn search-btn bg-white">Reset</button>
+<button type="button" class="btn search-btn bg-white">Reset</button>
 <button class="btn search-btn">Search</button>
