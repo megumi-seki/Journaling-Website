@@ -35,10 +35,10 @@
                 <textarea name="" id="" class="txta-def"></textarea>
                 <div class="add-btn-for-new flex">
                     <label for="public1" class="inline-flex justify-center gap-smallest btn small-btn small-checkbox-label font-smaller mr-small border-r-set">
-                        <input checked type="checkbox" id="public1" name="public" class="small-checkbox ver-al">
+                        <input disabled checked type="checkbox" id="public1" name="public" class="small-checkbox ver-al">
                         public
                     </label>
-                    <button class="btn small-btn border-lt">Expand</button>
+                    <button class="btn small-btn border-lt hover-effect">Expand</button>
                     <button class="btn small-btn border-rb border-r-set">Save</button>
                 </div>
             </div>
@@ -54,22 +54,7 @@
             <div class="txta-wrapper">
                 <x-not-tagged-icon />           
                 <textarea disabled name="" id="" class="txta-def"></textarea>
-                <x-edit-icon />
-                <x-small-buttons />
-            </div>
-        </div>
-
-        <div id="content-wrapper">
-            <div class="flex align-center">
-            <span class="ml-small mr-small font-small">1/24/2025 Mon 12:00</span> 
-                <img src="{{ asset('img/heart-with-colors.png') }}" alt="" class="heart">
-                <span class="font-small mr-smaller">10</span>
-                <img src="{{ asset('img/hug-blue-with-line.png')}}" alt="" class="hug">
-                <span class="font-small mr-smaller">10</span>
-            </div>
-            <div class="txta-wrapper">
-                <x-not-tagged-icon />           
-                <textarea disabled name="" id="" class="txta-def"></textarea>
+                <x-edit-remove-icon />
                 <x-edit-icon />
                 <x-small-buttons />
             </div>
@@ -85,6 +70,23 @@
             <div class="txta-wrapper">
                 <x-not-tagged-icon />           
                 <textarea disabled name="" id="" class="txta-def"></textarea>
+                <x-edit-remove-icon />
+                <x-edit-icon />
+                <x-small-buttons />
+            </div>
+        </div>
+        <div id="content-wrapper">
+            <div class="flex align-center">
+            <span class="ml-small mr-small font-small">1/24/2025 Mon 12:00</span> 
+                <img src="{{ asset('img/heart-with-colors.png') }}" alt="" class="heart">
+                <span class="font-small mr-smaller">10</span>
+                <img src="{{ asset('img/hug-blue-with-line.png')}}" alt="" class="hug">
+                <span class="font-small mr-smaller">10</span>
+            </div>
+            <div class="txta-wrapper">
+                <x-not-tagged-icon />           
+                <textarea disabled name="" id="" class="txta-def"></textarea>
+                <x-edit-remove-icon />
                 <x-edit-icon />
                 <x-small-buttons />
             </div>

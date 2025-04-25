@@ -464,22 +464,18 @@
     border: 1px solid var(--main-lighter);
     border-right: 0.5px solid var(--white);
     color: var(--main-color);
+    cursor: auto;
 }
 
-.small-btn:hover {
+.hover-effect:hover {
     background-color: var(--main-color);
     border-color: var(--main-color);
     color: var(--white);
+    cursor: pointer;
 }
 
 .small-checkbox-label {
     width: 4rem;
-}
-
-.small-checkbox-label:hover {
-    background-color: var(--white);
-    border-color: var(--main-lighter);
-    color: var(--main-color);
 }
 
 .border-r-set {
@@ -676,7 +672,7 @@
     z-index: 1;
 }
 
-.edit-icon {
+.edit-icon, .edit-remove-icon {
     display: none;
     position: absolute;
     right: 9px;
@@ -687,6 +683,20 @@
     border: 1px solid var(--light-dark);
     gap: 2.8px;
     border-radius: 3px;
+}
+
+.edit-remove-icon {
+    display: none;
+    right: 15.3rem;
+    bottom: 0.5rem;
+    gap: 2.8px;
+    cursor: pointer;
+}
+
+.edit-remove-line {
+    height: 1px;
+    width: 10px;
+    background-color: var(--light-dark);
 }
 
 .dot {
@@ -763,49 +773,48 @@
     .txta-pub {
         padding: 0.5rem 4rem;
     }
-}
-
-@media (max-width: 705px) {
-
-.btn-wrapper {
-    display: none;
-}
-
-.edit-icon {
-    display: flex;
-}
-
-
-.mr-smaller {
-    margin-right: 0.3rem;
-}
-
-.mr-small {
-    margin-right: 0.3rem;
-}
-
-.input-def {
-        width: 25rem;
+    
+    .edit-icon {
+        display: flex;
     }
 
-.name-input {
-    width: 22.7rem;
-}
+    .edit-remove-icon {
+        display: block;
+    }
 
-.primary-btn {
-    width: 25rem;
-}
+    .mr-smaller {
+        margin-right: 0.3rem;
+    }
+    
+    .mr-small {
+        margin-right: 0.3rem;
+    }
+    
+    .input-def {
+            width: 25rem;
+        }
+    
+    .name-input {
+        width: 22.7rem;
+    }
+    
+    .primary-btn {
+        width: 25rem;
+    }
+    
+    .s-btn {
+        width: 5rem;
+    }
+    
+    .page-title {
+        width: 5rem;
+    }
 
-.s-btn {
-    width: 5rem;
+    .hidden-when-medium {
+        display: none;
+    }
+    
 }
-
-.page-title {
-    width: 5rem;
-}
-}
-
-
 
 @media (max-width:480px) {
     html {
