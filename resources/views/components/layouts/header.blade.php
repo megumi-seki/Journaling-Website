@@ -1,8 +1,11 @@
 @props(['pageTitle' => ""])
 
 <div class="header">
-    <img class="icon" src="{{ asset('img/icon-new.png') }}" alt="icon">
-    <x-sidebar-icon />
+    <a href="#">
+        <img class="icon" src="{{ asset('img/icon-new.png') }}" alt="icon">
+    </a>
+    <x-sidebar-icon :$pageTitle />
+
     <div class="nav-bar">
         <p class="mr-small page-title">{{ $pageTitle }}</p>
 
