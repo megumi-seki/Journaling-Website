@@ -810,10 +810,14 @@
 @media (max-width:480px) {
     html {
         font-size: 14px; 
-      }
+    }
 
-      .txta-def {
+    .txta-def {
         padding: 0.5rem 2rem 0.5rem 1rem;
+    }
+
+    .txta-pub {
+        padding: 0.5rem 4rem;
     }
 
     .filter-group {
