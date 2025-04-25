@@ -3,7 +3,21 @@
     <p class="bold">Your Profile Information</p>
     <form action="#" method="GET" class="flex-col align-center gap-small mtb-small">
         @csrf
-        <input type="text" name="name" placeholder="Name" class="input-def">
+        <div class="relative">
+        <div class="flex">
+            <button name="user-icon" id="" class="user-icon-input">
+                User Icon
+            </button>
+            <input type="text" name="name" placeholder="Name" class="input-def name-input">
+        </div>
+        <div class="icon-list hidden">
+            <img src="#" alt="" class="icon-li">
+            <img src="#" alt="" class="icon-li">
+            <img src="#" alt="" class="icon-li">
+            <img src="#" alt="" class="icon-li">
+            <img src="#" alt="" class="icon-li">
+        </div>
+        </div>
         <input type="email" name="email" placeholder="Email" class="input-def">
         <input type="text" name="phone" placeholder="Phone" class="input-def">
         <div class="flex gap-1 justify-end">
