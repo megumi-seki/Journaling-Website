@@ -90,10 +90,44 @@ document.addEventListener(("DOMContentLoaded"), function() {
         });
     }
 
+    const toggleTag = () => {
+        const toggleBtns = document.querySelectorAll(".tag-wrapper");
+
+        toggleBtns.forEach((btn) => {
+            btn.addEventListener(("click"), function() {
+                const parent = btn.closest("div");
+                const tags = parent.querySelectorAll(".tag-wrapper")
+
+                tags.forEach((tag) => {
+                    tag.classList.toggle("hidden");
+                });
+            })
+        })
+    }
+
+    const toggleHeartHug = () => {
+        const toggleBtns = document.querySelectorAll(".toggle");
+
+        toggleBtns.forEach((btn) => {
+            btn.addEventListener(("click"), function() {
+                const parent = btn.closest("button");
+                const tags = parent.querySelectorAll(".toggle")
+
+                tags.forEach((tag) => {
+                    tag.classList.toggle("hidden");
+                });
+            })
+        })
+    }
+
     toggleSidebar();
     toggleFilter();
     toggleEdit();
     toggleEditReverse();
     toggleHoverEffect();
+    toggleTag();
+    toggleHeartHug();
 
 })
+
+// TODO toggle the hug, heart, and tag

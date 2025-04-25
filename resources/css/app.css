@@ -20,9 +20,9 @@
     --bc-stronger: #ffe57b;
     --bc-much-stronger: #fdd949;
     --tagged: #BA0009;
-    --not-tagged: hsla(357, 100%, 36%, 0.322);
+    --not-tagged: hsla(357, 100%, 36%, 0.165);
     --p-tagged: #ed8c03;
-    --p-not-tagged: hsla(35, 100%, 48%, 0.322);
+    --p-not-tagged: hsla(35, 100%, 48%, 0.165);
     --light-dark: #767676;
 }
 
@@ -231,13 +231,14 @@
 }
 
 .heart-big {
-    width: 30px;
-    height: 30px;
+    width: 24px;
+    height: 24px;
+    margin-bottom: -1.9px;
 }
 
 .heart-t-big {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
 }
 
 .hug {
@@ -246,8 +247,8 @@
 }
 
 .hug-big {
-    width: 36px;
-    height: 36px;
+    width: 33px;
+    height: 33px;
 }
 
 .hug-t-big {
@@ -855,13 +856,14 @@
     }
  
     .heart-big {
-        width: 21px;
-        height: 21px;
+        width: 19px;
+        height: 19px;
+        margin-bottom: -1px;
     }
 
     .hug-big {
-        width: 26px;
-        height: 26px;
+        width: 25px;
+        height: 25px;
     }
 
     .pl-medium {
