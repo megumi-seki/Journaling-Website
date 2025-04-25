@@ -609,11 +609,10 @@
     top: 0;
     bottom: 0;
     right: -250px;
-    /* right: 0px; */
     width: 250px;
     height: 100dvh;
     border-left: 1px solid var(--bc-stronger);
-    transition: right 0.3s ease-in-out;
+    transition: right 0.4s ease-in-out;
     z-index: 4;
 }
 

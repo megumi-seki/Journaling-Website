@@ -1,12 +1,23 @@
 // import './bootstrap';
 
-// YOUR JOURNALS 
 
-// toggle the public radio
-// const togglePublicRadio = (id) => {
-//     const publicRadio = document.getElementById(public[id])
-//     const isPublicOn = false
-//     if ()
-// }
+document.addEventListener(("DOMContentLoaded"), function() {
 
-// let
+    // YOUR JOURNALS PAGE
+
+    // toggle sidebar
+    const toggleSidebar = () => {
+        const toggleBtns = document.querySelectorAll(".sidebar-icon")
+        const sidebar = document.getElementById("sidebar")
+
+        toggleBtns.forEach((Btn) => {
+            Btn.addEventListener(("click"), function() {
+                sidebar.classList.toggle("open")
+            })
+        })
+    }
+
+    toggleSidebar();
+
+
+})
