@@ -34,12 +34,12 @@
             <div class="txta-wrapper">        
                 <textarea name="" id="" class="txta-def"></textarea>
                 <div class="add-btn-for-new flex">
-                    <label for="public1" class="inline-flex justify-center gap-smallest btn small-btn small-checkbox-label font-smaller mr-small border-r-set">
-                        <input disabled checked type="checkbox" id="public1" name="public" class="small-checkbox ver-al">
+                    <label for="public1" class="hover-effect inline-flex justify-center gap-smallest btn small-btn small-checkbox-label font-smaller mr-small border-r-set">
+                        <input checked type="checkbox" id="public1" name="public" class="small-checkbox ver-al">
                         public
                     </label>
-                    <button class="btn small-btn border-lt hover-effect">Expand</button>
-                    <button class="btn small-btn border-rb border-r-set">Save</button>
+                    <button class="hover-effect btn small-btn border-lt">Expand</button>
+                    <button class="hover-effect btn small-btn border-rb border-r-set">Save</button>
                 </div>
             </div>
         </div>

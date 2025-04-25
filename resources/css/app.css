@@ -467,13 +467,6 @@
     cursor: auto;
 }
 
-.hover-effect:hover {
-    background-color: var(--main-color);
-    border-color: var(--main-color);
-    color: var(--white);
-    cursor: pointer;
-}
-
 .small-checkbox-label {
     width: 4rem;
 }
@@ -719,6 +712,19 @@
     display: none;
 }
 
+/* .bg-main {
+    background-color: var(--main-color);
+    color: var(--white);
+} */
+
+.hover-effect:hover {
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+    color: var(--white);
+    cursor: pointer;
+}
+
+
 
 @media (max-width: 1250px) {
 
@@ -776,10 +782,6 @@
     
     .edit-icon {
         display: flex;
-    }
-
-    .edit-remove-icon {
-        display: block;
     }
 
     .mr-smaller {

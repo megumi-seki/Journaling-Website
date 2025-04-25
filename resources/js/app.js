@@ -11,8 +11,8 @@ document.addEventListener(("DOMContentLoaded"), function() {
         toggleBtns.forEach((btn) => {
             btn.addEventListener(("click"), function() {
                 sidebar.classList.toggle("open");
-            })
-        })
+            });
+        });
     }
 
     // toggle filter group
@@ -22,7 +22,7 @@ document.addEventListener(("DOMContentLoaded"), function() {
 
         toggleBtn.addEventListener(("click"), function() {
             filterGroup.classList.toggle("hidden");
-        })
+        });
     }
 
     // YOUR JOURNALS PAGE
@@ -40,9 +40,9 @@ document.addEventListener(("DOMContentLoaded"), function() {
                 smallBtnsWrapper.classList.toggle("hidden-when-medium");
                 editRemoveIcon.classList.toggle("hidden-when-medium");
                 btn.classList.toggle("hidden-when-medium");
-            })
+            });
 
-        })
+        });
     }
 
     // do the same as above but in reverse
@@ -58,14 +58,42 @@ document.addEventListener(("DOMContentLoaded"), function() {
                 smallBtnsWrapper.classList.toggle("hidden-when-medium");
                 btn.classList.toggle("hidden-when-medium");
                 editIcon.classList.toggle("hidden-when-medium");
-            })
+            });
 
-        })
+        });
+    }
+
+    // Make it to be able when clicking "edit"
+    const toggleHoverEffect = () => {
+        const toggleBtns = document.querySelectorAll(".edit-btn");
+
+        toggleBtns.forEach((btn) => {
+            btn.addEventListener(("click"), function() {
+                const parent = btn.closest("div");
+                const btnsToToggle = parent.querySelectorAll(".btn-to-toggle");
+                const checkBox = parent.querySelector(".small-checkbox");
+                const editText = btn.innerText;
+
+                checkBox.disabled = !checkBox.disabled;
+                btnsToToggle.forEach((btnToToggle) => {
+                    btnToToggle.classList.toggle("hover-effect");
+                });
+
+                if (editText === "Edit") {
+                    btn.innerText = "Cancel";
+                    return;
+                }
+
+                btn.innerText = "Edit";
+
+            });
+        });
     }
 
     toggleSidebar();
     toggleFilter();
     toggleEdit();
     toggleEditReverse();
+    toggleHoverEffect();
 
 })
