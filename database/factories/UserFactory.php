@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\UserIcon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -24,11 +25,12 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
+            'user_icon_id' => UserIcon::pluck("id")->random(),
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
+            'phone' => fake()->unique()->phone(),
             'password' => static::$password ??= Hash::make('password'),
-            'remember_token' => Str::random(10),
+            'remember_token' => Str::random(10)
         ];
     }
 
