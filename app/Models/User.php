@@ -18,9 +18,13 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        "user_icon_id",
+        "name",
+        "email",
+        "phone",
+        "password",
+        "google_id",
+        "facebook_id"
     ];
 
     /**
@@ -29,8 +33,10 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        "google_id",
+        "facebook_id",
+        "password",
+        "remember_token"
     ];
 
     /**
@@ -42,7 +48,25 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
+            "created_at" => 'datetime',
+            "updated_at" => 'datetime',
+            'password' => 'hashed'
         ];
+    }
+
+    public function setting() {
+        return $this->hasOne(Setting::class);
+    }
+
+    public function userIcon() {
+        return $this->belongsTo(UserIcon::class);
+    }
+
+    public function contents() {
+        return $this->hasMany(Content::class);
+    }
+
+    public function publicTaggedContents() {
+        return $this->belongsToMany(Content::class, "public_tagged_contents");
     }
 }

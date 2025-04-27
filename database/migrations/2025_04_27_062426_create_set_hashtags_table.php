@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_icon', function (Blueprint $table) {
+        Schema::create('set_hashtags', function (Blueprint $table) {
             $table->id();
-            $table->string("image_path");
+            $table->foreignId('content_id')->constrained("contents");
+            $table->foreignId('hashtag_id')->constrained("hashtags");
         });
     }
 
@@ -22,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_icon');
+        Schema::dropIfExists('set_hashtags');
     }
 };

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->foreignId("user_icon_id")->constrained("user_icons")->nullable();
-            $table->string('name');
+            $table->string('name', 100);
             $table->string('email')->unique();
             $table->string('phone', 45)->unique();
             $table->timestamp('email_verified_at')->nullable();
