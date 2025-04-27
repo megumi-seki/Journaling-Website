@@ -1,6 +1,6 @@
 <x-base-layout>
     <main class="pt-large ta-center">
-        <img class="icon" src="{{ asset("img/icon-new.png") }}" alt="icon">
+        <x-buttons.app-icon />
         {{ $slot }}
 
         <div class="flex gap-2 justify-center">
