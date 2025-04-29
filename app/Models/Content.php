@@ -11,7 +11,6 @@ class Content extends Model
     use HasFactory, SoftDeletes;
     protected $fillable = [
         "title",
-        "hashtag_id",
         "content_text",
         "tag"
     ];

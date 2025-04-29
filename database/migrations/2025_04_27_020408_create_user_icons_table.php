@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_icon', function (Blueprint $table) {
+        Schema::create('user_icons', function (Blueprint $table) {
             $table->id();
             $table->string("image_path");
         });

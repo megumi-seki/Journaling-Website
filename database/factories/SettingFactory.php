@@ -9,9 +9,9 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Setting>
  */
-class SettingsFactory extends Factory
+class SettingFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -21,7 +21,7 @@ class SettingsFactory extends Factory
     public function definition(): array
     {
         return [
-            "user_id" => User::pluck("id")->random(),
+            // "user_id" => User::pluck("id")->random(),
             "public_mode" => fake()->boolean(),
             "screen_mode" => fake()->boolean(),
             "color_units_id" => ColorUnit::pluck("id")->random(),

@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId("user_id")->constrained("users");
             $table->string("title")->nullable();
-            $table->foreignId("hashtag_id")->constrained("hashtag")->nullable();
             $table->longText("content_text");
             $table->boolean("tag")->default(0);
             $table->timestamps();
