@@ -43,22 +43,9 @@
                 </div>
             </div>
         </div>
-        <div id="content-wrapper">
-            <div class="flex align-center">
-            <span class="ml-small mr-small font-small">1/24/2025 Mon 12:00</span> 
-                <img src="{{ asset('img/heart-with-colors.png') }}" alt="" class="heart">
-                <span class="font-small mr-smaller">10</span>
-                <img src="{{ asset('img/hug-blue-with-line.png')}}" alt="" class="hug">
-                <span class="font-small mr-smaller">10</span>
-            </div>
-            <div class="txta-wrapper">
-                <x-tag />   
-                <textarea disabled name="" id="" class="txta-def"></textarea>
-                <x-edit-remove-icon />
-                <x-edit-icon />
-                <x-small-buttons />
-            </div>
-        </div>
+
+        @dump($contents)
+        @forelse ($contents as $content)
         <div id="content-wrapper">
             <div class="flex align-center">
             <span class="ml-small mr-small font-small">1/24/2025 Mon 12:00</span> 
@@ -69,60 +56,17 @@
             </div>
             <div class="txta-wrapper">
                 <x-tag />          
-                <textarea disabled name="" id="" class="txta-def"></textarea>
+                <textarea disabled name="" id="" class="txta-def">
+                    {{ $content->content_text }}
+                </textarea>
                 <x-edit-remove-icon />
                 <x-edit-icon />
                 <x-small-buttons />
             </div>
         </div>
-        <div id="content-wrapper">
-            <div class="flex align-center">
-            <span class="ml-small mr-small font-small">1/24/2025 Mon 12:00</span> 
-                <img src="{{ asset('img/heart-with-colors.png') }}" alt="" class="heart">
-                <span class="font-small mr-smaller">10</span>
-                <img src="{{ asset('img/hug-blue-with-line.png')}}" alt="" class="hug">
-                <span class="font-small mr-smaller">10</span>
-            </div>
-            <div class="txta-wrapper">
-                <x-tag />         
-                <textarea disabled name="" id="" class="txta-def"></textarea>
-                <x-edit-remove-icon />
-                <x-edit-icon />
-                <x-small-buttons />
-            </div>
-        </div>
-        <div id="content-wrapper">
-            <div class="flex align-center">
-            <span class="ml-small mr-small font-small">1/24/2025 Mon 12:00</span> 
-                <img src="{{ asset('img/heart-with-colors.png') }}" alt="" class="heart">
-                <span class="font-small mr-smaller">10</span>
-                <img src="{{ asset('img/hug-blue-with-line.png')}}" alt="" class="hug">
-                <span class="font-small mr-smaller">10</span>
-            </div>
-            <div class="txta-wrapper">
-                <x-tag />         
-                <textarea disabled name="" id="" class="txta-def"></textarea>
-                <x-edit-remove-icon />
-                <x-edit-icon />
-                <x-small-buttons />
-            </div>
-        </div>
-        <div id="content-wrapper">
-            <div class="flex align-center">
-            <span class="ml-small mr-small font-small">1/24/2025 Mon 12:00</span> 
-                <img src="{{ asset('img/heart-with-colors.png') }}" alt="" class="heart">
-                <span class="font-small mr-smaller">10</span>
-                <img src="{{ asset('img/hug-blue-with-line.png')}}" alt="" class="hug">
-                <span class="font-small mr-smaller">10</span>
-            </div>
-            <div class="txta-wrapper">
-                <x-tag />         
-                <textarea disabled name="" id="" class="txta-def"></textarea>
-                <x-edit-remove-icon />
-                <x-edit-icon />
-                <x-small-buttons />
-            </div>
-        </div>
+        @empty
+            
+        @endforelse
 
     </section>
         <a href="#" class="reset-def color-main block ta-center width-small m-auto">Show more</a>

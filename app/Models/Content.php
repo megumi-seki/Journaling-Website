@@ -25,4 +25,12 @@ class Content extends Model
     public function publicTaggedUsers() {
         return $this->belongsToMany(User::class,"public_tagged_contents");
     }
+
+    public function sentHugUsers() {
+        return $this->belongsToMany(User::class, "sent_hug_contents");
+    }
+
+    public function sentHeartUsers() {
+        return $this->belongsToMany(User::class, "sent_hearts_contents");
+    }
 }

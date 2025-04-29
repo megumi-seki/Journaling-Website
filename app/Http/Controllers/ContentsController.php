@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Content;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 
@@ -12,7 +14,10 @@ class ContentsController
      */
     public function index()
     {
-        return view("journal.index");
+        $contents = Content::where("user_id", 1)
+            ->with(["hashtags"])
+            ->get();
+        return view("journal.index", ["contents" => $contents]);
     }
 
     /**

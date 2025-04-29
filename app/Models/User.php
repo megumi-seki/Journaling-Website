@@ -69,4 +69,12 @@ class User extends Authenticatable
     public function publicTaggedContents() {
         return $this->belongsToMany(Content::class, "public_tagged_contents");
     }
+
+    public function hugSentContents() {
+        return $this->belongsToMany(Content::class, "sent_hug_contents");
+    }
+
+    public function heartSentContents() {
+        return $this->belongsToMany(Content::class, "sent_heart_contents");
+    }
 }

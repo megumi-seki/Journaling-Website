@@ -75,12 +75,15 @@ class DatabaseSeeder extends Seeder
             ->create();
 
         foreach ($users as $user) {
+            // tag and send hug and heart to random contents in public
             $contentIds = Content::where("user_id", "!=", $user->id)
                 ->inRandomOrder()
                 ->take(fake()->numberBetween(0, 5))
                 ->pluck("id")
                 ->toArray();
             $user->publicTaggedContents()->attach($contentIds);
+            $user->hugSentContents()->attach($contentIds);
+            $user->heartSentContents()->attach($contentIds);
 
             $contents = $user->contents;
             foreach ($contents as $content) {              
