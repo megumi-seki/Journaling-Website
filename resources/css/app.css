@@ -81,6 +81,10 @@
     align-items: flex-start;
 }
 
+.flex-row {
+    flex-direction: row;
+}
+
 .icon {
     height: 3.4rem;
     margin-bottom: -4px;
@@ -544,8 +548,12 @@
     top: 4rem;
 }
 
-.ml-minus {
+.ml-minus-smaller {
     margin-left: -3px;
+}
+
+.ml-minus-small {
+    margin-left: -0.5rem;
 }
 
 .user-icon, .user-icon-profile {
@@ -739,6 +747,9 @@
     cursor: pointer;
 }
 
+.flex-start {
+    align-self: flex-start;
+}
 
 
 @media (max-width: 1250px) {
