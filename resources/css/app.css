@@ -34,6 +34,21 @@
     padding: 0;
 }
 
+.btn-def-unset {
+    all: unset;
+    cursor: pointer;
+}
+
+li {
+    all: unset;
+    color: var(--black);
+}
+
+li a {
+    all: unset;
+    cursor: pointer;
+    color: var(--main-color);
+}
 
 .bc-body-color {
     background-color: var(--body-color);
@@ -317,11 +332,6 @@
 
 .reset-def {
     text-decoration: none;
-    color: inherit;
-}
-
-.color-main {
-    color: var(--main-color)
 }
 
 .font-small {
@@ -722,13 +732,12 @@
     border-radius: 1px;
 }
 
-.btn-def-unset {
-    all: unset;
-    cursor: pointer;
-}
-
 .small-checkbox {
     accent-color: var(--white);
+}
+
+.hidden-when-large {
+    display: none;
 }
 
 .hidden {
@@ -749,6 +758,10 @@
 
 .flex-start {
     align-self: flex-start;
+}
+
+.color-main {
+    color: var(--main-color)
 }
 
 
@@ -842,9 +855,14 @@
         width: 5rem;
     }
 
+    .hidden-when-large {
+        display: block;
+    }
+
     .hidden-when-medium {
         display: none;
     }
+
     
 }
 

@@ -1,9 +1,9 @@
 <?php
 
 use App\Http\Controllers\ContentsController;
+use App\Http\Controllers\EveryonesController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\PublicController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\TopController;
@@ -14,6 +14,7 @@ Route::get("/login", [LoginController::class, "index"])->name("login");
 Route::get("/signup", [SignupController::class, "index"])->name("signup");
 Route::get("/profile", [ProfileController::class, "index"])->name("profile");
 Route::get("/settings", [SettingsController::class, "index"])->name("settings");
-Route::get("/public", [PublicController::class, "index"])->name("public");
+Route::get("/everyones", [EveryonesController::class,"index"])->name("everyones");
+Route::get("/everyones/showmore", [EveryonesController::class, "showMore"]);
 
 Route::resource("/journals", ContentsController::class);

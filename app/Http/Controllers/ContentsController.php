@@ -17,7 +17,7 @@ class ContentsController
         $contents = Content::where("user_id", 1)
             ->orderBy("created_at","desc")
             ->with(["hashtags", "sentHugUsers", "sentHeartUsers"])
-            ->get();
+            ->paginate(15);
         return view("journal.index", ["contents" => $contents]);
     }
 

@@ -1,6 +1,6 @@
 <x-app-layout mainPadding="pt-small" pageTitle="Your Journals">
 
-    <section id="filter-weapper" class="hidden">
+    <section id="filter-weapper" class="hidden-when-large hidden-when-medium">
         <form action="#" class=" filter-group bg-white">   
             @csrf
             <x-hashtag-dropdown />
@@ -74,6 +74,8 @@
         <p class="font-small ta-center">You don't have any journal yet</p>
         @endforelse
 
+       
     </section>
-        <a href="#" class="reset-def color-main block ta-center width-small m-auto">Show more</a>
+    {{ $contents->onEachSide(1)->links() }}
+    <button class="toTopBtn btn-def-unset color-main ta-center font-small">To top</button>
 </x-app-layout>

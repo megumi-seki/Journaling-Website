@@ -21,7 +21,7 @@ document.addEventListener(("DOMContentLoaded"), function() {
         const filterGroup = document.getElementById("filter-weapper");
 
         toggleBtn.addEventListener(("click"), function() {
-            filterGroup.classList.toggle("hidden");
+            filterGroup.classList.toggle("hidden-when-medium");
         });
     }
 
@@ -120,6 +120,18 @@ document.addEventListener(("DOMContentLoaded"), function() {
         })
     }
 
+
+    const toTop = () => {
+        const btns = document.querySelectorAll(".toTopBtn");
+
+        btns.forEach((btn) => {
+            btn.addEventListener(("click"), function() {
+                window.scrollTo({top:0, behavior: "auto"})
+            })
+        })
+    }
+
+
     toggleSidebar();
     toggleFilter();
     toggleEdit();
@@ -127,5 +139,6 @@ document.addEventListener(("DOMContentLoaded"), function() {
     toggleHoverEffect();
     toggleTag();
     toggleHeartHug();
+    toTop();
 
 })
