@@ -6,9 +6,9 @@
         <div class="relative">
         <div class="flex">
             <button name="user-icon" id="" class="user-icon-input">
-                User Icon
+                <img src="{{ $user->userIcon->image_path }}" alt="User Icon" class="user-icon-profile">
             </button>
-            <input type="text" name="name" placeholder="Name" class="input-def name-input">
+            <input type="text" name="name" placeholder="Name" class="input-def name-input" value="{{ $user->name }}" >
         </div>
         <div class="icon-list hidden">
             <img src="#" alt="" class="icon-li">
@@ -18,8 +18,8 @@
             <img src="#" alt="" class="icon-li">
         </div>
         </div>
-        <input type="email" name="email" placeholder="Email" class="input-def">
-        <input type="text" name="phone" placeholder="Phone" class="input-def">
+        <input type="email" name="email" placeholder="Email" class="input-def" value="{{ $user->email }}">
+        <input type="text" name="phone" placeholder="Phone" class="input-def" value="{{ $user->phone }}">
         <div class="flex gap-1 justify-end">
             <button class="btn">Reset</button>
             <button class="btn">Update</button>

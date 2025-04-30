@@ -129,5 +129,3 @@ document.addEventListener(("DOMContentLoaded"), function() {
     toggleHeartHug();
 
 })
-
-// TODO toggle the hug, heart, and tag

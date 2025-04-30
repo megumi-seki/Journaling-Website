@@ -15,6 +15,15 @@ class Content extends Model
         "tag"
     ];
 
+    protected function casts(): array
+    {
+        return [
+            "created_at" => 'datetime',
+            "updated_at" => 'datetime',
+        ];
+    }
+
+
     public function user() {
         return $this->belongsTo(User::class);
     }
@@ -31,6 +40,18 @@ class Content extends Model
     }
 
     public function sentHeartUsers() {
-        return $this->belongsToMany(User::class, "sent_hearts_contents");
+        return $this->belongsToMany(User::class, "sent_heart_contents");
+    }
+
+    public function isSentHug(User $user) {
+        return $this->sentHugUsers->contains($user);
+    }
+
+    public function isSentHeart(User $user) {
+        return $this->sentHeartUsers->contains($user);
+    }
+
+    public function isTagged(User $user) {
+        return $this->publicTaggedUsers->contains($user);
     }
 }

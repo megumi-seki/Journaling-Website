@@ -27,81 +27,37 @@
 
 <section id="contents-section" class="flex-col gap-1 pb-small ">
 
+    @forelse ($contents as $content)
     <div id="content-wrapper" class="">
-        <span class="ml-small font-small">1/24/2025 Mon 12:00</span> 
+        <span class="ml-small font-small">{{ $content->created_at->isoFormat("MMMM D, YYYY h:mm A") }}</span> 
         <div class="txta-wrapper">
-            <span class="user-icon"></span>
-            <span class="user-name font-small">Megumi</span>
-            <x-public-tag />
+            <img src="{{ $content->user->userIcon->image_path }}" class="user-icon" alt="User Icon">
+            <span class="user-name font-small">Annonymous {{ $content->user->id }}</span>
+            @unless($content->user->id == $user->id)
+            <x-public-tag :isTagged="$content->isTagged($user)" />
             <div class="icons-on-pub flex-col gap-1 align-center">
-                <x-heart-big />
-                <x-hug-big />           
+                <x-heart-big :isSentHeart="$content->isSentHeart($user)" />
+                <x-hug-big :isSentHug="$content->isSentHug($user)" />           
             </div>
-            <textarea disabled="true" id="" class="txta-def txta-pub">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia blanditiis incidunt ipsum architecto. Labore officiis, accusantium asperiores deleniti tempora sequi aliquid distinctio architecto, numquam laborum quidem ipsa natus cumque accusamus?</textarea>
+            @endunless
+            <input id="x-{{ $content->id }}" value="{{ $content->content_text }}" type="hidden">
+            <trix-toolbar id="my_toolbar" class="hidden"></trix-toolbar>
+            <trix-editor toolbar="my_toolbar" input="x-{{ $content->id }}" class="pub-editor" contenteditable="false"></trix-editor>
         </div>
     </div>
-    <div id="content-wrapper" class="">
-        <span class="ml-small font-small">1/24/2025 Mon 12:00</span> 
-        <div class="txta-wrapper">
-            <span class="user-icon"></span>
-            <span class="user-name font-small">Megumi</span>
-            <x-public-tag />
-            <div class="icons-on-pub flex-col gap-1 align-center">
-                <x-heart-big />
-                <x-hug-big />           
-            </div>
-            <textarea disabled="true" id="" class="txta-def txta-pub">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia blanditiis incidunt ipsum architecto. Labore officiis, accusantium asperiores deleniti tempora sequi aliquid distinctio architecto, numquam laborum quidem ipsa natus cumque accusamus?</textarea>
-        </div>
-    </div>
-    <div id="content-wrapper" class="">
-        <span class="ml-small font-small">1/24/2025 Mon 12:00</span> 
-        <div class="txta-wrapper">
-            <span class="user-icon"></span>
-            <span class="user-name font-small">Megumi</span>
-            <x-public-tag />
-            <div class="icons-on-pub flex-col gap-1 align-center">
-                <x-heart-big />
-                <x-hug-big />           
-            </div>
-            <textarea disabled="true" id="" class="txta-def txta-pub">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia blanditiis incidunt ipsum architecto. Labore officiis, accusantium asperiores deleniti tempora sequi aliquid distinctio architecto, numquam laborum quidem ipsa natus cumque accusamus?</textarea>
-        </div>
-    </div>
-    <div id="content-wrapper" class="">
-        <span class="ml-small font-small">1/24/2025 Mon 12:00</span> 
-        <div class="txta-wrapper">
-            <span class="user-icon"></span>
-            <span class="user-name font-small">Megumi</span>
-            <x-public-tag />
-            <div class="icons-on-pub flex-col gap-1 align-center">
-                <x-heart-big />
-                <x-hug-big />           
-            </div>
-            <textarea disabled="true" id="" class="txta-def txta-pub">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia blanditiis incidunt ipsum architecto. Labore officiis, accusantium asperiores deleniti tempora sequi aliquid distinctio architecto, numquam laborum quidem ipsa natus cumque accusamus?</textarea>
-        </div>
-    </div>
-    <div id="content-wrapper" class="">
-        <span class="ml-small font-small">1/24/2025 Mon 12:00</span> 
-        <div class="txta-wrapper">
-            <span class="user-icon"></span>
-            <span class="user-name font-small">Megumi</span>
-            <x-public-tag />
-            <div class="icons-on-pub flex-col gap-1 align-center">
-                <x-heart-big />
-                <x-hug-big />           
-            </div>
-            <textarea disabled="true" id="" class="txta-def txta-pub">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia blanditiis incidunt ipsum architecto. Labore officiis, accusantium asperiores deleniti tempora sequi aliquid distinctio architecto, numquam laborum quidem ipsa natus cumque accusamus?</textarea>
-        </div>
-    </div>
-
-    
-
-
-
-
-
+    @empty
+        
+    @endforelse
 
 </section>
         <a href="#" class="reset-def color-main block ta-center width-small m-auto">Show more</a>
 </x-app-layout>
 
 
+{{-- TODO 
+    -make it possible to set user name on profile default= Annonymous
+    -render data into profile and settings
+    -render hashtags in journal and public page
+
+    -pagination-> show more, to top
+ --}}

@@ -15,7 +15,8 @@ class ContentsController
     public function index()
     {
         $contents = Content::where("user_id", 1)
-            ->with(["hashtags"])
+            ->orderBy("created_at","desc")
+            ->with(["hashtags", "sentHugUsers", "sentHeartUsers"])
             ->get();
         return view("journal.index", ["contents" => $contents]);
     }

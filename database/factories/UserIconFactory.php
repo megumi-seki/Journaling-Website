@@ -17,8 +17,8 @@ class UserIconFactory extends Factory
     public function definition(): array
     {
         return [
-            "image_path" => sprintf("https://placehold.co/28x28/%s/%s/svg", 
-                fake()->safeColorName(), fake()->safeColorName)
+            "image_path" => sprintf("https://placehold.co/32x32/%s/white?text=User+Icon", 
+                fake()->safeColorName())
         ];
     }
 }

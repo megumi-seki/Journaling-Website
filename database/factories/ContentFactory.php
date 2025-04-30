@@ -24,7 +24,8 @@ class ContentFactory extends Factory
                 $length = fake()->numberBetween(100, 5000);
                 return fake()->text($length);
             },
-            "tag" => fake()->boolean()
+            "tag" => fake()->boolean(),
+            "created_at" => fake()->dateTimeBetween("-2 years", "now"),
         ];
     }
 }

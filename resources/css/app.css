@@ -24,6 +24,8 @@
     --p-tagged: #ed8c03;
     --p-not-tagged: hsla(35, 100%, 48%, 0.165);
     --light-dark: #767676;
+    --public-txta-bg: light-dark(rgba(239, 239, 239, 0.3), rgba(59, 59, 59, 0.3));
+    --public-txta-color: light-dark(rgb(84, 84, 84), rgb(170, 170, 170));
 }
 
 * {
@@ -48,7 +50,8 @@
     z-index: 3;
 }
 
-.txta-def {
+.editor-def, .pub-editor {
+    overflow: auto;
     width: 100%;
     height: 10rem;
     border-radius: 5px;
@@ -56,12 +59,19 @@
     padding: 1rem 2rem;
     font-size: 1rem;
     line-height: 1.5rem;
+    background-color: var(--public-txta-bg);
+    color: var(--public-txta-color);
     /* font-family: "Special Elite", system-ui;
     font-weight: 400;
     font-style: normal; */
 }
 
-.txta-pub {
+.editor-abled {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+.pub-editor {
     padding: 1rem 4.5rem;
 }
 
@@ -538,14 +548,18 @@
     margin-left: -3px;
 }
 
-.user-icon {
+.user-icon, .user-icon-profile {
     position: absolute;
     top: 10px;
     left: 10px;
     width: 2rem;
     height: 2rem;
     border-radius: 1rem;
-    background-color: var(--main-lighter);
+}
+
+.user-icon-profile { 
+    top: 2px;
+    left: 2px;
 }
 
 .user-name {
@@ -773,11 +787,11 @@
         width: 10rem;
     }
 
-    .txta-def {
+    .editor-def {
         padding: 0.5rem 3rem 0.5rem 1rem;
     }
 
-    .txta-pub {
+    .pub-editor {
         padding: 0.5rem 4rem;
     }
     
@@ -828,11 +842,11 @@
         font-size: 14px; 
     }
 
-    .txta-def {
+    .editor-def {
         padding: 0.5rem 2rem 0.5rem 1rem;
     }
 
-    .txta-pub {
+    .pub-editor {
         padding: 0.5rem 4rem;
     }
 
@@ -903,11 +917,3 @@
     }
 
 }
-
-
-/* {{-- TODO
-    --javascript: when click the sidebar-icon, toggle sidebar (add w-80 to all?) 
-    --when clicking filter btn, togle filter group
-    --convert hug/heart icons into buttons
-    --make favorite journals page
-    --}} */

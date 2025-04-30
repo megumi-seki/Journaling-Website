@@ -95,6 +95,9 @@ class DatabaseSeeder extends Seeder
             }
         }
 
+        // create user without content
+        User::factory()->create();
+
     }
 
 }

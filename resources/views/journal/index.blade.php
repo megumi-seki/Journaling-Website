@@ -31,8 +31,11 @@
     <section id="contents-section" class="flex-col gap-2 pb-small">
         <div id="content-wrapper">
             <span class="font-small pl-small">Your new journal</span>
-            <div class="txta-wrapper">        
-                <textarea name="" id="" class="txta-def"></textarea>
+            <div class="txta-wrapper">       
+                <input id="x" type="hidden">
+                {{-- TODO set toolbar --}}
+                <trix-toolbar id="my_toolbar" class="hidden"></trix-toolbar>
+                <trix-editor toolbar="my_toolbar" input="x" class="editor-def editor-abled"></trix-editor>
                 <div class="add-btn-for-new flex">
                     <label for="public1" class="hover-effect inline-flex justify-center gap-smallest btn small-btn small-checkbox-label font-smaller mr-small border-r-set">
                         <input checked type="checkbox" id="public1" name="public" class="small-checkbox ver-al">
@@ -44,28 +47,31 @@
             </div>
         </div>
 
-        @dump($contents)
         @forelse ($contents as $content)
         <div id="content-wrapper">
             <div class="flex align-center">
-            <span class="ml-small mr-small font-small">1/24/2025 Mon 12:00</span> 
+            <span class="ml-small mr-small font-small">{{ $content->created_at->isoFormat("dddd, MMMM D, YYYY h:mm A") }}</span> 
                 <img src="{{ asset('img/heart-with-colors.png') }}" alt="" class="heart">
-                <span class="font-small mr-smaller">10</span>
+                <span class="font-small mr-smaller">        
+                    {{ $content->sentHeartUsers->count() ?: "" }}
+                </span>
                 <img src="{{ asset('img/hug-blue-with-line.png')}}" alt="" class="hug">
-                <span class="font-small mr-smaller">10</span>
+                <span class="font-small mr-smaller">
+                    {{ $content->sentHugUsers->count() ?: "" }}
+                </span>
             </div>
             <div class="txta-wrapper">
-                <x-tag />          
-                <textarea disabled name="" id="" class="txta-def">
-                    {{ $content->content_text }}
-                </textarea>
+                <x-tag :$content /> 
+                <input id="x-{{ $content->id }}" value="{{ $content->content_text }}" type="hidden">
+                <trix-toolbar id="hidden_toolbar" class="hidden"></trix-toolbar>
+                <trix-editor toolbar="hidden_toolbar" input="x-{{ $content->id }}" class="editor-def" contenteditable="false"></trix-editor>         
                 <x-edit-remove-icon />
                 <x-edit-icon />
                 <x-small-buttons />
             </div>
         </div>
         @empty
-            
+        <p class="font-small ta-center">You don't have any journal yet</p>
         @endforelse
 
     </section>
