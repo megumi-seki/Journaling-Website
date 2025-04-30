@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId("user_icon_id")->constrained("user_icons")->nullable();
             $table->string('name', 100);
+            $table->string('user_name', 100)->default("Annonymous");
             $table->string('email')->unique();
             $table->string('phone', 45)->unique();
             $table->timestamp('email_verified_at')->nullable();

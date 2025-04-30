@@ -27,6 +27,7 @@ class UserFactory extends Factory
         return [
             'user_icon_id' => UserIcon::pluck("id")->random(),
             'name' => fake()->name(),
+            // 'user_name' => fake()->optional(0.4)->userName(),
             'email' => fake()->unique()->safeEmail(),
             'phone' => fake()->numerify("#########"),
             'password' => static::$password ??= Hash::make('password'),
