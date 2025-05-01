@@ -5,6 +5,8 @@ $days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Satu
 <select name="day-of-week" id="" class="search-input">
     <option value="">Day of the week</option>
     @foreach ($days as $day)
-    <option value="{{ $day }}">{{ $day }}</option>            
+        <option value="{{ $loop->index }}" {{ request('day-of-week') === (string)$loop->index ? "selected" : "" }}>
+            {{ $day }}
+        </option>            
     @endforeach
 </select>

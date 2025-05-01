@@ -1,1 +1,1 @@
-<input type="text" name="keyword" placeholder="Free key words" class="search-input pl-smaller">
+<input type="text" name="keyword" placeholder="Free key words" class="search-input pl-smaller" value="{{ request('keyword') }}" >

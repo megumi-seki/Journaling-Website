@@ -1,32 +1,29 @@
 <x-app-layout mainPadding="pt-small" pageTitle="Your Journals">
 
     <section id="filter-weapper" class="hidden-when-large hidden-when-medium">
-        <form action="#" class=" filter-group bg-white">   
-            @csrf
+        <form action="{{ route('filter' )}}" method="GET" class="search-form filter-group bg-white">   
             <x-hashtag-dropdown />
             <x-keyword-dropdown />
             <x-year-month-dropdown />
             <x-day-of-week-dropdown />
             <x-tag-dropdown />
             <x-reset-search-button />
-            
         </form>
     </section>
 
     <section id="search-bar" class="search-wrapper mtb-small">
-    <x-filter-button />
-    <form action="#" class="search-group bg-white">   
-        @csrf
-        <x-year-month-dropdown />
-        <x-day-of-week-dropdown />
-        <x-tag-dropdown />
-        <x-hashtag-dropdown />
-        <x-keyword-dropdown />
-        <x-reset-search-button />
-    </form>
+        <x-filter-button />
+        <form action="{{ route('filter' )}}" method="GET" class="search-form search-group bg-white">   
+            <x-year-month-dropdown />
+            <x-day-of-week-dropdown />
+            <x-tag-dropdown />
+            <x-hashtag-dropdown />
+            <x-keyword-dropdown />
+            <x-reset-search-button />
+        </form>
 
     <x-order-dropdown-form />
-</section>  
+    </section>  
 
     <section id="contents-section" class="flex-col gap-2 pb-small">
         <div id="content-wrapper">
@@ -73,7 +70,6 @@
         @empty
         <p class="font-small ta-center">You don't have any journal yet</p>
         @endforelse
-
        
     </section>
     {{ $contents->onEachSide(1)->links() }}

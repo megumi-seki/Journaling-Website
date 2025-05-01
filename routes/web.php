@@ -18,3 +18,5 @@ Route::get("/everyones", [EveryonesController::class,"index"])->name("everyones"
 Route::get("/everyones/showmore", [EveryonesController::class, "showMore"]);
 
 Route::resource("/journals", ContentsController::class);
+
+Route::get("/filter", [ContentsController::class, "filter"])->name("filter");

@@ -6,12 +6,17 @@ $months = ['January', 'February', 'March', 'April', 'May', 'June',
 <select name="year" id="" class="search-input">
     <option value="">Year</option>
     @for ($i = now()->year; $i > 2019; $i--)
-        return <option value="{{ $i }}">{{ $i }}</option>
+        <option value="{{ $i }}" {{ request('year') == $i ? "selected" : ""}}>
+            {{ $i }}
+        </option>
     @endfor
 </select>
+
 <select name="month" id="" class="search-input">
     <option value="">Month</option>
     @foreach ($months as $month)
-        <option value="{{ $month }}">{{ $month }}</option>
+        <option value="{{ $loop->iteration }}" {{ request('month') == $loop->iteration ? "selected" : ""}}>
+            {{ $month }}
+        </option>
     @endforeach
 </select>

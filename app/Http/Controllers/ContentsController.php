@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Content;
+use App\Models\Hashtag;
 use App\Models\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Log;
 
 class ContentsController
 {
@@ -67,5 +68,50 @@ class ContentsController
     public function destroy(string $id)
     {
         //
+    }
+
+    public function filter(Request $request) {
+        // TODO review this method, fix it, complete the filter function on my journals page 
+        $hashtag = $request->input("hashtag");
+        $keyword = $request->input("keyword");
+        $year = $request->input("year");
+        $month = $request->input("month");
+        $dayOfWeek = $request->input("day-of-week");
+        $tag = $request->input("tag");
+        $order = $request->input("order", "desc");
+
+        $query = Content::where("user_id", 1)
+            ->with(["hashtags"]);
+
+       if ($hashtag) {
+            $query->where("content_text", "like", "%{$hashtag}%");
+        } 
+
+        if ($keyword) {
+            $query->where("content_text", "like", "%{$keyword}%");
+        }
+
+        if ($year) {
+            $query->whereRaw("strftime('%Y', created_at) = ?", [$year]);
+        }
+
+        if ($month) {
+            $query->whereRaw("strftime('%m', created_at) = ?", [str_pad($month, 2, "0", STR_PAD_LEFT)]);
+        }
+
+        if ($dayOfWeek) {
+            $query->whereRaw("strftime('%w', created_at) = ?", [$dayOfWeek]);
+        }
+
+        if ($tag) {
+            $query->where("tag", $tag);
+        }
+
+        $query->orderBy("created_at", $order);
+
+        $contents = $query->paginate(15)->withQueryString();
+
+        return view("journal.index", ["contents" => $contents]);
+
     }
 }
