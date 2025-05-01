@@ -19,4 +19,43 @@ class EveryonesController
         return view("everyones.index", ["contents" => $contents, "user" => $user]);
     }
 
+    public function filter(Request $request) {
+        $user = User::first();
+        $hashtag = $request->input("hashtag");
+        $keyword = $request->input("keyword");
+        $heart = $request->input("heart");
+        $hug = $request->input("hug");
+        $tag = $request->input("tag");
+        $order = $request->input("order", "desc");
+
+        $query = Content::with(["hashtags"]);
+
+       if ($hashtag) {
+            $query->where("content_text", "like", "%{$hashtag}%");
+        } 
+
+        if ($keyword) {
+            $query->where("content_text", "like", "%{$keyword}%");
+        }
+
+        $contentIds = $user->heartSentContents()->pluck("content_id")->toArray();
+        if ($heart === "0") {$query->whereNotIn("id", $contentIds);} 
+        elseif($heart === "1") {$query->whereIn("id", $contentIds);}
+
+        $contentIds = $user->hugSentContents()->pluck("content_id")->toArray();
+        if ($hug === "0") {$query->whereNotIn("id", $contentIds);} 
+        elseif($hug === "1") {$query->whereIn("id", $contentIds);}
+
+        $contentIds = $user->publicTaggedContents()->pluck("content_id")->toArray();
+        if ($tag === "0") {$query->whereNotIn("id", $contentIds);} 
+        elseif($tag === "1") {$query->whereIn("id", $contentIds);}
+
+
+        $contents = $query->orderBy("created_at", $order);
+
+        $contents = $query->paginate(15)->withQueryString();
+
+        return view("everyones.index", ["contents" => $contents, "user" => $user]);
+
+    }
 }

@@ -1,11 +1,10 @@
 <x-app-layout mainPadding="pt-small" pageTitle="Everyone's Journals">
 
     <section id="filter-weapper" class="hidden-when-large hidden-when-medium">
-        <form action="#" class=" filter-group bg-white">   
-            @csrf
+        <form action="{{ route('everyone.filter')}}" method="GET" class="search-form filter-group bg-white">   
             <x-hashtag-dropdown />
             <x-keyword-dropdown />
-            <x-year-month-dropdown />
+            <x-sent-hug-heart-dropdown />
             <x-tag-dropdown />
             <x-reset-search-button />
         </form>
@@ -13,10 +12,9 @@
 
     <section id="search-section" class="search-wrapper mtb-small">
         <x-filter-button />
-        <form action="#" class="search-group bg-white">   
-            @csrf
+        <form action="{{ route('everyone.filter')}}" method="GET" class="search-form search-group bg-white">   
             <x-hashtag-dropdown />
-            <x-year-month-dropdown />
+            <x-sent-hug-heart-dropdown />
             <x-tag-dropdown />
             <x-keyword-dropdown />
             <x-reset-search-button />

@@ -71,7 +71,6 @@ class ContentsController
     }
 
     public function filter(Request $request) {
-        // TODO review this method, fix it, complete the filter function on my journals page 
         $hashtag = $request->input("hashtag");
         $keyword = $request->input("keyword");
         $year = $request->input("year");
@@ -83,6 +82,7 @@ class ContentsController
         $query = Content::where("user_id", 1)
             ->with(["hashtags"]);
 
+            //TODO fix here about hashtag after creating function to add hashtags
        if ($hashtag) {
             $query->where("content_text", "like", "%{$hashtag}%");
         } 

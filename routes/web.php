@@ -15,8 +15,8 @@ Route::get("/signup", [SignupController::class, "index"])->name("signup");
 Route::get("/profile", [ProfileController::class, "index"])->name("profile");
 Route::get("/settings", [SettingsController::class, "index"])->name("settings");
 Route::get("/everyones", [EveryonesController::class,"index"])->name("everyones");
+Route::get("/everyone/filter", [EveryonesController::class,"filter"])->name("everyone.filter");
 Route::get("/everyones/showmore", [EveryonesController::class, "showMore"]);
 
 Route::resource("/journals", ContentsController::class);
-
-Route::get("/filter", [ContentsController::class, "filter"])->name("filter");
+Route::get("/journal/filter", [ContentsController::class, "filter"])->name("journal.filter");

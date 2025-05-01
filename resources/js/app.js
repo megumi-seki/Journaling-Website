@@ -143,14 +143,22 @@ document.addEventListener(("DOMContentLoaded"), function() {
         }
 
         orderDropdown.addEventListener("change", function(ev) {
-            const url = new URL("/filter", window.location.origin);
+            const url = new URL(window.location.href)
+            const currentPath = url.pathname;
+            let newPath = "";
+            if (currentPath.startsWith("/journal")) {
+                newPath ="/journal/filter";
+            } else if (currentPath.startsWith("/everyone")) {
+                newPath ="/everyone/filter";
+            }
+            url.pathname = newPath;
             url.searchParams.set("order", ev.target.value);
             window.location.href = url.toString();
         });
     }
 
     // adjust fotm inputs to include the order
-    const formAdjust = () => {
+    const adjustForm = () => {
         const searchForms = document.querySelectorAll(".search-form");
         if(!searchForms) return;
 
@@ -167,10 +175,26 @@ document.addEventListener(("DOMContentLoaded"), function() {
                 form.appendChild(input);
             });
         });
-        
-
-
     }
+        
+    const resetBtn = () => {
+        const resetBtns = document.querySelectorAll(".reset-btn");
+        if(!resetBtns) return;
+
+        resetBtns.forEach((btn) => {
+            btn.addEventListener("click", function() {
+                const url = new URL(window.location.href);
+                const orderValue = url.searchParams.get("order");
+                url.search = "";
+                if (orderValue) {
+                    url.searchParams.set("order", orderValue);
+                }
+
+                window.location.href = url.toString();
+            })
+        })
+    }
+
 
     toggleSidebar();
     toggleFilter();
@@ -181,6 +205,7 @@ document.addEventListener(("DOMContentLoaded"), function() {
     toggleHeartHug();
     toTop();
     orderDropdown();
-    formAdjust();
+    adjustForm();
+    resetBtn();
 
 })
