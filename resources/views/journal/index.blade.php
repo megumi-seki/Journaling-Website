@@ -38,8 +38,8 @@
                         <input checked type="checkbox" id="public1" name="public" class="small-checkbox ver-al">
                         public
                     </label>
-                    <button class="hover-effect btn small-btn border-lt">Expand</button>
-                    <button class="hover-effect btn small-btn border-rb border-r-set">Save</button>
+                    <a href="{{ route('journals.create') }}" class="expand-btn hover-effect small-btn border-lt ta-center reset-def">Expand</a>
+                    <button class="hover-effect small-btn border-rb border-r-set">Save</button>
                 </div>
             </div>
         </div>
@@ -64,7 +64,7 @@
                 <trix-editor toolbar="hidden_toolbar" input="x-{{ $content->id }}" class="editor-def" contenteditable="false"></trix-editor>         
                 <x-edit-remove-icon />
                 <x-edit-icon />
-                <x-small-buttons />
+                <x-small-buttons :$content />
             </div>
         </div>
         @empty

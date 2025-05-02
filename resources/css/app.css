@@ -409,6 +409,7 @@ li a {
 
 .bg-white {
     background-color: var(--white);
+    /* color: var(--main-color); */
 }
 
 
@@ -431,7 +432,6 @@ li a {
     right: -0.05px;
     top: 1rem;
 }
-
 
 /* not tagged */
 .not-tagged-t {
@@ -762,6 +762,25 @@ li a {
 .color-main {
     color: var(--main-color)
 }
+
+.color-black {
+    color: var(--black);
+}
+
+.align-end {
+    align-self: flex-end;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.medium-btn {
+    width: 6rem;
+    height: 2rem;
+}
+
+
 
 @media (max-width: 1250px) {
 

@@ -25,9 +25,11 @@ class ContentsController
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view("journal.create");
+        $contentId = $request->query("content_id");
+        $content = Content::find($contentId);
+        return view("journal.create", ["content" => $content]);
     }
 
     /**
