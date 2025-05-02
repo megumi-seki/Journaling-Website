@@ -59,9 +59,9 @@
             </div>
             <div class="txta-wrapper">
                 <x-tag :$content /> 
-                <input id="x-{{ $content->id }}" value="{{ $content->content_text }}" type="hidden">
+                <input id="x-{{ $content->id }}" value="{{ $content->content_text }}" type="hidden" class="trix-input">
                 <trix-toolbar id="hidden_toolbar" class="hidden"></trix-toolbar>
-                <trix-editor toolbar="hidden_toolbar" input="x-{{ $content->id }}" class="editor-def" contenteditable="false"></trix-editor>         
+                <trix-editor id="trix-editor" toolbar="hidden_toolbar" input="x-{{ $content->id }}" class="editor-def" contenteditable="false"></trix-editor>         
                 <x-edit-remove-icon />
                 <x-edit-icon />
                 <x-small-buttons :$content />

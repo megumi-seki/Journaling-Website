@@ -82,30 +82,61 @@ document.addEventListener(("DOMContentLoaded"), function() {
         });
     }
 
-    // Make it to be able when clicking "edit"
-    const toggleHoverEffect = () => {
+    const editCancelBtnFunction = () => {
         const toggleBtns = document.querySelectorAll(".edit-btn");
 
         toggleBtns.forEach((btn) => {
+            const parent = btn.closest("div");
+            const checkBox = parent.querySelector(".small-checkbox");
+            const originallyIsChecked = checkBox.checked;
+            const grandParent = parent.parentElement;
+            const trixInput = grandParent.querySelector(".trix-input");
+            const originalContentText = trixInput.value;
+            const trixEditor = grandParent.querySelector("#trix-editor");
+            
             btn.addEventListener("click", function() {
-                const parent = btn.closest("div");
                 const btnsToToggle = parent.querySelectorAll(".btn-to-toggle");
-                const checkBox = parent.querySelector(".small-checkbox");
-                const editText = btn.innerText;
+                const isEditable = trixEditor.getAttribute("contenteditable") === "true"
 
+                if (isEditable) {
+                    alert(`The change you made won't be saved. 
+Are you sure to cancel the edit?`);
+                    checkBox.checked = originallyIsChecked;
+                    trixInput.value = originalContentText;
+                    trixEditor.editor.loadHTML(originalContentText);
+                    trixEditor.setAttribute("contenteditable", "false");
+                    btn.innerText = "Edit";
+                } else {
+                    trixEditor.setAttribute("contenteditable", "true");
+                    btn.innerText = "Cancel";
+                }
+
+                trixEditor.classList.toggle("editor-abled")
                 checkBox.disabled = !checkBox.disabled;
                 btnsToToggle.forEach((btnToToggle) => {
                     btnToToggle.classList.toggle("hover-effect");
                 });
 
-                if (editText === "Edit") {
-                    btn.innerText = "Cancel";
-                    return;
-                }
-
-                btn.innerText = "Edit";
-
             });
+        });
+    }
+
+    const resetBtnOnExpanded = () => {
+        const resetBtn = document.getElementById("content-reset-btn");
+        if (!resetBtn) return;
+
+        const input = document.querySelector(".trix-input-to-edit");
+        const originalContentText = input.value;
+        const checkBox = document.querySelector(".small-checkbox");
+        const originallyIsChecked = checkBox.checked;
+        const trixEditor = document.getElementById("trix-editor");
+
+        resetBtn.addEventListener("click", () => {
+            alert(`The change you made won't be saved. 
+Are you sure to cancel the edit?`);
+            checkBox.checked = originallyIsChecked;
+            input.value = originalContentText;
+            trixEditor.editor.loadHTML(originalContentText);            
         });
     }
 
@@ -196,8 +227,8 @@ document.addEventListener(("DOMContentLoaded"), function() {
         });
     }
         
-    const resetBtn = () => {
-        const resetBtns = document.querySelectorAll(".reset-btn");
+    const profileSettingResetBtn = () => {
+        const resetBtns = document.querySelectorAll(".filter-reset-btn");
         if(!resetBtns) return;
 
         resetBtns.forEach((btn) => {
@@ -214,27 +245,16 @@ document.addEventListener(("DOMContentLoaded"), function() {
         })
     }
 
-    // const expandBtn = () => {
-    //     const expandBtns = document.querySelectorAll(".expand-btn");
-    //     if(!expandBtns) return;
-
-    //     expandBtns.forEach((btn) => {
-    //         btn.addEventListener("click", () => {
-
-    //         })
-    //     })
-    // }
-
     toggleSidebar();
     toggleFilter();
     toggleEdit();
     toggleEditReverse();
-    toggleHoverEffect();
+    editCancelBtnFunction();
     toggleTag();
     toggleHeartHug();
     toTop();
     orderDropdown();
     adjustForm();
-    resetBtn();
-
+    profileSettingResetBtn();
+    resetBtnOnExpanded();
 })

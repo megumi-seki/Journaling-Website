@@ -2,7 +2,7 @@
 
 <div class="btn-wrapper hidden-when-medium flex">
     <label for="public2" class="btn-to-toggle inline-flex justify-center gap-smallest btn small-btn small-checkbox-label font-smaller mr-small border-r-set">
-        <input disabled checked type="checkbox" id="public2" name="public" class="small-checkbox ver-al">
+        <input disabled {{ $content->public ? "checked" : "" }} type="checkbox" id="public2" name="public" class="small-checkbox ver-al">
         public
     </label>
     <a href="{{ route('journals.create') }}?content_id={{ $content->id }}" class="expand-btn small-btn hover-effect border-lt ta-center reset-def">Expand</a>
