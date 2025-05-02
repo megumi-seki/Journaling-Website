@@ -82,6 +82,7 @@ document.addEventListener(("DOMContentLoaded"), function() {
         });
     }
 
+    // TODO update alert function
     const editCancelBtnFunction = () => {
         const toggleBtns = document.querySelectorAll(".edit-btn");
 
@@ -115,6 +116,7 @@ Are you sure to cancel the edit?`);
                 checkBox.disabled = !checkBox.disabled;
                 btnsToToggle.forEach((btnToToggle) => {
                     btnToToggle.classList.toggle("hover-effect");
+                    btnToToggle.disabled = !btnToToggle.disabled;
                 });
 
             });
@@ -244,6 +246,17 @@ Are you sure to cancel the edit?`);
             })
         })
     }
+
+    // const confirmToDelete = () => {
+    //     const deleteBtns = document.querySelectorAll(".delete-btn");
+    //     if (!deleteBtns) return;
+
+    //     deleteBtns.forEach((btn) => {
+    //         btn.addEventListener("click", () => {
+    //             btn.defa
+    //         })
+    //     })
+    // }
 
     toggleSidebar();
     toggleFilter();

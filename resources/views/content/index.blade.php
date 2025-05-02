@@ -1,7 +1,7 @@
 <x-app-layout mainPadding="pt-small" pageTitle="Your Journals">
 
     <section id="filter-weapper" class="hidden-when-large hidden-when-medium">
-        <form action="{{ route('journal.filter' )}}" method="GET" class="search-form filter-group bg-white">   
+        <form action="{{ route('content.filter' )}}" method="GET" class="search-form filter-group bg-white">   
             <x-hashtag-dropdown />
             <x-keyword-dropdown />
             <x-year-month-dropdown />
@@ -13,7 +13,7 @@
 
     <section id="search-bar" class="search-wrapper mtb-small">
         <x-filter-button />
-        <form action="{{ route('journal.filter' )}}" method="GET" class="search-form search-group bg-white">   
+        <form action="{{ route('content.filter' )}}" method="GET" class="search-form search-group bg-white">   
             <x-year-month-dropdown />
             <x-day-of-week-dropdown />
             <x-tag-dropdown />
@@ -28,8 +28,9 @@
     <section id="contents-section" class="flex-col gap-2 pb-small">
         <div id="content-wrapper">
             <span class="font-small pl-small">Your new journal</span>
-            <div class="txta-wrapper">       
-                <input id="x" type="hidden">
+            <form action="{{ route('contents.store') }}" method="POST" class="txta-wrapper">  
+            @csrf     
+                <input name="content_text" id="x" type="hidden">
                 {{-- TODO set toolbar --}}
                 <trix-toolbar id="my_toolbar" class="hidden"></trix-toolbar>
                 <trix-editor toolbar="my_toolbar" input="x" class="editor-def editor-abled"></trix-editor>
@@ -38,10 +39,10 @@
                         <input checked type="checkbox" id="public1" name="public" class="small-checkbox ver-al">
                         public
                     </label>
-                    <a href="{{ route('journals.create') }}" class="expand-btn hover-effect small-btn border-lt ta-center reset-def">Expand</a>
-                    <button class="hover-effect small-btn border-rb border-r-set">Save</button>
+                    <a href="{{ route('contents.create') }}" class="expand-btn hover-effect small-btn border-lt ta-center reset-def">Expand</a>
+                    <button type="submit" class="hover-effect small-btn border-rb border-r-set">Save</button>
                 </div>
-            </div>
+            </form>
         </div>
 
         @forelse ($contents as $content)

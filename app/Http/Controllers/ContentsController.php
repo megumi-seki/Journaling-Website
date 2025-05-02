@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreContentRequest;
 use App\Models\Content;
 use App\Models\Hashtag;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 class ContentsController
@@ -19,7 +21,7 @@ class ContentsController
             ->orderBy("created_at","desc")
             ->with(["hashtags", "sentHugUsers", "sentHeartUsers"])
             ->paginate(15);
-        return view("journal.index", ["contents" => $contents]);
+        return view("content.index", ["contents" => $contents]);
     }
 
     /**
@@ -29,15 +31,23 @@ class ContentsController
     {
         $contentId = $request->query("content_id");
         $content = Content::find($contentId);
-        return view("journal.create", ["content" => $content]);
+        return view("content.create", ["content" => $content]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreContentRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        // TODO make function to pickup hashtag
+        // TODO change after making authentification
+        $data["public"] = $request->has("public");
+        $data["user_id"] = User::first()->id;
+        Content::create($data);
+
+        return redirect()->route("contents.index")->with("success", "new journal was saved successfully");
     }
 
     /**
@@ -67,9 +77,10 @@ class ContentsController
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        //
+    public function destroy(Content $content)   {
+        $content->delete();
+        // TODO update to confirm for delete 
+        return redirect()->route("contents.index")->with("success","the content was successdully deleted");
     }
 
     public function filter(Request $request) {
@@ -113,7 +124,7 @@ class ContentsController
 
         $contents = $query->paginate(15)->withQueryString();
 
-        return view("journal.index", ["contents" => $contents]);
+        return view("content.index", ["contents" => $contents]);
 
     }
 }

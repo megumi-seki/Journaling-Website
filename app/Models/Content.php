@@ -13,7 +13,9 @@ class Content extends Model
         "title",
         "content_text",
         "tag",
-        "public"
+        "public",
+        "user_id",
+        "deleted_at"
     ];
 
     protected function casts(): array
