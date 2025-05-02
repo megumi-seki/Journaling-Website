@@ -25,6 +25,7 @@ class ContentFactory extends Factory
                 return fake()->text($length);
             },
             "tag" => fake()->boolean(),
+            "public" => true,
             "created_at" => fake()->dateTimeBetween("-2 years", "now"),
         ];
     }

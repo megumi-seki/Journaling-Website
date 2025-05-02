@@ -12,7 +12,8 @@ class Content extends Model
     protected $fillable = [
         "title",
         "content_text",
-        "tag"
+        "tag",
+        "public"
     ];
 
     protected function casts(): array

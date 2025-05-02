@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string("title")->nullable();
             $table->longText("content_text");
             $table->boolean("tag")->default(0);
+            $table->boolean("public")->default(0);
             $table->timestamps();
             $table->timestamp("deleted_at")->nullable();
         });
