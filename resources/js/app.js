@@ -198,8 +198,8 @@ Are you sure to cancel the edit?`);
             const url = new URL(window.location.href)
             const currentPath = url.pathname;
             let newPath = "";
-            if (currentPath.startsWith("/journal")) {
-                newPath ="/journal/filter";
+            if (currentPath.startsWith("/content")) {
+                newPath ="/content/filter";
             } else if (currentPath.startsWith("/everyone")) {
                 newPath ="/everyone/filter";
             }

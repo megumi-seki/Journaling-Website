@@ -69,7 +69,7 @@ class DatabaseSeeder extends Seeder
             ->create();
 
         $users = User::factory()
-            ->count(5)
+            ->count(10)
             ->has(Content::factory()->count(5))
             ->has(Setting::factory())
             ->create();
@@ -94,9 +94,6 @@ class DatabaseSeeder extends Seeder
                 $content->hashtags()->attach($hashtagIds);
             }
         }
-
-        // create user without content
-        User::factory()->create();
 
     }
 

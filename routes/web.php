@@ -20,3 +20,4 @@ Route::get("/everyones/showmore", [EveryonesController::class, "showMore"]);
 
 Route::resource("/contents", ContentsController::class);
 Route::get("/content/filter", [ContentsController::class, "filter"])->name("content.filter");
+// Route::post("/contents", [ContentsController::class, "restoreTag"])->name("contents.tag");

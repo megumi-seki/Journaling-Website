@@ -59,10 +59,10 @@
                 </span>
             </div>
             <div class="txta-wrapper">
+                <x-tag :$content /> 
                 <form id="content-{{ $content->id }}" action="{{ route('contents.update', $content->id) }}" method="POST">
                     @csrf
                     @method("PATCH")
-                    <x-tag :$content /> 
                     <input id="x-{{ $content->id }}" name="content_text" value="{{ $content->content_text }}" type="hidden" class="trix-input">
                     <trix-toolbar id="hidden-toolbar-{{ $content->id }}" class="hidden"></trix-toolbar>
                     <trix-editor id="trix-editor" toolbar="hidden-toolbar-{{ $content->id }}" input="x-{{ $content->id }}" class="editor-def" contenteditable="false"></trix-editor>         
