@@ -524,10 +524,14 @@ li a {
     right: 1px;
 }
 
-.btn-wrapper, .add-btn-for-new {
+.btn-wrapper, .add-btn-for-new, .public-label {
     position: absolute;
     bottom: 5.5px;
     right: 1px;
+}
+
+.public-label {
+    right:11rem;
 }
 
 .border-lt {

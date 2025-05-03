@@ -59,12 +59,18 @@
                 </span>
             </div>
             <div class="txta-wrapper">
-                <x-tag :$content /> 
-                <input id="x-{{ $content->id }}" value="{{ $content->content_text }}" type="hidden" class="trix-input">
-                <trix-toolbar id="hidden_toolbar" class="hidden"></trix-toolbar>
-                <trix-editor id="trix-editor" toolbar="hidden_toolbar" input="x-{{ $content->id }}" class="editor-def" contenteditable="false"></trix-editor>         
-                <x-edit-remove-icon />
-                <x-edit-icon />
+                <form action="">
+                    <x-tag :$content /> 
+                    <input id="x-{{ $content->id }}" value="{{ $content->content_text }}" type="hidden" class="trix-input">
+                    <trix-toolbar id="hidden_toolbar" class="hidden"></trix-toolbar>
+                    <trix-editor id="trix-editor" toolbar="hidden_toolbar" input="x-{{ $content->id }}" class="editor-def" contenteditable="false"></trix-editor>         
+                    <x-edit-remove-icon />
+                    <x-edit-icon />
+                    <label for="public-{{ $content->id }}" class="public-label hidden-when-medium btn-to-toggle inline-flex justify-center gap-smallest btn small-btn small-checkbox-label font-smaller mr-small border-r-set">
+                        <input disabled {{ $content->public ? "checked" : "" }} type="checkbox" id="public-{{ $content->id }}" name="public" class="small-checkbox ver-al">
+                        public
+                    </label>
+                </form>
                 <x-small-buttons :$content />
             </div>
         </div>

@@ -52,12 +52,12 @@ document.addEventListener(("DOMContentLoaded"), function() {
         
         toggleBtns.forEach((btn) => {
             btn.addEventListener("click", function() {
-                const parent = btn.closest("div");
-                const smallBtnsWrapper = parent.querySelector(".btn-wrapper");
-                const editRemoveIcon = parent.querySelector(".edit-remove-icon")
+                const grandParent = btn.closest("div").parentElement;
+                const elementsToToggle = grandParent.querySelectorAll(".hidden-when-medium");
 
-                smallBtnsWrapper.classList.toggle("hidden-when-medium");
-                editRemoveIcon.classList.toggle("hidden-when-medium");
+                elementsToToggle.forEach((element) => {
+                    element.classList.toggle("hidden-when-medium")
+                })
                 btn.classList.toggle("hidden-when-medium");
             });
 
@@ -71,12 +71,13 @@ document.addEventListener(("DOMContentLoaded"), function() {
         toggleBtns.forEach((btn) => {
             btn.addEventListener("click", function() {
                 const parent = btn.closest("div");
-                const smallBtnsWrapper = parent.querySelector(".btn-wrapper");
-                const editIcon = parent.querySelector(".edit-icon")
 
-                smallBtnsWrapper.classList.toggle("hidden-when-medium");
+                const elementsToToggle = parent.querySelectorAll(".btn-wrapper, .public-label, .edit-icon");
+
+                elementsToToggle.forEach((element) => {
+                    element.classList.toggle("hidden-when-medium")
+                })
                 btn.classList.toggle("hidden-when-medium");
-                editIcon.classList.toggle("hidden-when-medium");
             });
 
         });
@@ -87,16 +88,15 @@ document.addEventListener(("DOMContentLoaded"), function() {
         const toggleBtns = document.querySelectorAll(".edit-btn");
 
         toggleBtns.forEach((btn) => {
-            const parent = btn.closest("div");
-            const checkBox = parent.querySelector(".small-checkbox");
+            const grandParent = btn.closest("div").parentElement;
+            const checkBox = grandParent.querySelector(".small-checkbox");
             const originallyIsChecked = checkBox.checked;
-            const grandParent = parent.parentElement;
             const trixInput = grandParent.querySelector(".trix-input");
             const originalContentText = trixInput.value;
             const trixEditor = grandParent.querySelector("#trix-editor");
             
             btn.addEventListener("click", function() {
-                const btnsToToggle = parent.querySelectorAll(".btn-to-toggle");
+                const btnsToToggle = grandParent.querySelectorAll(".btn-to-toggle");
                 const isEditable = trixEditor.getAttribute("contenteditable") === "true"
 
                 if (isEditable) {
