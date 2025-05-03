@@ -14,7 +14,7 @@
         @endif
         <div class="flex justify-end">
                 <label for="public0" class="hover-effect inline-flex justify-center gap-smallest btn medium-btn small-checkbox-label mr-small border-r-set bg-white color-main">
-                <input checked name="public" type="checkbox" id="public0" name="public" class="small-checkbox">
+                <input {{ $content->public ? "checked" : ""}} name="public" type="checkbox" id="public0" name="public" class="small-checkbox">
                        public
                 </label>
                 @if ($content)

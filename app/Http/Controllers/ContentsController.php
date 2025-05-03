@@ -69,9 +69,13 @@ class ContentsController
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(StoreContentRequest $request, Content $content)
     {
-        //
+        $data = $request->validated();
+        $data["public"] = $request->has("public");
+        $content->update($data);
+
+        return redirect()->route("contents.index")->with("success", "the content was updated successfully");
     }
 
     /**

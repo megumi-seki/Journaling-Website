@@ -59,11 +59,13 @@
                 </span>
             </div>
             <div class="txta-wrapper">
-                <form action="">
+                <form id="content-{{ $content->id }}" action="{{ route('contents.update', $content->id) }}" method="POST">
+                    @csrf
+                    @method("PATCH")
                     <x-tag :$content /> 
-                    <input id="x-{{ $content->id }}" value="{{ $content->content_text }}" type="hidden" class="trix-input">
-                    <trix-toolbar id="hidden_toolbar" class="hidden"></trix-toolbar>
-                    <trix-editor id="trix-editor" toolbar="hidden_toolbar" input="x-{{ $content->id }}" class="editor-def" contenteditable="false"></trix-editor>         
+                    <input id="x-{{ $content->id }}" name="content_text" value="{{ $content->content_text }}" type="hidden" class="trix-input">
+                    <trix-toolbar id="hidden-toolbar-{{ $content->id }}" class="hidden"></trix-toolbar>
+                    <trix-editor id="trix-editor" toolbar="hidden-toolbar-{{ $content->id }}" input="x-{{ $content->id }}" class="editor-def" contenteditable="false"></trix-editor>         
                     <x-edit-remove-icon />
                     <x-edit-icon />
                     <label for="public-{{ $content->id }}" class="public-label hidden-when-medium btn-to-toggle inline-flex justify-center gap-smallest btn small-btn small-checkbox-label font-smaller mr-small border-r-set">
