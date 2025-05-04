@@ -1,5 +1,5 @@
 <x-guest-layout>
-        <form action="{{ route('signup.store') }}" method="POST" class="flex-col align-center gap-smallest mtb-small">
+        <form action="{{ route('signup') }}" method="POST" class="flex-col align-center gap-smallest mtb-small">
             @csrf
             <h2 class="title">Signup</h2>
             <div class="form-group">
@@ -35,7 +35,7 @@
 
         <x-slot:footerLink>
             <p class="mtb-smaller inline-flex gap-1 font-small">Already have an account?
-                <a href="{{ route('login') }}" class="reset-def color-main">-click here to login</a>
+                <a href="{{ route('login.index') }}" class="reset-def color-main">-click here to login</a>
             </p>
         </x-slot:footerLink>  
         

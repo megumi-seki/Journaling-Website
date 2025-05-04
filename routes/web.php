@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 // Auth::routes(["verify" => true]);
 
 Route::get("/", [TopController::class, "index"])->name("top");
-Route::get("/login", [LoginController::class, "index"])->name("login");
-Route::get("/signup", [SignupController::class, "index"])->name("signup");
-Route::post("/signup", [SignupController::class, "store"])->name("signup.store");
+Route::get("/login", [LoginController::class, "index"])->name("login.index");
+Route::post("/login", [LoginController::class, "login"])->name("login");
+Route::get("/signup", [SignupController::class, "index"])->name("signup.index");
+Route::post("/signup", [SignupController::class, "store"])->name("signup");
 Route::get("/profile", [ProfileController::class, "index"])->name("profile");
 Route::get("/settings", [SettingsController::class, "index"])->name("settings.index");
 Route::put("/settings", [SettingsController::class, "update"])->name("settings.update");
