@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContentController;
 use App\Http\Controllers\ContentsController;
 use App\Http\Controllers\EveryonesController;
 use App\Http\Controllers\LoginController;
@@ -20,4 +21,5 @@ Route::get("/everyones/showmore", [EveryonesController::class, "showMore"]);
 
 Route::resource("/contents", ContentsController::class);
 Route::get("/content/filter", [ContentsController::class, "filter"])->name("content.filter");
+Route::patch("/content/{content}/restore-tag", [ContentController::class, "restoreTag"])->name("content.restoreTag");
 // Route::post("/contents", [ContentsController::class, "restoreTag"])->name("contents.tag");

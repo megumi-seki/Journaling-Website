@@ -144,15 +144,34 @@ Are you sure to cancel the edit?`);
 
     const toggleTag = () => {
         const toggleBtns = document.querySelectorAll(".tag-wrapper");
+        if (!toggleBtns) return;
 
         toggleBtns.forEach((btn) => {
-            btn.addEventListener("click", function() {
-                const parent = btn.closest("div");
-                const tags = parent.querySelectorAll(".tag-wrapper")
+            btn.addEventListener("click", async () => {
+                const contentId = btn.dataset.id;
 
-                tags.forEach((tag) => {
-                    tag.classList.toggle("hidden");
-                });
+                try {
+                    const response = await fetch(`/content/${contentId}/restore-tag`, {
+                        method: "PATCH",
+                        headers: {
+                            "X-CSRF-TOKEN": document.querySelector("meta[name='csrf-token']").content,
+                            "Accept": "application/json",
+                            "Content-Type": "application/json"
+                        }
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        document.querySelectorAll(`.tag-wrapper[data-id='${contentId}']`).forEach((btn) => {
+                            btn.classList.toggle("hidden");
+                        });
+                    }
+
+                } catch (error) {
+                    console.log("failed to restore the tag", error);
+                }
+
             })
         })
     }

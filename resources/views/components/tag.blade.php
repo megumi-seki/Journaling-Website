@@ -4,13 +4,15 @@
 {{-- <form action="{{ route('content.restoreTag', $content) }}" method="POST">
     @csrf
     @method("PATCH") --}}
-<button type="button" class="tag-wrapper {{ $content->tag ? "" : "hidden" }}">
+<button type="button" class="tag-wrapper {{ $content->tag ? "" : "hidden" }}" 
+    data-id="{{ $content->id }}" data-tagged="1">
     <div class="tag-t"></div>
     <div class="tag-l"></div>
     <div class="tag-r"></div>
 </button>
 
-<button type="button" class="tag-wrapper {{ !$content->tag ? "" : "hidden" }}">
+<button type="button" class="tag-wrapper {{ !$content->tag ? "" : "hidden" }}"
+    data-id="{{ $content->id }}" data-tagged="0">
     <div class="tag-t not-tagged-t"></div>
     <div class="tag-l not-tagged-l"></div>
     <div class="tag-r not-tagged-r"></div>

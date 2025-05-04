@@ -139,10 +139,11 @@ class ContentController
         return redirect()->route("content.index", $contents);
     }
 
-    public function restoreTag(StoreContentRequest $request, Content $content) {
-        $currentTag = $content->tag;
-        $data["tag"] = !$currentTag;
+    public function restoreTag(Content $content) {
+       
+        $content->tag = !$content->tag;
+        $content->save();
 
-        dd($currentTag, $data["tag"]);
+        return response()->json(["success" => true]);
     }
 }

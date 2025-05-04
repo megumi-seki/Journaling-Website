@@ -526,8 +526,8 @@ li a {
 
 .btn-wrapper, .add-btn-for-new, .public-label {
     position: absolute;
-    bottom: 5.5px;
-    right: 1px;
+    bottom: 0;
+    right: 0;
 }
 
 .public-label {
@@ -718,7 +718,7 @@ li a {
     display: none;
     position: absolute;
     right: 9px;
-    bottom: 12px;
+    bottom: 2px;
     width: 1.5rem;
     height: 1rem;
     background-color: var(--white);
@@ -730,7 +730,6 @@ li a {
 .edit-remove-icon {
     display: none;
     right: 15.3rem;
-    bottom: 0.5rem;
     gap: 2.8px;
     cursor: pointer;
 }

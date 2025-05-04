@@ -7,7 +7,7 @@
     <form action="{{ route('contents.destroy', $content->id) }}" method="POST" class="inline-flex">
         @csrf
         @method("DELETE")
-        <button disabled class="delete-btn btn-to-toggle small-btn border-rb">Delete</button>
+        <button disabled class="delete-btn btn-to-toggle small-btn border-rb border-r-set">Delete</button>
     </form>
 </div>
 
