@@ -27,6 +27,7 @@
     --public-txta-bg: light-dark(rgba(239, 239, 239, 0.3), rgba(59, 59, 59, 0.3));
     --public-txta-color: light-dark(rgb(84, 84, 84), rgb(170, 170, 170));
     --success-message: #4dcb4d;
+    --error: #d20a0a;
 }
 
 * {
@@ -107,6 +108,12 @@ li a {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+}
+
+.error-message {
+    font-size: 0.7rem;
+    color: var(--error);
+    margin-left: 0.5rem;
 }
 
 .flex-row {
@@ -798,6 +805,10 @@ li a {
 .medium-btn {
     width: 6rem;
     height: 2rem;
+}
+
+.has-error {
+    border-color: var(--error);
 }
 
 

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("user_icon_id")->constrained("user_icons")->nullable();
+            $table->foreignId("user_icon_id")->nullable()->constrained("user_icons");
             $table->string('name', 100);
             $table->string('user_name', 100)->default("Annonymous");
             $table->string('email')->unique();

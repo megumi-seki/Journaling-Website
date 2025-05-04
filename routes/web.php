@@ -8,11 +8,15 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\TopController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
+// Auth::routes(["verify" => true]);
 
 Route::get("/", [TopController::class, "index"])->name("top");
 Route::get("/login", [LoginController::class, "index"])->name("login");
 Route::get("/signup", [SignupController::class, "index"])->name("signup");
+Route::post("/signup", [SignupController::class, "store"])->name("signup.store");
 Route::get("/profile", [ProfileController::class, "index"])->name("profile");
 Route::get("/settings", [SettingsController::class, "index"])->name("settings.index");
 Route::put("/settings", [SettingsController::class, "update"])->name("settings.update");

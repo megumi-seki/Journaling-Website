@@ -15,12 +15,14 @@ class ContentsController
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $contents = Content::where("user_id", 1)
+        $user = $request->user();
+        $contents = Content::where("user_id", $user->id)
             ->orderBy("created_at","desc")
             ->with(["hashtags", "sentHugUsers", "sentHeartUsers"])
             ->paginate(15);
+            
         return view("content.index", ["contents" => $contents]);
     }
 
