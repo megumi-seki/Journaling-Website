@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Log;
 
 class EveryonesController
 {
-    public function index()
+    public function index(Request $request)
     {
-        $user = User::first();
+        $user = $request->user();
         $contents = Content::orderBy("created_at","desc")
             ->take(10)
             ->with(["hashtags", "user", "publicTaggedUsers",  "sentHugUsers", "sentHeartUsers"])
@@ -20,7 +20,7 @@ class EveryonesController
     }
 
     public function filter(Request $request) {
-        $user = User::first();
+        $user = $request->user();
         $hashtag = $request->input("hashtag");
         $keyword = $request->input("keyword");
         $heart = $request->input("heart");
@@ -59,8 +59,8 @@ class EveryonesController
 
     }
 
-    public function restorePublicTag(Content $content) {
-        $user = User::first();
+    public function restorePublicTag(Request $request, Content $content) {
+        $user = $request->user();
 
         $content->isTagged($user) ? $content->publicTaggedUsers()->detach($user->id) :
             $content->publicTaggedUsers()->attach($user->id);
@@ -68,8 +68,8 @@ class EveryonesController
         return response()->json(["success" => true]);
     }
     
-    public function restoreHeart(Content $content) {
-        $user = User::first();
+    public function restoreHeart(Request $request, Content $content) {
+        $user = $request->user();
 
         $content->isSentHeart($user) ? $content->sentHeartUsers()->detach($user->id) :
             $content->sentHeartUsers()->attach($user->id);
@@ -77,8 +77,8 @@ class EveryonesController
         return response()->json(["success" => true]);
     }
     
-    public function restoreHug(Content $content) {
-        $user = User::first();
+    public function restoreHug(Request $request, Content $content) {
+        $user = $request->user();
 
         $content->isSentHug($user) ? $content->sentHugUsers()->detach($user->id) :
             $content->sentHugUsers()->attach($user->id);

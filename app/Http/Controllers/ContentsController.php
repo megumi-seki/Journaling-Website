@@ -4,11 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreContentRequest;
 use App\Models\Content;
-use App\Models\Hashtag;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
 
 class ContentsController
 {
@@ -41,12 +37,12 @@ class ContentsController
      */
     public function store(StoreContentRequest $request)
     {
+        $user = $request->user();
         $data = $request->validated();
 
         // TODO make function to pickup hashtag
-        // TODO change after making authentification
         $data["public"] = $request->has("public");
-        $data["user_id"] = User::first()->id;
+        $data["user_id"] = $user->id;
         Content::create($data);
 
         return redirect()->route("contents.index")->with("success", "new journal was saved successfully");
@@ -90,6 +86,8 @@ class ContentsController
     }
 
     public function filter(Request $request) {
+        $user = $request->user();
+        
         $hashtag = $request->input("hashtag");
         $keyword = $request->input("keyword");
         $year = $request->input("year");
@@ -98,7 +96,7 @@ class ContentsController
         $tag = $request->input("tag");
         $order = $request->input("order", "desc");
 
-        $query = Content::where("user_id", 1)
+        $query = Content::where("user_id", $user->id)
             ->with(["hashtags"]);
 
             //TODO fix here about hashtag after creating function to add hashtags
