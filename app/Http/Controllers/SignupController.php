@@ -10,4 +10,5 @@ class SignupController
     {
         return view("auth.signup");
     }
+
 }

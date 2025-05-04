@@ -13,7 +13,7 @@ class Setting extends Model
     protected $fillable = [
         "public_mode",
         "screen_mode",
-        "color_units_id",
+        "color_unit_id",
         "font_size_id",
         "font_style_id"
     ];

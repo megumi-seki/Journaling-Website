@@ -24,7 +24,7 @@ class SettingFactory extends Factory
             // "user_id" => User::pluck("id")->random(),
             "public_mode" => fake()->boolean(),
             "screen_mode" => fake()->boolean(),
-            "color_units_id" => ColorUnit::pluck("id")->random(),
+            "color_unit_id" => ColorUnit::pluck("id")->random(),
             "font_size_id" => FontSize::pluck("id")->random(),
             "font_style_id" => FontStyle::pluck("id")->random(),
         ];
