@@ -1,4 +1,6 @@
-<button class="btn nav-btn"
-    onclick="location.href='{{ route('top') }}'">
+<form action="{{ route('logout') }}" method="POST">
+    @csrf
+    <button class="btn nav-btn">
     Logout
-</button> 
+    </button> 
+</form>

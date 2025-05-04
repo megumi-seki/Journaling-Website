@@ -31,7 +31,7 @@
         <div class="txta-wrapper">
             <img src="{{ $content->user->userIcon->image_path }}" class="user-icon" alt="User Icon">
             <span class="user-name font-small">{{ $content->user->user_name }}</span>
-            @unless($content->user->id == $user->id)
+            @unless($content->user_id == $user->id)
             <x-public-tag :$content :$user />
             <div class="icons-on-pub flex-col gap-1 align-center">
                 <x-heart-big :$content :isSentHeart="$content->isSentHeart($user)" />

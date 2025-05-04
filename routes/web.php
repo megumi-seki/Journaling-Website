@@ -14,13 +14,19 @@ use Illuminate\Support\Facades\Route;
 // Auth::routes(["verify" => true]);
 
 Route::get("/", [TopController::class, "index"])->name("top");
+
 Route::get("/login", [LoginController::class, "index"])->name("login.index");
 Route::post("/login", [LoginController::class, "login"])->name("login");
+Route::post("/logout", [LoginController::class, "logout"])->name("logout");
+
 Route::get("/signup", [SignupController::class, "index"])->name("signup.index");
 Route::post("/signup", [SignupController::class, "store"])->name("signup");
+
 Route::get("/profile", [ProfileController::class, "index"])->name("profile");
+
 Route::get("/settings", [SettingsController::class, "index"])->name("settings.index");
 Route::put("/settings", [SettingsController::class, "update"])->name("settings.update");
+
 Route::get("/everyones", [EveryonesController::class,"index"])->name("everyones");
 Route::get("/everyone/filter", [EveryonesController::class,"filter"])->name("everyone.filter");
 Route::patch("everyone/{content}/restore-tag", [EveryonesController::class, "restorePublicTag"]);

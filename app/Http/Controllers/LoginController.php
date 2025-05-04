@@ -30,4 +30,14 @@ class LoginController
             "email" => "The provided credentials do not match with our records"
             ])->onlyInput("email");
     }
+
+    public function logout(Request $request) 
+    {
+        Auth::logout();
+
+        $request->session()->regenerate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route("top")->with("success", "You logged out. See you again soon:)");
+    }
 }
