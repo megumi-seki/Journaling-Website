@@ -58,4 +58,31 @@ class EveryonesController
         return view("everyones.index", ["contents" => $contents, "user" => $user]);
 
     }
+
+    public function restorePublicTag(Content $content) {
+        $user = User::first();
+
+        $content->isTagged($user) ? $content->publicTaggedUsers()->detach($user->id) :
+            $content->publicTaggedUsers()->attach($user->id);
+
+        return response()->json(["success" => true]);
+    }
+    
+    public function restoreHeart(Content $content) {
+        $user = User::first();
+
+        $content->isSentHeart($user) ? $content->sentHeartUsers()->detach($user->id) :
+            $content->sentHeartUsers()->attach($user->id);
+        
+        return response()->json(["success" => true]);
+    }
+    
+    public function restoreHug(Content $content) {
+        $user = User::first();
+
+        $content->isSentHug($user) ? $content->sentHugUsers()->detach($user->id) :
+            $content->sentHugUsers()->attach($user->id);
+        
+        return response()->json(["success" => true]);
+    }
 }

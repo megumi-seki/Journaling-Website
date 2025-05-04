@@ -71,7 +71,6 @@ document.addEventListener(("DOMContentLoaded"), function() {
         toggleBtns.forEach((btn) => {
             btn.addEventListener("click", function() {
                 const parent = btn.closest("div");
-
                 const elementsToToggle = parent.querySelectorAll(".btn-wrapper, .public-label, .edit-icon");
 
                 elementsToToggle.forEach((element) => {
@@ -176,21 +175,117 @@ Are you sure to cancel the edit?`);
         })
     }
 
-    const toggleHeartHug = () => {
-        const toggleBtns = document.querySelectorAll(".toggle");
+    // TODO make simplify the three similar fucntions below
+    // 1
+    const togglePublicTag = () => {
+        const toggleBtns = document.querySelectorAll(".p-tag-wrapper");
+        if (!toggleBtns) return;
 
         toggleBtns.forEach((btn) => {
-            btn.addEventListener("click", function() {
-                const parent = btn.closest("button");
-                const tags = parent.querySelectorAll(".toggle")
+            btn.addEventListener("click", async () => {
+                const contentId = btn.dataset.id;
 
-                tags.forEach((tag) => {
-                    tag.classList.toggle("hidden");
-                });
+                try {
+                    const response = await fetch(`/everyone/${contentId}/restore-tag`, {
+                        method: "PATCH",
+                        headers: {
+                            "X-CSRF-TOKEN": document.querySelector("meta[name='csrf-token']").content,
+                            "Accept": "application/json",
+                            "Content-Type": "application/json"
+                        }
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        document.querySelectorAll(`.p-tag-wrapper[data-id='${contentId}']`).forEach((btn) => {
+                            btn.classList.toggle("hidden");
+                        });
+                    }
+
+                } catch (error) {
+                    console.log("failed to restore the tag", error);
+                }
+
             })
         })
     }
 
+    // 2
+    const toggleHeart = () => {
+        const toggleBtns = document.querySelectorAll(".heart-wrapper");
+        if (!toggleBtns) return;
+
+        toggleBtns.forEach((btn) => {
+            btn.addEventListener("click", async () => {
+                const contentId = btn.dataset.id;
+                const isSentHeart = btn.dataset.heart;
+
+                try {
+                    const response = await fetch(`/everyone/${contentId}/restore-heart`, {
+                        method: "PATCH",
+                        headers: {
+                            "X-CSRF-TOKEN": document.querySelector("meta[name='csrf-token']").content,
+                            "Accept": "application/json",
+                            "Content-Type": "application/json"
+                        }
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        btn.dataset.heart = !isSentHeart;
+                        const imagesToToggle = btn.querySelectorAll(".toggle")
+                        imagesToToggle.forEach((img) => {
+                            img.classList.toggle("hidden");
+                        });
+                    }
+
+                } catch (error) {
+                    console.log("failed to restore the heart", error);
+                }
+
+            })
+        })
+    }
+
+    // 3
+    const toggleHug = () => {
+        const toggleBtns = document.querySelectorAll(".hug-wrapper");
+        if (!toggleBtns) return;
+
+        toggleBtns.forEach((btn) => {
+            btn.addEventListener("click", async () => {
+                const contentId = btn.dataset.id;
+                const isSentHug = btn.dataset.hug;
+
+                try {
+                    const response = await fetch(`/everyone/${contentId}/restore-hug`, {
+                        method: "PATCH",
+                        headers: {
+                            "X-CSRF-TOKEN": document.querySelector("meta[name='csrf-token']").content,
+                            "Accept": "application/json",
+                            "Content-Type": "application/json"
+                        }
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        btn.dataset.hug = !isSentHug;
+                        const imagesToToggle = btn.querySelectorAll(".toggle")
+                        imagesToToggle.forEach((img) => {
+                            img.classList.toggle("hidden");
+                        });
+                    }
+
+                } catch (error) {
+                    console.log("failed to restore the heart", error);
+                }
+
+            })
+        })
+    }
 
     const toTop = () => {
         const btns = document.querySelectorAll(".toTopBtn");
@@ -283,7 +378,9 @@ Are you sure to cancel the edit?`);
     toggleEditReverse();
     editCancelBtnFunction();
     toggleTag();
-    toggleHeartHug();
+    togglePublicTag();
+    toggleHeart();
+    toggleHug();
     toTop();
     orderDropdown();
     adjustForm();

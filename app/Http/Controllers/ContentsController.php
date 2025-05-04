@@ -131,4 +131,12 @@ class ContentsController
         return view("content.index", ["contents" => $contents]);
 
     }
+
+    public function restoreTag(Content $content) {
+       
+        $content->tag = !$content->tag;
+        $content->save();
+
+        return response()->json(["success" => true]);
+    }
 }

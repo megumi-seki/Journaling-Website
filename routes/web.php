@@ -17,9 +17,10 @@ Route::get("/profile", [ProfileController::class, "index"])->name("profile");
 Route::get("/settings", [SettingsController::class, "index"])->name("settings");
 Route::get("/everyones", [EveryonesController::class,"index"])->name("everyones");
 Route::get("/everyone/filter", [EveryonesController::class,"filter"])->name("everyone.filter");
-Route::get("/everyones/showmore", [EveryonesController::class, "showMore"]);
+Route::patch("everyone/{content}/restore-tag", [EveryonesController::class, "restorePublicTag"]);
+Route::patch("everyone/{content}/restore-heart", [EveryonesController::class, "restoreHeart"]);
+Route::patch("everyone/{content}/restore-hug", [EveryonesController::class, "restoreHug"]);
 
 Route::resource("/contents", ContentsController::class);
 Route::get("/content/filter", [ContentsController::class, "filter"])->name("content.filter");
-Route::patch("/content/{content}/restore-tag", [ContentController::class, "restoreTag"])->name("content.restoreTag");
-// Route::post("/contents", [ContentsController::class, "restoreTag"])->name("contents.tag");
+Route::patch("/content/{content}/restore-tag", [ContentsController::class, "restoreTag"]);

@@ -32,10 +32,10 @@
             <img src="{{ $content->user->userIcon->image_path }}" class="user-icon" alt="User Icon">
             <span class="user-name font-small">{{ $content->user->user_name }}</span>
             @unless($content->user->id == $user->id)
-            <x-public-tag :isTagged="$content->isTagged($user)" />
+            <x-public-tag :$content :$user />
             <div class="icons-on-pub flex-col gap-1 align-center">
-                <x-heart-big :isSentHeart="$content->isSentHeart($user)" />
-                <x-hug-big :isSentHug="$content->isSentHug($user)" />           
+                <x-heart-big :$content :isSentHeart="$content->isSentHeart($user)" />
+                <x-hug-big :$content :isSentHug="$content->isSentHug($user)" />           
             </div>
             @endunless
             <input id="x-{{ $content->id }}" value="{{ $content->content_text }}" type="hidden">

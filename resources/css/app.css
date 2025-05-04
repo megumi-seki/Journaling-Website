@@ -490,7 +490,7 @@ li a {
     flex: 1;
 }
 
-.tag-wrapper {
+.tag-wrapper, .p-tag-wrapper {
     all: unset;
     position: absolute;
     right: 2rem;
@@ -919,7 +919,7 @@ li a {
         top: 7.4rem;
     }
 
-    .tag-wrapper {
+    .tag-wrapper, .p-tag-wrapper {
         right: 9px;
     }
 
