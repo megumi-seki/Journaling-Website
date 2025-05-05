@@ -65,7 +65,7 @@ class DatabaseSeeder extends Seeder
             ->create();
 
         UserIcon::factory()
-            ->count(10)
+            ->count(49)
             ->create();
 
         $users = User::factory()

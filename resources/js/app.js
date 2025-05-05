@@ -82,6 +82,16 @@ document.addEventListener(("DOMContentLoaded"), function() {
         });
     }
 
+    const toggleIconList = () => {
+        const toggleBtn = document.querySelector(".user-icon-input-btn");
+        if (!toggleBtn) return;
+
+        toggleBtn.addEventListener("click", () => {
+            const iconList = document.querySelector(".icon-list");
+            iconList.classList.toggle("hidden");
+        });
+    }
+
     // TODO update alert function
     const editCancelBtnFunction = () => {
         const toggleBtns = document.querySelectorAll(".edit-btn");
@@ -361,6 +371,19 @@ Are you sure to cancel the edit?`);
         })
     }
 
+    const profileHiddenUserIconInput = () => {
+        const iconListItems = document.querySelectorAll(".icon-li-btn");
+        if (!iconListItems) return;
+        const hiddenInput = document.getElementById("hidden-input");
+        const selectedUserIcon = document.querySelector(".user-icon-profile");
+
+        iconListItems.forEach((li) => {
+            li.addEventListener("click", () => {
+                hiddenInput.value = li.dataset.id;
+                selectedUserIcon.src = li.dataset.src;
+            });
+        });
+    }
     // const confirmToDelete = () => {
     //     const deleteBtns = document.querySelectorAll(".delete-btn");
     //     if (!deleteBtns) return;
@@ -376,6 +399,7 @@ Are you sure to cancel the edit?`);
     toggleFilter();
     toggleEdit();
     toggleEditReverse();
+    toggleIconList();
     editCancelBtnFunction();
     toggleTag();
     togglePublicTag();
@@ -386,4 +410,5 @@ Are you sure to cancel the edit?`);
     adjustForm();
     profileSettingResetBtn();
     resetBtnOnExpanded();
+    profileHiddenUserIconInput();
 })

@@ -22,7 +22,8 @@ Route::post("/logout", [LoginController::class, "logout"])->name("logout");
 Route::get("/signup", [SignupController::class, "index"])->name("signup.index");
 Route::post("/signup", [SignupController::class, "store"])->name("signup");
 
-Route::get("/profile", [ProfileController::class, "index"])->name("profile");
+Route::get("/profile", [ProfileController::class, "index"])->name("profile.index");
+Route::put("/profile", [ProfileController::class, "update"])->name("profile.update");
 
 Route::get("/settings", [SettingsController::class, "index"])->name("settings.index");
 Route::put("/settings", [SettingsController::class, "update"])->name("settings.update");

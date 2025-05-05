@@ -222,7 +222,7 @@ li a {
     width: 27.7rem;
 }
 
-.user-icon-input {
+.user-icon-input-btn {
     width: 2.3rem;
     font-size: 0.7rem;
     background-color: var(--white);
@@ -236,14 +236,19 @@ li a {
 }
 
 .icon-list {
-    width: 15rem;
-    height: 15rem;
+    width: 15.5rem;
+    height: 15.5rem;
     position: absolute;
     background-color: var(--white);
     border: 1px solid var(--bc-much-stronger);
     border-radius: 0.5rem;
     top: 2.3rem;
     left: 0;
+    padding: 0.1rem;
+    display: grid;
+    grid-template-columns: repeat(7, 2rem);
+    grid-template-rows: repeat(7, 2rem);
+    gap: 0.2rem;
 }
 
 .primary-btn {
@@ -595,13 +600,16 @@ li a {
     margin-left: -0.5rem;
 }
 
+.user-icon, .user-icon-profile, .icon-li {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
+}
+
 .user-icon, .user-icon-profile {
     position: absolute;
     top: 10px;
     left: 10px;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 1rem;
 }
 
 .user-icon-profile { 

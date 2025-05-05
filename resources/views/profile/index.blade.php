@@ -1,19 +1,29 @@
 <x-app-layout mainPadding="pt-medium" gap="gap-2" pageTitle="Profile" taCenter="ta-center">
 <div>
     <p class="bold">Your Profile Information</p>
-    <form action="#" method="GET" class="flex-col gap-small align-center mtb-small">
+    <form action="{{ route('profile.update') }}" method="POST" class="flex-col gap-small align-center mtb-small">
         @csrf
-        <div class="form-group">
+        @method("PUT")
+        <div class="form-group @error("name") has-error @enderror">
             <label for="name" class="font-small pl-smaller">Name</label>
             <input type="name" id="name" name="name" placeholder="Name" class="input-def" value="{{ $user->name }}">
+            <div class="error-message">
+                {{ $errors->first("name") }}
+            </div>
         </div>        
-        <div class="form-group">
+        <div class="form-group @error("email") has-error @enderror">
             <label for="email" class="font-small pl-smaller">Email</label>
             <input type="email" id="email" name="email" placeholder="Email" class="input-def" value="{{ $user->email }}">
+            <div class="error-message">
+                {{ $errors->first("email") }}
+            </div>
         </div>        
-        <div class="form-group">
+        <div class="form-group @error("phone") has-error @enderror">
             <label for="phone" class="font-small pl-smaller">Phone</label>
             <input type="text" id="phone" name="phone" placeholder="Phone" class="input-def" value="{{ $user->phone }}">
+            <div class="error-message">
+                {{ $errors->first("phone") }}
+            </div>
         </div>
         <div class="form-group">
             <div>
@@ -22,23 +32,24 @@
             </div>
             <div class="relative">
                 <div class="flex">
-                    <button name="user-icon" id="user-icon" class="user-icon-input" type="button">
+                    <button name="user-icon" id="user-icon" class="user-icon-input-btn" type="button">
                         <img src="{{ $user->userIcon->image_path }}" alt="User Icon" class="user-icon-profile">
                     </button>
-                    <input type="text" name="user-name" id="user-name" placeholder="User Name" class="input-def name-input" value="{{ $user->user_name }}" >
+                    <input type="text" name="user_name" id="user-name" placeholder="User Name" class="input-def name-input" value="{{ $user->user_name }}" >
                 </div>
                 <div class="icon-list hidden">
-                    <img src="#" alt="" class="icon-li">
-                    <img src="#" alt="" class="icon-li">
-                    <img src="#" alt="" class="icon-li">
-                    <img src="#" alt="" class="icon-li">
-                    <img src="#" alt="" class="icon-li">
+                    <input type="hidden" name="user_icon_id" id="hidden-input" value="{{ $user->userIcon->id }}">
+                    @foreach ($user_icons as $user_icon)
+                        <button type="button" class="btn-def-unset icon-li-btn" data-id="{{ $user_icon->id }}" data-src="{{ $user_icon->image_path }}">
+                            <img src="{{ $user_icon->image_path }}" alt="User Icon {{ $user_icon->id }}" class="icon-li">
+                        </button>
+                    @endforeach
                 </div>
             </div>
         </div>
         <div class="flex gap-1 justify-end">
-            <button class="btn">Reset</button>
-            <button class="btn">Update</button>
+            <button type="reset" class="btn">Reset</button>
+            <button type="submit" class="btn">Update</button>
         </div>
     </form>
 </div>
@@ -66,3 +77,4 @@
 </div>
     
 </x-app-layout>
+
