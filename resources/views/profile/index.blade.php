@@ -56,15 +56,22 @@
 
 <div>
     <p class="bold">Update Password</p>
-    <form action="#" method="GET" class="flex-col align-center gap-small mtb-small">
+    <form action="{{ route('profile.updatePassword') }}" method="POST" class="flex-col align-center gap-small mtb-small">
         @csrf
-        <div class="form-group">
+        @method("PUT")
+        <div class="form-group @error("current_password") has-error @enderror">
             <label for="current-password" class="font-small pl-smaller">Current Password</label>
             <input type="password" id="current-password" name="current_password" placeholder="Current password" class="input-def">
+            <div class="error-message">
+                {{ $errors->first("current_password") }}
+            </div>
         </div>
-        <div class="form-group">
+        <div class="form-group @error("new_password") has-error @enderror">
             <label for="new-password" class="font-small pl-smaller">New Password</label>
             <input type="password" name="new_password" placeholder="New password" class="input-def">
+            <div class="error-message">
+                {{ $errors->first("new_password") }}
+            </div>
         </div>
         <div class="form-group">
             <label for="new-password-confirmation" class="font-small pl-smaller">Repeat Password</label>

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\UserIcon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Password;
 
 class ProfileController
 {
@@ -34,5 +36,25 @@ class ProfileController
         $user->save();
 
         return redirect()->route("profile.index")->with("success", "profile information was updated successfully");
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $user = $request->user();
+        $request->validate([
+            "current_password" => "required|current_password",
+            "new_password" => ["required", "string", "confirmed",
+                Password::min(8)
+                ->max(24)
+                ->numbers()
+                ->mixedCase()
+                ->symbols()
+                ->uncompromised()
+                ]
+        ]);
+
+        $user->update(["password" => Hash::make($request->new_password)]);
+
+        return redirect()->route("profile.index")->with("success", "password was updated successfully");
     }
 }

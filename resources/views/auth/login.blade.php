@@ -17,6 +17,7 @@
                     {{ $errors->first("password") }}
                 </div>
             </div>
+            <a href="{{ route('forgot-password') }}">Forgot Password?</a>
             <button class="primary-btn">Login</button>
         </form>
 

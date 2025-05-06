@@ -24,6 +24,7 @@ Route::post("/signup", [SignupController::class, "store"])->name("signup");
 
 Route::get("/profile", [ProfileController::class, "index"])->name("profile.index");
 Route::put("/profile", [ProfileController::class, "update"])->name("profile.update");
+Route::put("/profile/password", [ProfileController::class, "updatePassword"])->name("profile.updatePassword");
 
 Route::get("/settings", [SettingsController::class, "index"])->name("settings.index");
 Route::put("/settings", [SettingsController::class, "update"])->name("settings.update");
