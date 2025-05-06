@@ -53,6 +53,10 @@
     cursor: pointer;
 }
 
+.auth-form-width {
+    width: 30rem;
+}
+
 li {
     all: unset;
     color: var(--black);
@@ -108,6 +112,7 @@ li a {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    width: 100%;
 }
 
 .error-message {
@@ -211,7 +216,7 @@ li a {
 }
 
 .input-def {
-    width: 30rem;
+    width: 100%;
     height: 2.3rem;
     border-radius: 5px;
     border: 1px solid var(--bc-stronger);
@@ -259,24 +264,6 @@ li a {
     border: none;
     color: white;
     font-size: large;
-}
-
-.mr-smaller {
-    margin-right: 0.5rem;
-}
-
-.mr-small {
-    margin-right: 1rem;
-}
-
-.mtb-small {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-
-.mtb-smaller {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
 }
 
 .heart {
@@ -390,6 +377,24 @@ li a {
 
 .ml-small {
     margin-left: 1rem;
+}
+
+.mr-smaller {
+    margin-right: 0.5rem;
+}
+
+.mr-small {
+    margin-right: 1rem;
+}
+
+.mtb-small {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.mtb-smaller {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .ml-medium {
@@ -890,9 +895,9 @@ li a {
         margin-right: 0.3rem;
     }
     
-    .input-def {
-            width: 25rem;
-        }
+    .auth-form-width {
+        width: 25rem;
+    }
     
     .name-input {
         width: 22.7rem;
@@ -976,7 +981,7 @@ li a {
         max-width: 95%;
     }
 
-    .input-def {
+    .auth-form-width {
         width: 20rem;
     }
 
