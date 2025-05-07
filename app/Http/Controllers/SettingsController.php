@@ -29,8 +29,8 @@ class SettingsController
 
         $setting->update($data);
 
-        if ($data["public_mode"]) {
-            
+        if (!$data["public_mode"]) {
+            $user->contents()->update(["public" => 0]);
         }
 
         return redirect()->route("settings.index")->with("success", "the settings were updated successfully");
