@@ -551,13 +551,13 @@ li a {
     right:11rem;
 }
 
-.small-toolbar {
+.small-toolbar, .new-small-toolbar {
     position: absolute;
     right: 0;
     top: -1.55rem;
 }
 
-.small-toolbar .trix-button {
+.small-toolbar .trix-button, .new-small-toolbar .trix-button{
     width: 1.5rem;
     height: 1.5rem;
 }
@@ -921,10 +921,6 @@ li a {
         width: 25rem;
     }
     
-    .s-btn {
-        width: 5rem;
-    }
-    
     .page-title {
         width: 5rem;
     }
@@ -937,7 +933,12 @@ li a {
         display: none;
     }
 
-    
+}
+
+@media (max-width: 560px) {
+    .max-w-80 {
+        max-width: 95%;
+    }
 }
 
 @media (max-width:480px) {
@@ -991,10 +992,6 @@ li a {
         padding-left: 4.25rem;
     }
 
-    .max-w-80 {
-        max-width: 95%;
-    }
-
     .auth-form-width {
         width: 20rem;
     }
@@ -1019,4 +1016,12 @@ li a {
         height: 18rem;
     }
 
+}
+
+@media (max-width: 420px) {
+    .small-toolbar {
+        right: unset;
+        top: unset;
+        bottom: -2.3rem;
+    }
 }

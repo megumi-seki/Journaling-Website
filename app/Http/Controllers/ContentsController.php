@@ -129,7 +129,7 @@ class ContentsController
 
         $contents = $query->paginate(15)->withQueryString();
 
-        return view("content.index", ["contents" => $contents]);
+        return view("content.index", ["contents" => $contents, "user" => $user]);
 
     }
 

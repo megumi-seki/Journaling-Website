@@ -22,9 +22,7 @@ document.addEventListener(("DOMContentLoaded"), function() {
                 </div>`;
     }
 
-    document.addEventListener("trix-before-initialize", () => {
-        updateToolbars()    
-    });
+    document.addEventListener("trix-before-initialize", updateToolbars, { onece: true } );
 
     function updateToolbars(event) {
         const toolbars = document.querySelectorAll("trix-toolbar");

@@ -47,8 +47,8 @@
                 </div>
             </div>
         </div>
-        <div class="flex gap-1 justify-end">
-            <button type="reset" class="btn">Reset</button>
+        <div class="width-max flex gap-1 justify-end">
+            <button type="reset" class="btn bg-white color-main">Reset</button>
             <button type="submit" class="btn">Update</button>
         </div>
     </form>
@@ -77,7 +77,7 @@
             <label for="new-password-confirmation" class="font-small pl-smaller">Repeat Password</label>
             <input type="password" name="new_password_confirmation" placeholder="Repeat password" class="input-def">
         </div>
-        <div class="flex gap-1 justify-end">
+        <div class="width-max flex gap-1 justify-end">
             <button class="btn">Update password</button>
         </div>
     </form>

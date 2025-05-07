@@ -41,9 +41,9 @@
             @endfor
             </select>
         </div>
-        <div class="width-max gap-1 flex justify-center" class="input-def">
-            <button type="reset" class="btn s-btn bg-white color-main">Reset</button>
-            <button type="submit" class="btn s-btn">Save</button>
+        <div class="width-max gap-1 flex justify-end" class="input-def">
+            <button type="reset" class="btn bg-white color-main">Reset</button>
+            <button type="submit" class="btn">Save</button>
         </div>
     </form>       
 </x-app-layout>

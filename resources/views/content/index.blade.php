@@ -32,12 +32,12 @@
             @csrf     
                 <input name="content_text" id="x" type="hidden">
                 {{-- TODO set toolbar --}}
-                <trix-toolbar id="my_toolbar" class="small-toolbar"></trix-toolbar>
+                <trix-toolbar id="my_toolbar" class="new-small-toolbar"></trix-toolbar>
                 <trix-editor toolbar="my_toolbar" input="x" class="editor-def editor-abled"></trix-editor>
                 <div class="add-btn-for-new flex">
                     @if ($user->setting->public_mode)
-                    <label for="public1" class="hover-effect inline-flex justify-center gap-smallest btn small-btn small-checkbox-label font-smaller mr-small border-r-set">
-                        <input type="checkbox" id="public1" name="public" class="small-checkbox ver-al">
+                    <label for="public-0" class="hover-effect inline-flex justify-center gap-smallest btn small-btn small-checkbox-label font-smaller mr-small border-r-set">
+                        <input type="checkbox" id="public-0" name="public" class="small-checkbox ver-al">
                         public
                     </label>
                     @endif
