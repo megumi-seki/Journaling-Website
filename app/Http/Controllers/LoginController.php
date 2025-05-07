@@ -35,7 +35,7 @@ class LoginController
     {
         Auth::logout();
 
-        $request->session()->regenerate();
+        $request->session()->invalidate();
         $request->session()->regenerateToken();
 
         return redirect()->route("top")->with("success", "You logged out. See you again soon:)");
