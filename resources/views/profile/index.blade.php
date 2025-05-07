@@ -30,12 +30,12 @@
                 <label for="user-icon" class="font-small ml-minus-small">User Icon</label>
                 <label for="user-name" class="font-small pl-smaller">User Name</label>
             </div>
-            <div class="relative">
-                <div class="flex">
+            <div class="relative width-max">
+                <div class="flex  width-max">
                     <button name="user-icon" id="user-icon" class="user-icon-input-btn" type="button">
                         <img src="{{ $user->userIcon->image_path }}" alt="User Icon" class="user-icon-profile">
                     </button>
-                    <input type="text" name="user_name" id="user-name" placeholder="User Name" class="input-def name-input" value="{{ $user->user_name }}" >
+                    <input type="text" name="user_name" id="user-name" placeholder="User Name" class="input-def   width-max" value="{{ $user->user_name }}" >
                 </div>
                 <div class="icon-list hidden">
                     <input type="hidden" name="user_icon_id" id="hidden-input" value="{{ $user->userIcon->id }}">
