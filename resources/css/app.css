@@ -551,6 +551,17 @@ li a {
     right:11rem;
 }
 
+.small-toolbar {
+    position: absolute;
+    right: 0;
+    top: -1.55rem;
+}
+
+.small-toolbar .trix-button {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
 .border-lt {
   border-radius: 5px 0 0 0;
 }

@@ -3,23 +3,34 @@ import Trix from "trix";
 
 document.addEventListener(("DOMContentLoaded"), function() {
 
-    // TODO figure out how to overwrite the toolbar
-    // document.addEventListener("trix-before-initialize", () => {
-    //     Trix.config.toolbar.getDefaultHTML = () => {
-    //         return `<div class="trix-button-row">
-    //         <span class="trix-button-group trix-button-group--text-tools" data-trix-button-group="text-tools">
-    //           <button type="button" class="trix-button trix-button--icon trix-button--icon-bold" data-trix-attribute="bold" data-trix-key="b" title="${lang.bold}" tabindex="-1">${lang.bold}</button>
-    //           <button type="button" class="trix-button trix-button--icon trix-button--icon-italic" data-trix-attribute="italic" data-trix-key="i" title="${lang.italic}" tabindex="-1">${lang.italic}</button>
-    //           <button type="button" class="trix-button trix-button--icon trix-button--icon-strike" data-trix-attribute="strike" title="${lang.strike}" tabindex="-1">${lang.strike}</button>
-    //         </span>
+    Trix.config.toolbar.getDefaultHTML = toolbarDefaultHTML;
+
+    function toolbarDefaultHTML() {
+        const { lang } = Trix.config;
+
+        return `<div class="trix-button-row">
+                    <span class="trix-button-group trix-button-group--text-tools" data-trix-button-group="text-tools">
+                        <button type="button" class="trix-button trix-button--icon trix-button--icon-bold" data-trix-attribute="bold" data-trix-key="b" title="${lang.bold}" tabindex="-1">${lang.bold}</button>
+                        <button type="button" class="trix-button trix-button--icon trix-button--icon-italic" data-trix-attribute="italic" data-trix-key="i" title="${lang.italic}" tabindex="-1">${lang.italic}</button>
+                        <button type="button" class="trix-button trix-button--icon trix-button--icon-strike" data-trix-attribute="strike" title="${lang.strike}" tabindex="-1">${lang.strike}</button>
+                    </span>
       
-    //         <span class="trix-button-group trix-button-group--history-tools" data-trix-button-group="history-tools">
-    //           <button type="button" class="trix-button trix-button--icon trix-button--icon-undo" data-trix-action="undo" data-trix-key="z" title="${lang.undo}" tabindex="-1">${lang.undo}</button>
-    //           <button type="button" class="trix-button trix-button--icon trix-button--icon-redo" data-trix-action="redo" data-trix-key="shift+z" title="${lang.redo}" tabindex="-1">${lang.redo}</button>
-    //         </span>
-    //       </div>`;
-    //     };
-    // });
+                    <span class="trix-button-group trix-button-group--history-tools" data-trix-button-group="history-tools">
+                        <button type="button" class="trix-button trix-button--icon trix-button--icon-undo" data-trix-action="undo" data-trix-key="z" title="${lang.undo}" tabindex="-1">${lang.undo}</button>
+                        <button type="button" class="trix-button trix-button--icon trix-button--icon-redo" data-trix-action="redo" data-trix-key="shift+z" title="${lang.redo}" tabindex="-1">${lang.redo}</button>
+                    </span>
+                </div>`;
+    }
+
+    document.addEventListener("trix-before-initialize", () => {
+        updateToolbars()    
+    });
+
+    function updateToolbars(event) {
+        const toolbars = document.querySelectorAll("trix-toolbar");
+        const html = Trix.config.toolbar.getDefaultHTML();
+        toolbars.forEach((toolbar) => (toolbar.innerHTML = html));
+    }
 
     // toggle sidebar
     const toggleSidebar = () => {
@@ -99,10 +110,12 @@ document.addEventListener(("DOMContentLoaded"), function() {
         toggleBtns.forEach((btn) => {
             const grandParent = btn.closest("div").parentElement;
             const checkBox = grandParent.querySelector(".small-checkbox");
-            const originallyIsChecked = checkBox.checked;
+            let originallyIsChecked;
+            if (checkBox) {originallyIsChecked = checkBox.checked;}
             const trixInput = grandParent.querySelector(".trix-input");
             const originalContentText = trixInput.value;
             const trixEditor = grandParent.querySelector("#trix-editor");
+            const trixToolbar = grandParent.querySelector(".small-toolbar");
             
             btn.addEventListener("click", function() {
                 const btnsToToggle = grandParent.querySelectorAll(".btn-to-toggle");
@@ -111,7 +124,7 @@ document.addEventListener(("DOMContentLoaded"), function() {
                 if (isEditable) {
                     alert(`The change you made won't be saved. 
 Are you sure to cancel the edit?`);
-                    checkBox.checked = originallyIsChecked;
+                    if (checkBox) {checkBox.checked = originallyIsChecked;}
                     trixInput.value = originalContentText;
                     trixEditor.editor.loadHTML(originalContentText);
                     trixEditor.setAttribute("contenteditable", "false");
@@ -121,8 +134,9 @@ Are you sure to cancel the edit?`);
                     btn.innerText = "Cancel";
                 }
 
-                trixEditor.classList.toggle("editor-abled")
-                checkBox.disabled = !checkBox.disabled;
+                trixToolbar.classList.toggle("hidden");
+                trixEditor.classList.toggle("editor-abled");
+                if (checkBox) {checkBox.disabled = !checkBox.disabled;}
                 btnsToToggle.forEach((btnToToggle) => {
                     btnToToggle.classList.toggle("hover-effect");
                     btnToToggle.disabled = !btnToToggle.disabled;
@@ -139,13 +153,14 @@ Are you sure to cancel the edit?`);
         const input = document.querySelector(".trix-input-to-edit");
         const originalContentText = input.value;
         const checkBox = document.querySelector(".small-checkbox");
-        const originallyIsChecked = checkBox.checked;
+        let originallyIsChecked;
+        if (checkBox) {originallyIsChecked = checkBox.checked;}
         const trixEditor = document.getElementById("trix-editor");
 
         resetBtn.addEventListener("click", () => {
             alert(`The change you made won't be saved. 
 Are you sure to cancel the edit?`);
-            checkBox.checked = originallyIsChecked;
+            if (checkBox) {checkBox.checked = originallyIsChecked;}
             input.value = originalContentText;
             trixEditor.editor.loadHTML(originalContentText);            
         });
@@ -333,7 +348,7 @@ Are you sure to cancel the edit?`);
         });
     }
 
-    // adjust fotm inputs to include the order
+    // adjust form inputs to include the order
     const adjustForm = () => {
         const searchForms = document.querySelectorAll(".search-form");
         if(!searchForms) return;
@@ -384,16 +399,8 @@ Are you sure to cancel the edit?`);
             });
         });
     }
-    // const confirmToDelete = () => {
-    //     const deleteBtns = document.querySelectorAll(".delete-btn");
-    //     if (!deleteBtns) return;
-
-    //     deleteBtns.forEach((btn) => {
-    //         btn.addEventListener("click", () => {
-    //             btn.defa
-    //         })
-    //     })
-    // }
+    
+    // TODO make confirmation function to delete a content
 
     toggleSidebar();
     toggleFilter();
@@ -411,4 +418,4 @@ Are you sure to cancel the edit?`);
     profileSettingResetBtn();
     resetBtnOnExpanded();
     profileHiddenUserIconInput();
-})
+});

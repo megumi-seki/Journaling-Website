@@ -32,7 +32,7 @@
             @csrf     
                 <input name="content_text" id="x" type="hidden">
                 {{-- TODO set toolbar --}}
-                <trix-toolbar id="my_toolbar" class="hidden"></trix-toolbar>
+                <trix-toolbar id="my_toolbar" class="small-toolbar"></trix-toolbar>
                 <trix-editor toolbar="my_toolbar" input="x" class="editor-def editor-abled"></trix-editor>
                 <div class="add-btn-for-new flex">
                     @if ($user->setting->public_mode)
@@ -51,7 +51,7 @@
         <div id="content-wrapper">
             <div class="flex align-center">
             <span class="ml-small mr-small font-small">{{ $content->created_at->isoFormat("dddd, MMMM D, YYYY h:mm A") }}</span> 
-                @if ($content->public)
+                @if ($user->setting->public_mode)
                     <img src="{{ asset('img/heart-with-colors.png') }}" alt="" class="heart">
                     <span class="font-small mr-smaller">        
                         {{ $content->sentHeartUsers->count() ?: "" }}
@@ -68,7 +68,7 @@
                     @csrf
                     @method("PATCH")
                     <input id="x-{{ $content->id }}" name="content_text" value="{{ $content->content_text }}" type="hidden" class="trix-input">
-                    <trix-toolbar id="hidden-toolbar-{{ $content->id }}" class="hidden"></trix-toolbar>
+                    <trix-toolbar id="hidden-toolbar-{{ $content->id }}" class="small-toolbar hidden"></trix-toolbar>
                     <trix-editor id="trix-editor" toolbar="hidden-toolbar-{{ $content->id }}" input="x-{{ $content->id }}" class="editor-def" contenteditable="false"></trix-editor>         
                     <x-edit-remove-icon :public="$user->setting->public_mode" />
                     <x-edit-icon />

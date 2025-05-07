@@ -2,7 +2,6 @@
         <trix-toolbar id="toolbar" class=""></trix-toolbar> 
         <form action="{{ $content ? route('contents.update', $content) : route('contents.store') }}" method="POST" class="flex-col">
                 @csrf
-
                 @if ($content)
                 @method("PATCH")
                 <input id="x-{{ $content->id }}" name="content_text" value="{{ $content->content_text }}" type="hidden" class="trix-input-to-edit">
