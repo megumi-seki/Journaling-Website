@@ -2,36 +2,34 @@
         <trix-toolbar id="toolbar" class=""></trix-toolbar> 
         <form action="{{ $content ? route('contents.update', $content) : route('contents.store') }}" method="POST" class="flex-col">
                 @csrf
-        @if ($content)
+
+                @if ($content)
                 @method("PATCH")
                 <input id="x-{{ $content->id }}" name="content_text" value="{{ $content->content_text }}" type="hidden" class="trix-input-to-edit">
                 <trix-editor id="trix-editor" toolbar="toolbar" name="new-content"  input="x-{{ $content->id }}"  class="editor-def txta-new editor-abled"  contenteditable="true"></trix-editor> 
-        @else
+                @else
                 <input id="new-input" name="content_text" type="hidden" class="trix-input-to-edit">
                 <trix-editor toolbar="toolbar" name="new-content" class="editor-def txta-new editor-abled" input="new-input"  contenteditable="true"></trix-editor> 
-        @endif
-        <div class="flex justify-end">
-
-                @if ($content)
-                <label for="public0" class="hover-effect inline-flex justify-center gap-smallest btn medium-btn small-checkbox-label mr-small border-r-set bg-white color-main">
-                        <input {{ $content->public ? "checked" : ""}} name="public" type="checkbox" id="public0" name="public" class="small-checkbox">
-                               public
-                        </label>
-                        <button id="content-reset-btn" type="button" class="btn medium-btn hover-effect bg-white color-main mr-small">Reset</button>
-                @else
-                <label for="public0" class="hover-effect inline-flex justify-center gap-smallest btn medium-btn small-checkbox-label mr-small border-r-set bg-white color-main">
-                        <input name="public" type="checkbox" id="public0" name="public" class="small-checkbox">
-                               public
-                        </label>
                 @endif
-                <button type="submit" class="btn medium-btn mr-small">Save</button>
+
+                <div class="flex justify-end">
+                        <button id="content-reset-btn" type="button" class="btn medium-btn hover-effect bg-white color-main mr-small {{ $content ? '' : 'hidden'}}">Reset</button>
+                        @if ($user->setting->public_mode)
+                        <label for="public" class="hover-effect inline-flex justify-center gap-smallest btn medium-btn small-checkbox-label mr-small border-r-set bg-white color-main">
+                                <input {{ $content && $content->public ? "checked" : ""}} name="public" type="checkbox" id="public" name="public" class="small-checkbox">
+                                        public
+                        </label>
+                        @endif
+                        <button type="submit" class="btn medium-btn mr-small">Save</button>
+                </div>
         </form>
         @if ($content)
-        <form action="{{ route('contents.destroy', $content) }}" method="POST">
+        <div class="flex justify-end">
+        <form action="{{ route('contents.destroy', $content) }}" method="POST" class="mtb-smaller">
                 @csrf
                 @method("DELETE")
-                <button id="content-reset-btn" class="btn medium-btn hover-effect bg-white color-main mr-small">Delete</button>
+                <button id="content-reset-btn" class="btn medium-btn hover-effect mr-small">Delete</button>
         </form>
-        @endif
         </div>
+        @endif
 </x-app-layout>

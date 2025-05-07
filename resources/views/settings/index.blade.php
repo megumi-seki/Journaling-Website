@@ -22,16 +22,6 @@
             <select name="color_unit_id" id="colors" class="input-def">
             @for ($i = 0; $i < 8; $i++)
                 <option value="{{ $i + 1 }}" {{ $i + 1 == $settings->color_unit_id ? "selected" :""}}>Colors {{ $i + 1 }}</option>
-                {{-- <option value="{{ $i + 1 }}" >Colors {{ $i + 1 }}</option> --}}
-            @endfor
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="font-style" class="font-small pl-smaller">Font Style</label>
-            <select name="font_style_id" id="font-style" class="input-def">
-            @for ($i = 0; $i < 8; $i++)
-                <option value="{{ $i + 1 }}" {{ $i + 1 == $settings->font_style_id ? "selected" :""}}>Font Style {{ $i + 1 }}</option>
-                {{-- <option value="{{ $i + 1 }}" >Font Style {{ $i + 1 }}</option> --}}
             @endfor
             </select>
         </div>
@@ -40,7 +30,14 @@
             <select name="font_size_id" id="font-size" class="input-def">
             @for ($i = 0; $i < 6; $i++)
                 <option value="{{ $i + 1 }}" {{ $i + 1 == $settings->font_size_id ? "selected" :""}}>Font Size {{ $i + 1 }}</option>
-                {{-- <option value="{{ $i + 1 }}" >Font Size {{ $i + 1 }}</option> --}}
+            @endfor
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="font-style" class="font-small pl-smaller">Font Style</label>
+            <select name="font_style_id" id="font-style" class="input-def">
+            @for ($i = 0; $i < 8; $i++)
+                <option value="{{ $i + 1 }}" {{ $i + 1 == $settings->font_style_id ? "selected" :""}}>Font Style {{ $i + 1 }}</option>
             @endfor
             </select>
         </div>

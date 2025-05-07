@@ -19,7 +19,7 @@ class ContentsController
             ->with(["hashtags", "sentHugUsers", "sentHeartUsers"])
             ->paginate(15);
             
-        return view("content.index", ["contents" => $contents]);
+        return view("content.index", ["contents" => $contents, "user" => $user]);
     }
 
     /**
@@ -27,9 +27,10 @@ class ContentsController
      */
     public function create(Request $request)
     {
+        $user = $request->user();
         $contentId = $request->query("content_id");
         $content = Content::find($contentId);
-        return view("content.create", ["content" => $content]);
+        return view("content.create", ["content" => $content, "user" => $user]);
     }
 
     /**

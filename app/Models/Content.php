@@ -57,4 +57,5 @@ class Content extends Model
     public function isTagged(User $user) {
         return $this->publicTaggedUsers->contains($user);
     }
+
 }

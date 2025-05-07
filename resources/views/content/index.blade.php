@@ -35,10 +35,12 @@
                 <trix-toolbar id="my_toolbar" class="hidden"></trix-toolbar>
                 <trix-editor toolbar="my_toolbar" input="x" class="editor-def editor-abled"></trix-editor>
                 <div class="add-btn-for-new flex">
+                    @if ($user->setting->public_mode)
                     <label for="public1" class="hover-effect inline-flex justify-center gap-smallest btn small-btn small-checkbox-label font-smaller mr-small border-r-set">
-                        <input checked type="checkbox" id="public1" name="public" class="small-checkbox ver-al">
+                        <input type="checkbox" id="public1" name="public" class="small-checkbox ver-al">
                         public
                     </label>
+                    @endif
                     <a href="{{ route('contents.create') }}" class="expand-btn hover-effect small-btn border-lt ta-center reset-def">Expand</a>
                     <button type="submit" class="hover-effect small-btn border-rb border-r-set">Save</button>
                 </div>
@@ -49,14 +51,16 @@
         <div id="content-wrapper">
             <div class="flex align-center">
             <span class="ml-small mr-small font-small">{{ $content->created_at->isoFormat("dddd, MMMM D, YYYY h:mm A") }}</span> 
-                <img src="{{ asset('img/heart-with-colors.png') }}" alt="" class="heart">
-                <span class="font-small mr-smaller">        
-                    {{ $content->sentHeartUsers->count() ?: "" }}
-                </span>
-                <img src="{{ asset('img/hug-blue-with-line.png')}}" alt="" class="hug">
-                <span class="font-small mr-smaller">
-                    {{ $content->sentHugUsers->count() ?: "" }}
-                </span>
+                @if ($content->public)
+                    <img src="{{ asset('img/heart-with-colors.png') }}" alt="" class="heart">
+                    <span class="font-small mr-smaller">        
+                        {{ $content->sentHeartUsers->count() ?: "" }}
+                    </span>
+                    <img src="{{ asset('img/hug-blue-with-line.png')}}" alt="" class="hug">
+                    <span class="font-small mr-smaller">
+                        {{ $content->sentHugUsers->count() ?: "" }}
+                    </span>
+                @endif
             </div>
             <div class="txta-wrapper">
                 <x-tag :$content /> 
@@ -66,12 +70,14 @@
                     <input id="x-{{ $content->id }}" name="content_text" value="{{ $content->content_text }}" type="hidden" class="trix-input">
                     <trix-toolbar id="hidden-toolbar-{{ $content->id }}" class="hidden"></trix-toolbar>
                     <trix-editor id="trix-editor" toolbar="hidden-toolbar-{{ $content->id }}" input="x-{{ $content->id }}" class="editor-def" contenteditable="false"></trix-editor>         
-                    <x-edit-remove-icon />
+                    <x-edit-remove-icon :public="$user->setting->public_mode" />
                     <x-edit-icon />
+                    @if ($user->setting->public_mode)
                     <label for="public-{{ $content->id }}" class="public-label hidden-when-medium btn-to-toggle inline-flex justify-center gap-smallest btn small-btn small-checkbox-label font-smaller mr-small border-r-set">
                         <input disabled {{ $content->public ? "checked" : "" }} type="checkbox" id="public-{{ $content->id }}" name="public" class="small-checkbox ver-al">
                         public
                     </label>
+                    @endif
                 </form>
                 <x-small-buttons :$content />
             </div>

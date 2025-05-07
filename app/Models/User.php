@@ -79,4 +79,5 @@ class User extends Authenticatable implements MustVerifyEmail
     public function heartSentContents() {
         return $this->belongsToMany(Content::class, "sent_heart_contents");
     }
+
 }
