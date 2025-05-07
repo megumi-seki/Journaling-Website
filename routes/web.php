@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContentsController;
+use App\Http\Controllers\EmailVerifyController;
 use App\Http\Controllers\EveryonesController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PasswordResetController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\TopController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 // Auth::routes(["verify" => true]);
@@ -52,3 +54,10 @@ Route::resource("/contents", ContentsController::class);
 Route::get("/content/filter", [ContentsController::class, "filter"])
     ->name("content.filter");
 Route::patch("/content/{content}/restore-tag", [ContentsController::class, "restoreTag"]);
+
+Route::get("/email/verify", [EmailVerifyController::class, "notice"])
+    ->name("verification.notice");
+Route::get("/email/verify/{id}/{hash}", [EmailVerifyController::class, "verify"])
+    ->name("verification.verify");
+Route::post("/email/verification-notification", [EmailVerifyController::class, "send"])
+    ->name("verification.send");

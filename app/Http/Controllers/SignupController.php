@@ -35,7 +35,7 @@ class SignupController
         $data["password"] = Hash::make($data["password"]);
         $user = User::create($data);
 
-        // event(new Registered($user));
+        event(new Registered($user));
 
         Auth::login($user);
 
