@@ -36,30 +36,31 @@
     padding: 0;
 }
 
-
-.html-1 {
-    font-size: 75%;
-}
-
-.html-2 {
-    font-size: 87.5%;
-}
-
-.html-3 {
-    font-size: 100%;
-}
-
-.html-4 {
-    font-size: 125%;
-}
-
-.html-5 {
-    font-size: 150%;
-}
+.html-1 { font-size: 75%; }
+.html-2 { font-size: 87.5%; }
+.html-3 { font-size: 100%; }
+.html-4 { font-size: 125%; }
+.html-5 { font-size: 150%; }
 
 body, input, select, button {
     font-size: 1rem;
 }
+
+.font-1 { font-family: Arial, Helvetica, sans-serif; }
+.font-2 { font-family: Verdana, Geneva, Tahoma, sans-serif; }
+.font-3 { font-family: "Roboto", Arial, Helvetica, sans-serif; }
+.font-4 { font-family: 'Times New Roman', Times, serif; }
+.font-5 { font-family: Georgia, 'Times New Roman', Times, serif; }
+.font-6 { font-family: "EB Garamond", Georgia, 'Times New Roman', serif; }
+.font-7 { font-family: "Poppins", 'Roboto', Arial, Helvetica, sans-serif; }
+.font-8 { font-family: "Work Sans", 'Roboto', Arial, Helvetica, sans-serif; }
+.font-9 { font-family: "Quicksand", "Roboto", Arial, Helvetica, sans-serif; }
+.font-10 { font-family: monospace; }
+.font-11 { font-family: 'Courier New', Courier, monospace; }
+.font-12 { font-family: "Caveat", "Dancing Script", cursive, sans-serif; }
+.font-13 { font-family: "Patrick Hand", "Caveat", "Dancing Script", sans-serif; }
+.font-14 { font-family: "Dancing Script", "Caveat", "Patric Hand", cursive, sans-serif; }
+.font-15 { font-family: "Gloria Hallelujah", "Caveat", "Patric Hand", cursive, sans-serif; }
 
 .all-unset {
     all: unset;

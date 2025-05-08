@@ -36,16 +36,23 @@ class DatabaseSeeder extends Seeder
             
         FontStyle::factory()
             ->sequence(
-                ["name" => 'Arial'], 
-                ["name" => 'Times New Roman'], 
-                ["name" => 'Helvetica'], 
+                ["name" => "Arial"],
                 ["name" => 'Verdana'], 
+                ["name" => 'Roboto'], 
+                ["name" => 'Times New Roman'], 
                 ["name" => 'Georgia'], 
-                ["name" => 'Tahoma'], 
+                ["name" => 'EB Garamond'], 
+                ["name" => 'Poppins'], 
+                ["name" => 'Work Sans'], 
+                ["name" => 'Quicksand'], 
+                ["name" => 'Monospace'], 
                 ["name" => 'Courier New'], 
-                ["name" => 'Roboto'],
+                ["name" => 'Caveat'], 
+                ["name" => 'Patrick Hand'], 
+                ["name" => 'Dancing Script'], 
+                ["name" => 'Gloria Hallelujah'], 
             )
-            ->count(8)
+            ->count(15)
             ->create();
             
         Hashtag::factory()

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FontStyle;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 
@@ -11,7 +12,8 @@ class SettingsController
     {
         $user = $request->user();
         $settings = Setting::where("user_id", $user->id)->first();
-        return view("settings.index", ["settings"=> $settings, "user" => $user]);
+        $fontStyles = FontStyle::all();
+        return view("settings.index", ["settings"=> $settings, "user" => $user, "fontStyles" => $fontStyles]);
     }
 
     public function update(Request $request) 

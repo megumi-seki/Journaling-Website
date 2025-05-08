@@ -33,16 +33,22 @@
             <label for="font-size" class="font-small pl-smaller">Font Size</label>
             <select name="font_size" id="font-size" class="input-def">
                 @foreach ($fontSizes as $fontSize)
-                    <option value="{{ $loop->iteration }}" {{ $loop->iteration == $settings->font_size ? "selected" :""}}>{{ $fontSize }}</option>
+                    <option value="{{ $loop->iteration }}" {{ $loop->iteration == $settings->font_size ? "selected" :""}}>
+                        {{ $fontSize }}
+                    </option>
                 @endforeach
             </select>
         </div>
         <div class="form-group">
             <label for="font-style" class="font-small pl-smaller">Font Style</label>
-            <select name="font_style_id" id="font-style" class="input-def">
-            @for ($i = 0; $i < 8; $i++)
-                <option value="{{ $i + 1 }}" {{ $i + 1 == $settings->font_style_id ? "selected" :""}}>Font Style {{ $i + 1 }}</option>
-            @endfor
+            {{-- TODO js to change font style on select before submitting --}}
+            <select name="font_style_id" id="font-style" class="input-def font-{{ $settings->fontStyle->id }}">
+                @foreach ($fontStyles as $fontStyle)
+                    <option value="{{ $loop->iteration }}" {{ $loop->iteration == $settings->font_style_id ? "selected" :""}}
+                        class="font-{{ $loop->iteration }}">
+                        {{ $fontStyle->name }}
+                    </option>
+                @endforeach
             </select>
         </div>
         <div class="width-max gap-1 flex justify-end" class="input-def">

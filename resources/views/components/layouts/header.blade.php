@@ -1,7 +1,7 @@
-@props(['pageTitle' => ""])
+@props(['pageTitle' => "", "user" => null])
 
 <div class="header">
-    <x-buttons.app-icon />
+    <x-buttons.app-icon :$user />
 
     <div id="sidebar-icon" class="sidebar-icon-hide">
         <div class="inline-flex align-center">

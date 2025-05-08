@@ -33,7 +33,7 @@
                 <input name="content_text" id="x" type="hidden">
                 {{-- TODO set toolbar --}}
                 <trix-toolbar id="my_toolbar" class="new-small-toolbar"></trix-toolbar>
-                <trix-editor toolbar="my_toolbar" input="x" class="editor-def editor-abled"></trix-editor>
+                <trix-editor toolbar="my_toolbar" input="x" class="editor-def editor-abled font-{{ $user->setting->font_style_id }}"></trix-editor>
                 <div class="add-btn-for-new flex">
                     @if ($user->setting->public_mode)
                     <label for="public-0" class="hover-effect inline-flex justify-center gap-smallest btn small-btn small-checkbox-label font-smaller mr-small border-r-set">
@@ -50,7 +50,7 @@
         @forelse ($contents as $content)
         <div id="content-wrapper">
             <div class="flex">
-            <span class="ml-small mr-small font-small ">{{ $content->created_at->isoFormat("dddd, MMMM D, YYYY h:mm A") }}</span> 
+            <span class="ml-small mr-small font-small font-{{ $user->setting->font_style_id }}">{{ $content->created_at->isoFormat("dddd, MMMM D, YYYY h:mm A") }}</span> 
                 @if ($user->setting->public_mode)
                 <div class="flex align-center {{ $content->public ? '' : 'opacity' }}">
                     <img src="{{ asset('img/heart-with-colors.png') }}" alt="" class="heart">
@@ -71,7 +71,7 @@
                     @method("PATCH")
                     <input id="x-{{ $content->id }}" name="content_text" value="{{ $content->content_text }}" type="hidden" class="trix-input">
                     <trix-toolbar id="hidden-toolbar-{{ $content->id }}" class="small-toolbar hidden"></trix-toolbar>
-                    <trix-editor id="trix-editor" toolbar="hidden-toolbar-{{ $content->id }}" input="x-{{ $content->id }}" class="editor-def" contenteditable="false"></trix-editor>         
+                    <trix-editor id="trix-editor" toolbar="hidden-toolbar-{{ $content->id }}" input="x-{{ $content->id }}" class="editor-def font-{{ $user->setting->font_style_id }}" contenteditable="false"></trix-editor>         
                     <x-edit-remove-icon :public="$user->setting->public_mode" />
                     <x-edit-icon />
                     @if ($user->setting->public_mode)

@@ -44,7 +44,7 @@
             @endunless
             <input id="x-{{ $content->id }}" value="{{ $content->content_text }}" type="hidden">
             <trix-toolbar id="my_toolbar" class="hidden"></trix-toolbar>
-            <trix-editor toolbar="my_toolbar" input="x-{{ $content->id }}" class="pub-editor" contenteditable="false"></trix-editor>
+            <trix-editor toolbar="my_toolbar" input="x-{{ $content->id }}" class="pub-editor font-{{ $content->user->setting->font_style_id }}" contenteditable="false"></trix-editor>
         </div>
     </div>
     @empty
