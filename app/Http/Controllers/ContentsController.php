@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreContentRequest;
 use App\Models\Content;
+use App\Models\Hashtag;
 use Illuminate\Http\Request;
 
 class ContentsController
@@ -40,11 +41,17 @@ class ContentsController
     {
         $user = $request->user();
         $data = $request->validated();
-
-        // TODO make function to pickup hashtag
         $data["public"] = $request->has("public");
         $data["user_id"] = $user->id;
-        Content::create($data);
+
+        $content = Content::create($data);
+
+        preg_match_all("/#\w+/u", $data["content_text"],$matches);
+        foreach($matches[0] as $hashtag) {
+            $hashtag = Hashtag::firstOrCreate(["name" => $hashtag]);
+            $exists = $content->hashtags()->where("hashtags.id", $hashtag->id)->exists();
+            if (!$exists) { $content->hashtags()->attach($hashtag); }
+        }
 
         return redirect()->route("contents.index")->with("success", "new journal was saved successfully");
     }
@@ -73,6 +80,13 @@ class ContentsController
         $data = $request->validated();
         $data["public"] = $request->has("public");
         $content->update($data);
+
+        preg_match_all("/#\w+/u", $data["content_text"],$matches);
+        foreach($matches[0] as $hashtag) {
+            $hashtag = Hashtag::firstOrCreate(["name" => $hashtag]);
+            $exists = $content->hashtags()->where("hashtags.id", $hashtag->id)->exists();
+            if (!$exists) { $content->hashtags()->attach($hashtag); }
+        }
 
         return redirect()->route("contents.index")->with("success", "the content was updated successfully");
     }

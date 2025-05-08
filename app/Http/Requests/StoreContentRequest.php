@@ -23,7 +23,7 @@ class StoreContentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "content_text" => "required|string",
+            "content_text" => "required|string|max:10000",
             "public" => "nullable|string"
         ];
     }
