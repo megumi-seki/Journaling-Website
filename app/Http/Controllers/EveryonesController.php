@@ -35,7 +35,9 @@ class EveryonesController
         $query = Content::with(["hashtags"]);
 
        if ($hashtag) {
-            $query->where("content_text", "like", "%{$hashtag}%");
+            $query->whereHas("hashtags", function ($q) use ($hashtag) {
+                $q->where("name", $hashtag);
+            });
         } 
 
         if ($keyword) {

@@ -114,11 +114,12 @@ class ContentsController
         $query = Content::where("user_id", $user->id)
             ->with(["hashtags"]);
 
-            //TODO fix here about hashtag after creating function to add hashtags
-       if ($hashtag) {
-            $query->where("content_text", "like", "%{$hashtag}%");
+        if ($hashtag) {
+            $query->whereHas("hashtags", function ($q) use ($hashtag) {
+                $q->where("name", $hashtag);
+            });
         } 
-
+        
         if ($keyword) {
             $query->where("content_text", "like", "%{$keyword}%");
         }
