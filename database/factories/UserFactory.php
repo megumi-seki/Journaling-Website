@@ -31,7 +31,7 @@ class UserFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'phone' => fake()->numerify("#########"),
             'password' => static::$password ??= Hash::make('password'),
-            'remember_token' => Str::random(10),
+            // 'remember_token' => Str::random(10),
         ];
     }
 

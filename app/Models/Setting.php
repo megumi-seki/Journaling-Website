@@ -18,6 +18,14 @@ class Setting extends Model
         "font_style_id"
     ];
 
+    protected $attributes = [
+        "public_mode" => 0,
+        "screen_mode" => 0,
+        "color_unit_id" => 1,
+        "font_size_id" => 1,
+        "font_style_id" => 1
+    ];
+
     public function colorUnit() {
         return $this->belongsTo(ColorUnit::class);
     }

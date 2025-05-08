@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Setting;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -33,7 +34,9 @@ class SignupController
         ]);
 
         $data["password"] = Hash::make($data["password"]);
+        $data["public_mode"] = 0;
         $user = User::create($data);
+        $user->setting()->create();
 
         event(new Registered($user));
 
