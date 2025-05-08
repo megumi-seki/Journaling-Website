@@ -32,7 +32,11 @@ class EveryonesController
         $tag = $request->input("tag");
         $order = $request->input("order", "desc");
 
-        $query = Content::with(["hashtags"]);
+        $query = Content::where("public", 1)
+            ->whereHas("user.setting", function($query) {
+                $query->where("public_mode", 1);
+            })
+            ->with(["hashtags"]);
 
        if ($hashtag) {
             $query->whereHas("hashtags", function ($q) use ($hashtag) {

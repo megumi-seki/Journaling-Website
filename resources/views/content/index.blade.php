@@ -49,9 +49,10 @@
 
         @forelse ($contents as $content)
         <div id="content-wrapper">
-            <div class="flex align-center">
-            <span class="ml-small mr-small font-small">{{ $content->created_at->isoFormat("dddd, MMMM D, YYYY h:mm A") }}</span> 
+            <div class="flex">
+            <span class="ml-small mr-small font-small ">{{ $content->created_at->isoFormat("dddd, MMMM D, YYYY h:mm A") }}</span> 
                 @if ($user->setting->public_mode)
+                <div class="flex align-center {{ $content->public ? '' : 'opacity' }}">
                     <img src="{{ asset('img/heart-with-colors.png') }}" alt="" class="heart">
                     <span class="font-small mr-smaller">        
                         {{ $content->sentHeartUsers->count() ?: "" }}
@@ -60,6 +61,7 @@
                     <span class="font-small mr-smaller">
                         {{ $content->sentHugUsers->count() ?: "" }}
                     </span>
+                </div>
                 @endif
             </div>
             <div class="txta-wrapper">
