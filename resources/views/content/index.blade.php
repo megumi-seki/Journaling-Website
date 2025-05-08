@@ -27,7 +27,7 @@
 
     <section id="contents-section" class="flex-col gap-2 pb-small">
         <div id="content-wrapper">
-            <span class="font-small pl-small">Your new journal</span>
+            <span class="font-small ml-small">Your new journal</span>
             <form action="{{ route('contents.store') }}" method="POST" class="txta-wrapper">  
             @csrf     
                 <input name="content_text" id="x" type="hidden">

@@ -103,7 +103,7 @@ li a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.8rem 5%;
+    padding: 0.8rem 2rem;
     background-color: var(--white);
     z-index: 3;
 }
@@ -130,7 +130,7 @@ li a {
 }
 
 .pub-editor {
-    padding: 1rem 4.5rem;
+    padding-right: 4rem;
 }
 
 .form-group {
@@ -151,8 +151,8 @@ li a {
 }
 
 .app-icon {
-    height: 3.4rem;
-    margin-bottom: -0.25rem;
+    height: 50px;
+    margin-bottom: -10px;
 }
 
 .opacity {
@@ -653,7 +653,7 @@ li a {
     border-radius: 1rem;
 }
 
-.user-icon, .user-icon-profile {
+.user-icon-profile {
     position: absolute;
     top: 0.625rem;
     left: 0.625rem;
@@ -664,18 +664,16 @@ li a {
     left: 0.125rem;
 }
 
-.user-name {
-    position: absolute;
-    top: 3rem;
-    left: 0.3rem;
-}
-
 .bc-main {
     background-color: var(--main-color);
 }
 
 .c-white {
     color: var(--white);
+}
+
+.space-between {
+    justify-content: space-between;
 }
 
 .search-wrapper {
@@ -686,16 +684,16 @@ li a {
 }
 
 .sidebar-icon {
-    width: 2.8rem;
-    height: 2.8rem;
+    width: 45px;
+    height: 45px;
     background-color: var(--white);
-    border-radius: 0.3rem;
-    border: 0.1rem solid var(--main-color);
+    border-radius: 4.8px;
+    border: 1.6px solid var(--main-color);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    padding: 0.3rem 0;
+    padding: 4.8px 0;
     cursor: pointer;
 }
 
@@ -704,8 +702,8 @@ li a {
 }
 
 .sidebar-line {
-    width: 1.25rem;
-    height: 0.09rem;
+    width: 20px;
+    height: 1.5px;
     background-color: var(--main-color);
 }
 
@@ -919,7 +917,7 @@ li a {
     }
 
     .pub-editor {
-        padding: 0.5rem 4rem;
+        padding: 0.5rem 2rem 0.5rem 1rem;
     }
     
     .edit-icon {
@@ -949,10 +947,6 @@ li a {
     .primary-btn {
         width: 25rem;
     }
-    
-    .page-title {
-        width: 5rem;
-    }
 
     .hidden-when-large {
         display: block;
@@ -962,44 +956,44 @@ li a {
         display: none;
     }
 
+    .tag-wrapper, .p-tag-wrapper {
+        right: 1.1rem;
+    }
+
+    .icons-on-pub {
+        right: 0.5rem;
+    }
+
 }
 
 @media (max-width: 560px) {
     .max-w-80 {
         max-width: 95%;
     }
+
+    .user-icon {
+        top: 0.2rem;
+        left: 0.2rem;
+    }
 }
 
 @media (max-width: 480px) {
-    
 
-/* html {
-    font-size: 60%;
-} */
+    .page-title {
+        width: 5rem;
+    }
 
-/* html {
-    font-size: 75%;
-} */
-
-html {
-    font-size: 85%;
-}
-
-/* html {
-    font-size: 95%;
-} */
-
-/* html {
-    font-size: 109%;
-} */
+    .header {
+        padding: 0.5rem;
+    }
 
     .editor-def {
         padding: 0.5rem 2rem 0.5rem 1rem;
     }
 
-    .pub-editor {
+    /* .pub-editor {
         padding: 0.5rem 4rem;
-    }
+    } */
 
     .filter-group {
         top: 7.4rem;
@@ -1070,5 +1064,21 @@ html {
         right: unset;
         top: unset;
         bottom: -2.3rem;
+    }
+
+    .html-5 {
+        font-size: 140%;
+    }
+
+    .mr-small {
+        margin-right: 0;
+    }
+
+    .ml-small {
+        margin-left: 0;
+    }
+
+    .page-title {
+        display: none;
     }
 }

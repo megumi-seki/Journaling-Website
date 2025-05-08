@@ -26,11 +26,15 @@
 <section id="contents-section-pub" data-offset="{{ count($contents) }}" class="flex-col gap-1 pb-small">
 
     @forelse ($contents as $content)
-    <div id="content-wrapper" class="">
-        <span class="ml-small font-small">{{ $content->created_at->isoFormat("MMMM D, YYYY h:mm A") }}</span> 
+    <div id="content-wrapper" class="flex-col">
+        <div class="flex space-between align-center">
+            <div class="flex  align-center">
+                <img src="{{ $content->user->userIcon->image_path }}" class="user-icon" alt="User Icon">
+                <span class="user-name font-small pl-smaller">{{ $content->user->user_name }}</span>
+            </div>
+            <span class="ml-small font-small">{{ $content->created_at->isoFormat("MMMM D, YYYY h:mm A") }}</span> 
+        </div>
         <div class="txta-wrapper">
-            <img src="{{ $content->user->userIcon->image_path }}" class="user-icon" alt="User Icon">
-            <span class="user-name font-small">{{ $content->user->user_name }}</span>
             @unless($content->user_id == $user->id)
             <x-public-tag :$content :$user />
             <div class="icons-on-pub flex-col gap-1 align-center">
