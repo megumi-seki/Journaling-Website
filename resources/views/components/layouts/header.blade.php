@@ -4,7 +4,7 @@
     <x-buttons.app-icon />
 
     <div id="sidebar-icon" class="sidebar-icon-hide">
-        <div class="inline-flex align-center gap-1">
+        <div class="inline-flex align-center">
             <p class="mr-small page-title">{{ $pageTitle }}</p>
 
             <x-sidebar-icon />

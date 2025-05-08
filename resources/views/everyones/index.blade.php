@@ -1,4 +1,4 @@
-<x-app-layout mainPadding="pt-small" pageTitle="Everyone's Journals">
+<x-app-layout mainPadding="pt-small" pageTitle="Everyone's Journals" :$user>
 
     <section id="filter-weapper" class="hidden-when-large hidden-when-medium">
         <form action="{{ route('everyone.filter')}}" method="GET" class="search-form filter-group bg-white">   

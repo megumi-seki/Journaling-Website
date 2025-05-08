@@ -1,4 +1,4 @@
-<x-app-layout mainPadding="pt-medium" gap="gap-2" pageTitle="Profile" taCenter="ta-center">
+<x-app-layout mainPadding="pt-medium" gap="gap-2" pageTitle="Profile" taCenter="ta-center" :$user>
 <div>
     <p class="bold">Your Profile Information</p>
     <form action="{{ route('profile.update') }}" method="POST" class="flex-col gap-small align-center mtb-small">

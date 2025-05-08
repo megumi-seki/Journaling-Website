@@ -33,18 +33,6 @@ class DatabaseSeeder extends Seeder
             )
             ->count(8)
             ->create();
-
-        FontSize::factory()
-            ->sequence(
-                ["name"=> "0.5rem"],
-                ["name"=> "0.8rem"],
-                ["name"=> "1rem"],
-                ["name"=> "1.3rem"],
-                ["name"=> "1.5rem"],
-                ["name"=> "1.8rem"],
-            )
-            ->count(6)
-            ->create();
             
         FontStyle::factory()
             ->sequence(

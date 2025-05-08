@@ -14,7 +14,7 @@ class Setting extends Model
         "public_mode",
         "screen_mode",
         "color_unit_id",
-        "font_size_id",
+        "font_size",
         "font_style_id"
     ];
 
@@ -22,7 +22,7 @@ class Setting extends Model
         "public_mode" => 0,
         "screen_mode" => 0,
         "color_unit_id" => 1,
-        "font_size_id" => 1,
+        "font_size" => 3,
         "font_style_id" => 1
     ];
 

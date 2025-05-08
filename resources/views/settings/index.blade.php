@@ -1,4 +1,8 @@
-<x-app-layout mainPadding="pt-medium" pageTitle="Settings" taCenter="ta-center">
+@php
+    $fontSizes = ["Extra Small", "Small", "Default", "Large", "Extra Large"]
+@endphp
+
+<x-app-layout mainPadding="pt-medium" pageTitle="Settings" taCenter="ta-center" :$user>
     <p class="bold">Settings</p>
     <form action="{{ route('settings.update') }}" method="POST" class="flex-col gap-small align-center mtb-small">
         @csrf
@@ -27,10 +31,10 @@
         </div>
         <div class="form-group">
             <label for="font-size" class="font-small pl-smaller">Font Size</label>
-            <select name="font_size_id" id="font-size" class="input-def">
-            @for ($i = 0; $i < 6; $i++)
-                <option value="{{ $i + 1 }}" {{ $i + 1 == $settings->font_size_id ? "selected" :""}}>Font Size {{ $i + 1 }}</option>
-            @endfor
+            <select name="font_size" id="font-size" class="input-def">
+                @foreach ($fontSizes as $fontSize)
+                    <option value="{{ $loop->iteration }}" {{ $loop->iteration == $settings->font_size ? "selected" :""}}>{{ $fontSize }}</option>
+                @endforeach
             </select>
         </div>
         <div class="form-group">

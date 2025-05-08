@@ -36,12 +36,37 @@
     padding: 0;
 }
 
+
+.html-1 {
+    font-size: 75%;
+}
+
+.html-2 {
+    font-size: 87.5%;
+}
+
+.html-3 {
+    font-size: 100%;
+}
+
+.html-4 {
+    font-size: 125%;
+}
+
+.html-5 {
+    font-size: 150%;
+}
+
+body, input, select, button {
+    font-size: 1rem;
+}
+
 .all-unset {
     all: unset;
 }
 
-.br-5 {
-    border-radius: 5px;
+.br-small {
+    border-radius:  0.3rem;
 }
 
 .bg-success {
@@ -87,7 +112,7 @@ li a {
     overflow: auto;
     width: 100%;
     height: 10rem;
-    border-radius: 5px;
+    border-radius: 0.3rem;
     resize: none;
     padding: 1rem 2rem;
     font-size: 1rem;
@@ -125,9 +150,9 @@ li a {
     flex-direction: row;
 }
 
-.icon {
+.app-icon {
     height: 3.4rem;
-    margin-bottom: -4px;
+    margin-bottom: -0.25rem;
 }
 
 .opacity {
@@ -137,8 +162,8 @@ li a {
 .btn {
     height: 2.3rem;
     width: 8rem;
-    border-radius: 8px;
-    border: 1px solid var(--main-color);
+    border-radius: 0.5rem;
+    border: 0.06rem solid var(--main-color);
     background-color: var(--main-color);
     color: var(--white);
     cursor: pointer;
@@ -224,8 +249,8 @@ li a {
 .input-def {
     width: 100%;
     height: 2.3rem;
-    border-radius: 5px;
-    border: 1px solid var(--bc-stronger);
+    border-radius: 0.3rem;
+    border: 0.06rem solid var(--bc-stronger);
     padding-left: 1rem;
 }
 
@@ -237,8 +262,8 @@ li a {
     width: 2.3rem;
     font-size: 0.7rem;
     background-color: var(--white);
-    border: 1px solid var(--bc-stronger);
-    border-radius: 5px;
+    border: 0.06rem solid var(--bc-stronger);
+    border-radius: 0.3rem;
     cursor: pointer;
 }
 
@@ -251,7 +276,7 @@ li a {
     height: 15.5rem;
     position: absolute;
     background-color: var(--white);
-    border: 1px solid var(--bc-much-stronger);
+    border: 0.06rem solid var(--bc-much-stronger);
     border-radius: 0.5rem;
     top: 2.3rem;
     left: 0;
@@ -269,55 +294,55 @@ li a {
     border-radius: 2rem;
     border: none;
     color: white;
-    font-size: large;
+    font-size: 1rem;
 }
 
 .heart {
-    width: 15px;
-    height: 15px;
+    width: 0.9375rem;
+    height: 0.9375rem;
 }
 
 .heart-big {
-    width: 24px;
-    height: 24px;
-    margin-bottom: -1.9px;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-bottom: -0.11875rem;
 }
 
 .heart-t-big {
-    width: 22px;
-    height: 22px;
+    width: 1.375rem;
+    height: 1.375rem;
 }
 
 .hug {
-    width: 18px;
-    height: 18px;
+    width: 1.125rem;
+    height: 1.125rem;
 }
 
 .hug-big {
-    width: 33px;
-    height: 33px;
+    width: 2.0625rem;
+    height: 2.0625rem;
 }
 
 .hug-t-big {
-    width: 33px;
-    height: 33px;
+    width: 2.0625rem;
+    height: 2.0625rem;
 }
 
 .facebook-img {
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
 }
 
 .google-img {
-    width: 23px;
-    height: 23px;
+    width: 1.4375rem;
+    height: 1.4375rem;
 }
 
 .auth-btn {
     height: 2.3rem;
     background-color: var(--white);
     width: 11rem;
-    border: 1px solid var(--main-color);
+    border: 0.06rem solid var(--main-color);
 }
 
 .inline-flex {
@@ -415,7 +440,7 @@ li a {
 .search-input, .order-dropdown {
     width: 7.6rem;
     height: 1.3rem;
-    border: 1px solid var(--bc-much-stronger);
+    border: 0.06rem solid var(--bc-much-stronger);
 }
 
 .order-dropdown {
@@ -438,8 +463,8 @@ li a {
     row-gap: 0.3rem;
     column-gap: 0.3rem;
     padding: 0.5rem;
-    border-radius: 8px;
-    border: 1px solid var(--bc-much-stronger);
+    border-radius: 0.5rem;
+    border: 0.06rem solid var(--bc-much-stronger);
     
 }
 
@@ -465,7 +490,7 @@ li a {
     border-right: 0.6rem solid var(--tagged);
     border-bottom: 1rem solid transparent;
     position: absolute;
-    right: -0.05px;
+    right: -0.003125rem;
     top: 1rem;
 }
 
@@ -527,8 +552,8 @@ li a {
     border-radius: unset;
     background-color: var(--white);
     /* color: var(--main-color); */
-    border: 1px solid var(--main-lighter);
-    border-right: 0.5px solid var(--white);
+    border: 0.06rem solid var(--main-lighter);
+    border-right: 0.03rem solid var(--white);
     color: var(--main-color);
     cursor: auto;
 }
@@ -538,13 +563,13 @@ li a {
 }
 
 .border-r-set {
-    border-right: 1px solid var(--main-lighter);
+    border-right: 0.06rem solid var(--main-lighter);
 }
 
 .absolute-in-txta {
     position: absolute;
-    bottom: 5.5px;
-    right: 1px;
+    bottom: 0.34375rem;
+    right: 0.06rem;
 }
 
 .btn-wrapper, .add-btn-for-new, .public-label {
@@ -569,15 +594,15 @@ li a {
 }
 
 .border-lt {
-  border-radius: 5px 0 0 0;
+  border-radius: 0.3125rem 0 0 0;
 }
 
 .border-rb {
-    border-radius: 0 0 4px 0;
+    border-radius: 0 0 0.25rem 0;
 }
 
 .border-lt-rb {
-    border-radius: 5px 0 4px;
+    border-radius: 0.3125rem 0 0.25rem;
 }
 
 .border-r-unset {
@@ -605,17 +630,17 @@ li a {
 }
 
 .ver-al {
-    vertical-align: -1px;
+    vertical-align: -0.06rem;
 }
 
 .icons-on-pub {
     position: absolute;
-    right: calc(1rem + 5px);
+    right: 1.3125rem;
     top: 4rem;
 }
 
 .ml-minus-smaller {
-    margin-left: -3px;
+    margin-left: -0.19rem;
 }
 
 .ml-minus-small {
@@ -630,19 +655,19 @@ li a {
 
 .user-icon, .user-icon-profile {
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 0.625rem;
+    left: 0.625rem;
 }
 
 .user-icon-profile { 
-    top: 2px;
-    left: 2px;
+    top: 0.125rem;
+    left: 0.125rem;
 }
 
 .user-name {
     position: absolute;
     top: 3rem;
-    left: 5px;
+    left: 0.3rem;
 }
 
 .bc-main {
@@ -664,13 +689,13 @@ li a {
     width: 2.8rem;
     height: 2.8rem;
     background-color: var(--white);
-    border-radius: 5px;
-    border: 1.8px solid var(--main-color);
+    border-radius: 0.3rem;
+    border: 0.1rem solid var(--main-color);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    padding: 5px 0;
+    padding: 0.3rem 0;
     cursor: pointer;
 }
 
@@ -680,7 +705,7 @@ li a {
 
 .sidebar-line {
     width: 1.25rem;
-    height: 1.5px;
+    height: 0.09rem;
     background-color: var(--main-color);
 }
 
@@ -690,40 +715,40 @@ li a {
     background-color: var(--white);
     top: 0;
     bottom: 0;
-    right: -250px;
-    width: 250px;
+    right: -16rem;
+    width: 16rem;
     height: 100dvh;
-    border-left: 1px solid var(--bc-stronger);
+    border-left: 0.06rem solid var(--bc-stronger);
     transition: right 0.4s ease-in-out;
     z-index: 4;
 }
 
 .sidebar.open {
-    right: 0px;
+    right: 0;
 }
 
 .filter-icon {
-    width: 20px;
+    width: 1.25rem;
     height: 1.3rem;
     justify-content: space-evenly;
-    padding: 2.5px;
+    padding: 0.15rem;
 }
 
 .filter-icon-line1 {
-    width: 14px;
-    height: 1px;
+    width: 0.875rem;
+    height: 0.06rem;
     background-color: var(--black);
 }
 
 .filter-icon-line2 {
-    width: 9px;
-    height: 1px;
+    width: 0.5625rem;
+    height: 0.06rem;
     background-color: var(--black);
 }
 
 .filter-icon-line3 {
-    width: 4px;
-    height: 1px;
+    width: 0.25rem;
+    height: 0.06rem;
     background-color: var(--black);
 }
 
@@ -746,34 +771,34 @@ li a {
     position: absolute;
     top: 8.4rem;
     padding: 1rem 1.5rem;
-    border-radius: 8px;
-    border: 1px solid var(--bc-much-stronger);
+    border-radius: 0.5rem;
+    border: 0.06rem solid var(--bc-much-stronger);
     z-index: 1;
 }
 
 .edit-icon, .edit-remove-icon {
     display: none;
     position: absolute;
-    right: 9px;
-    bottom: 2px;
+    right: 0.5625rem;
+    bottom: 0.125rem;
     width: 1.5rem;
     height: 1rem;
     background-color: var(--white);
-    border: 1px solid var(--light-dark);
-    gap: 2.8px;
-    border-radius: 3px;
+    border: 0.06rem solid var(--light-dark);
+    gap: 0.175rem;
+    border-radius: 0.19rem;
 }
 
 .edit-remove-icon {
     display: none;
     right: 15.3rem;
-    gap: 2.8px;
+    gap: 0.175rem;
     cursor: pointer;
 }
 
 .edit-remove-line {
-    height: 1px;
-    width: 10px;
+    height: 0.06rem;
+    width: 0.625rem;
     background-color: var(--light-dark);
 }
 
@@ -782,10 +807,10 @@ li a {
 }
 
 .dot {
-    width: 1.5px;
-    height: 1.5px;
+    width: 0.09rem;
+    height: 0.09rem;
     background-color: var(--light-dark);
-    border-radius: 1px;
+    border-radius: 0.06rem;
 }
 
 .small-checkbox {
@@ -845,51 +870,49 @@ li a {
     border-color: var(--error);
 }
 
+@media (max-width: 1500px) {
+    .nav-bar {
+        gap: 0.3rem;
+    }
+    
+    .nav-bar {
+        display: none;
+    }
+    
+    .sidebar-icon-hide {
+        display: block;
+    }
+}
+
 @media (max-width: 1250px) {
-
-.width-medium {
-    width: 122px;
-}
-
-/* .search-btn {
-    width: 122px;
-} */
-
-.nav-bar {
-    gap: 0.3rem;
-}
-
-.nav-bar {
-    display: none;
-}
-
-.sidebar-icon-hide {
-    display: block;
-}
-
-.pt-small {
-    padding-top: 1rem;
-}
-
-}
-
-@media (max-width: 870px) {
     .search-group {
         display: none;
     }
-
+    
     .filter-btn {
         display: inline-flex;
         align-items: center;
     }
-
+    
     .search-input {
         width: 10rem;
     }
-
+    
     .search-btn {
         width: 10rem;
     }
+    
+    .width-medium {
+        width: 7.6rem ;
+    }
+    
+    .pt-small {
+        padding-top: 1rem;
+    }
+
+}
+
+@media (max-width: 870px) {
 
     .editor-def {
         padding: 0.5rem 3rem 0.5rem 1rem;
@@ -947,10 +970,28 @@ li a {
     }
 }
 
-@media (max-width:480px) {
-    html {
-        font-size: 14px; 
-    }
+@media (max-width: 480px) {
+    
+
+/* html {
+    font-size: 60%;
+} */
+
+/* html {
+    font-size: 75%;
+} */
+
+html {
+    font-size: 85%;
+}
+
+/* html {
+    font-size: 95%;
+} */
+
+/* html {
+    font-size: 109%;
+} */
 
     .editor-def {
         padding: 0.5rem 2rem 0.5rem 1rem;
@@ -965,33 +1006,33 @@ li a {
     }
 
     .tag-wrapper, .p-tag-wrapper {
-        right: 9px;
+        right: 0.643rem;
     }
 
     .icons-on-pub {
-        right: 4px;
+        right: 0.25rem;
     }
 
 
     .heart-t-big {
-        width: 18px;
-        height: 18px;
+        width: 1.125rem;
+        height: 1.125rem;
     }
 
     .hug-t-big {
-        width: 25px;
-        height: 25px;
+        width: 1.5625rem;
+        height: 1.5625rem;
     }
  
     .heart-big {
-        width: 19px;
-        height: 19px;
-        margin-bottom: -1px;
+        width: 1.1875rem;
+        height: 1.1875rem;
+        margin-bottom: -0.06rem;
     }
 
     .hug-big {
-        width: 25px;
-        height: 25px;
+        width: 1.5625rem;
+        height: 1.5625rem;
     }
 
     .pl-medium {

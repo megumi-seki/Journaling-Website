@@ -16,9 +16,9 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained("users");
             $table->boolean("public_mode")->default(0);
             $table->boolean("screen_mode")->default(0);
-            $table->foreignId("color_unit_id")->constrained("color_units")->nullabe();
-            $table->foreignId("font_size_id")->constrained("font_sizes")->nullable();
-            $table->foreignId("font_style_id")->constrained("font_styles")->nullable();
+            $table->foreignId("color_unit_id")->constrained("color_units");
+            $table->integer("font_size");
+            $table->foreignId("font_style_id")->constrained("font_styles");
         });
     }
 
