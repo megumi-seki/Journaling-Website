@@ -5,10 +5,10 @@
                 @if ($content)
                 @method("PATCH")
                 <input id="x-{{ $content->id }}" name="content_text" value="{{ $content->content_text }}" type="hidden" class="trix-input-to-edit">
-                <trix-editor id="trix-editor" toolbar="toolbar" name="new-content"  input="x-{{ $content->id }}"  class="editor-def txta-new editor-abled"  contenteditable="true"></trix-editor> 
+                <trix-editor id="trix-editor" toolbar="toolbar" name="new-content"  input="x-{{ $content->id }}"  class="editor-def txta-new editor-abled font-{{ $user->setting->font_style_id}}"  contenteditable="true"></trix-editor> 
                 @else
                 <input id="new-input" name="content_text" type="hidden" class="trix-input-to-edit">
-                <trix-editor toolbar="toolbar" name="new-content" class="editor-def txta-new editor-abled" input="new-input"  contenteditable="true"></trix-editor> 
+                <trix-editor toolbar="toolbar" name="new-content" class="editor-def txta-new editor-abled font-{{ $user->setting->font_style_id}}" input="new-input"  contenteditable="true"></trix-editor> 
                 @endif
 
                 <div class="flex justify-end">
