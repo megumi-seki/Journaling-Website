@@ -1,4 +1,4 @@
-<button class="btn nav-btn mr-small"
-    onclick="location.href='{{ route('signup.index') }}'">
+<a class="btn nav-btn reset-def"
+    href="{{ route('signup.index') }}">
     Signup
-</button> 
+</a>

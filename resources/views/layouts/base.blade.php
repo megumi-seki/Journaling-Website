@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{-- TODO adjust CSP after hosting  --}}
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://journaling-website.test:5173; script-src-elem 'self' https://journaling-website.test:5173;">
     <title>MEGUSTO</title>
     {{-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

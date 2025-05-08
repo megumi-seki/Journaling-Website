@@ -1,5 +1,5 @@
-<button class="btn nav-btn"
-    onclick="location.href='{{ route('profile.index') }}'">
+<a class="btn nav-btn reset-def"
+    href="{{ route('profile.index') }}">
     Profile
-</button>
+</a>
 

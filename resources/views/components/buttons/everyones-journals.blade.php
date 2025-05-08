@@ -1,4 +1,4 @@
-<button class="btn nav-btn bc-main c-white"
-    onclick="location.href='{{ route('everyones') }}'">
+<a class="btn nav-btn reset-def bc-main c-white"
+    href="{{ route('everyones') }}">
     Everyone's Journals
-</button>
+</a>

@@ -144,6 +144,8 @@ li a {
     background-color: var(--white);
     color: var(--main-color);
     width: 10rem;
+    text-align: center;
+    line-height: 2rem;
 }
 
 .nav-bar {

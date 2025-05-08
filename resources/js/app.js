@@ -24,7 +24,7 @@ document.addEventListener(("DOMContentLoaded"), function() {
 
     document.addEventListener("trix-before-initialize", updateToolbars, { onece: true } );
 
-    function updateToolbars(event) {
+    function updateToolbars() {
         const toolbars = document.querySelectorAll("trix-toolbar");
         const html = Trix.config.toolbar.getDefaultHTML();
         toolbars.forEach((toolbar) => (toolbar.innerHTML = html));
