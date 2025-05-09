@@ -35,6 +35,8 @@ class SignupController
 
         $data["password"] = Hash::make($data["password"]);
         $data["public_mode"] = 0;
+        $data["user_icon_id"] = 1;
+        $data["user_name"] = "Annonymous";
         $user = User::create($data);
         $user->setting()->create();
 
