@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     {{-- TODO adjust CSP after hosting  --}}
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://journaling-website.test:5173; script-src-elem 'self' https://journaling-website.test:5173;">
-    <title>MEGUSTO</title>
+    <title>Dear Journaling</title>
     {{-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     {{-- <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script> --}}
