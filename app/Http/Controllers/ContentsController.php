@@ -46,8 +46,10 @@ class ContentsController
 
         $content = Content::create($data);
 
+
         preg_match_all("/#\w+/u", $data["content_text"],$matches);
         foreach($matches[0] as $hashtag) {
+            if (mb_strlen($hashtag) > 40) continue;
             $hashtag = Hashtag::firstOrCreate(["name" => $hashtag]);
             $exists = $content->hashtags()->where("hashtags.id", $hashtag->id)->exists();
             if (!$exists) { $content->hashtags()->attach($hashtag); }
@@ -95,7 +97,14 @@ class ContentsController
      * Remove the specified resource from storage.
      */
     public function destroy(Content $content)   {
+        $hashtags = $content->hashtags;
+        $content->hashtags()->detach();
         $content->delete();
+        foreach($hashtags as $hashtag) {
+            if ($hashtag->contents()->count() === 0) {
+             $hashtag->delete();
+            }
+        }
         // TODO update to confirm for delete 
         return redirect()->route("contents.index")->with("success","the content was successdully deleted");
     }

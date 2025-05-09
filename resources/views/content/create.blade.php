@@ -1,4 +1,4 @@
-<x-app-layout mainPadding="m-auto pt-medium max-w-80 mtb" pageTitle="Your New Journal">
+<x-app-layout mainPadding="m-auto pt-medium max-w-80 mtb" pageTitle="Your New Journal" :$user>
         <trix-toolbar id="toolbar" class=""></trix-toolbar> 
         <form action="{{ $content ? route('contents.update', $content) : route('contents.store') }}" method="POST" class="flex-col">
                 @csrf
@@ -24,11 +24,11 @@
         </form>
         @if ($content)
         <div class="flex justify-end">
-        <form action="{{ route('contents.destroy', $content) }}" method="POST" class="mtb-smaller">
-                @csrf
-                @method("DELETE")
-                <button id="content-reset-btn" class="btn medium-btn hover-effect mr-small">Delete</button>
-        </form>
+                <form action="{{ route('contents.destroy', $content) }}" method="POST" class="mtb-smaller">
+                        @csrf
+                        @method("DELETE")
+                        <button id="content-reset-btn" class="btn medium-btn hover-effect mr-small">Delete</button>
+                </form>
         </div>
         @endif
 </x-app-layout>

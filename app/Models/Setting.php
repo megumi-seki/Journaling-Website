@@ -30,10 +30,6 @@ class Setting extends Model
         return $this->belongsTo(ColorUnit::class);
     }
 
-    public function fontSize() {
-        return $this->belongsTo(FontSize::class);
-    }
-
     public function fontStyle() {
         return $this->belongsTo(FontStyle::class);
     }

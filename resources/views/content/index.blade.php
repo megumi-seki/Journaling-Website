@@ -31,7 +31,6 @@
             <form action="{{ route('contents.store') }}" method="POST" class="txta-wrapper">  
             @csrf     
                 <input name="content_text" id="x" type="hidden">
-                {{-- TODO set toolbar --}}
                 <trix-toolbar id="my_toolbar" class="new-small-toolbar"></trix-toolbar>
                 <trix-editor toolbar="my_toolbar" input="x" class="editor-def editor-abled font-{{ $user->setting->font_style_id }}"></trix-editor>
                 <div class="add-btn-for-new flex">

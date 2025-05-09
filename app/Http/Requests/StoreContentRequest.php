@@ -24,7 +24,7 @@ class StoreContentRequest extends FormRequest
     {
         return [
             "content_text" => "required|string|max:10000",
-            "public" => "nullable|string"
+            "public" => "nullable|string",
         ];
     }
 
