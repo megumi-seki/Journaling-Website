@@ -16,6 +16,12 @@ class ContentPolicy
         //
     }
 
+    public function edit(User $user, Content $content)
+    {
+        return $user->id === $content->user_id ? Response::allow()
+            : Response::denyWithStatus(404);
+    }
+
     public function update(User $user, Content $content)
     {
         return $user->id === $content->user_id ? Response::allow()
@@ -23,6 +29,12 @@ class ContentPolicy
     }
 
     public function destroy(User $user, Content $content)
+    {
+        return $user->id === $content->user_id ? Response::allow()
+            : Response::denyWithStatus(404);
+    }
+    
+    public function restoreTag(User $user, Content $content)
     {
         return $user->id === $content->user_id ? Response::allow()
             : Response::denyWithStatus(404);

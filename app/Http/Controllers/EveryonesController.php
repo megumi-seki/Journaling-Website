@@ -23,7 +23,8 @@ class EveryonesController
         return view("everyones.index", ["contents" => $contents, "user" => $user]);
     }
 
-    public function filter(Request $request) {
+    public function filter(Request $request) 
+    {
         $user = $request->user();
         $hashtag = $request->input("hashtag");
         $keyword = $request->input("keyword");
@@ -69,27 +70,33 @@ class EveryonesController
 
     }
 
-    public function restorePublicTag(Request $request, Content $content) {
-        $user = $request->user();
+    public function restorePublicTag(Request $request, Content $content) 
+    {
+        if (!$content->public) abort( 403);
 
+        $user = $request->user();
         $content->isTagged($user) ? $content->publicTaggedUsers()->detach($user->id) :
             $content->publicTaggedUsers()->attach($user->id);
 
         return response()->json(["success" => true]);
     }
     
-    public function restoreHeart(Request $request, Content $content) {
-        $user = $request->user();
+    public function restoreHeart(Request $request, Content $content)
+    {
+        if (!$content->public) abort( 403);
 
+        $user = $request->user();
         $content->isSentHeart($user) ? $content->sentHeartUsers()->detach($user->id) :
             $content->sentHeartUsers()->attach($user->id);
         
         return response()->json(["success" => true]);
     }
     
-    public function restoreHug(Request $request, Content $content) {
-        $user = $request->user();
+    public function restoreHug(Request $request, Content $content) 
+    {
+        if (!$content->public) abort( 403);
 
+        $user = $request->user();
         $content->isSentHug($user) ? $content->sentHugUsers()->detach($user->id) :
             $content->sentHugUsers()->attach($user->id);
         

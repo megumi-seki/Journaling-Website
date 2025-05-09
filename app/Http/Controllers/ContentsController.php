@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreContentRequest;
 use App\Models\Content;
 use App\Models\Hashtag;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 
 class ContentsController
@@ -12,6 +13,8 @@ class ContentsController
     /**
      * Display a listing of the resource.
      */
+    use AuthorizesRequests;
+
     public function index(Request $request)
     {
         $user = $request->user();
@@ -69,9 +72,9 @@ class ContentsController
      */
     public function edit(Content $content)
     {
+        $this->authorize('edit', arguments: $content);
+
         $user = $content->user;
-        // $contentId = $request->query("content_id");
-        // $content = Content::find($contentId);
         return view("content.edit", ["content" => $content ,"user" => $user]);
     }
 
@@ -80,6 +83,8 @@ class ContentsController
      */
     public function update(StoreContentRequest $request, Content $content)
     {
+        $this->authorize(ability: 'update', arguments: $content);
+
         $data = $request->validated();
         $data["public"] = $request->has("public");
         $content->update($data);
@@ -97,7 +102,10 @@ class ContentsController
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Content $content)   {
+    public function destroy(Content $content)   
+    {
+        $this->authorize(ability: 'destroy', arguments: $content);
+
         $hashtags = $content->hashtags;
         $content->hashtags()->detach();
         $content->delete();
@@ -110,7 +118,8 @@ class ContentsController
         return redirect()->route("contents.index")->with("success","the content was successdully deleted");
     }
 
-    public function filter(Request $request) {
+    public function filter(Request $request) 
+    {
         $user = $request->user();
         
         $hashtag = $request->input("hashtag");
@@ -158,8 +167,10 @@ class ContentsController
 
     }
 
-    public function restoreTag(Content $content) {
-       
+    public function restoreTag(Content $content) 
+    {
+        $this->authorize(ability: 'restoreTag', arguments: $content);
+
         $content->tag = !$content->tag;
         $content->save();
 
