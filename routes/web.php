@@ -3,7 +3,7 @@
 use App\Http\Controllers\EmailVerifyController;
 use App\Http\Controllers\ContentsController;
 use App\Http\Controllers\EveryonesController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\TopController;
 use Illuminate\Support\Facades\Route;
@@ -18,9 +18,9 @@ Route::middleware("auth")->group(function() {
         ->name("content.filter");
     Route::patch("/content/{content}/restore-tag", [ContentsController::class, "restoreTag"]);
 
-    Route::get("/profile", [ProfileController::class, "index"])->name("profile.index");
-    Route::put("/profile", [ProfileController::class, "update"])->name("profile.update");
-    Route::put("/profile/password", [ProfileController::class, "updatePassword"])
+    Route::get("/profile", [UserController::class, "index"])->name("profile.index");
+    Route::put("/profile", [UserController::class, "update"])->name("profile.update");
+    Route::put("/profile/password", [UserController::class, "updatePassword"])
         ->name("profile.updatePassword");
 
     Route::get("/settings", [SettingsController::class, "index"])

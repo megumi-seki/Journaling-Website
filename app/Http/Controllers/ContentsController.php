@@ -29,9 +29,7 @@ class ContentsController
     public function create(Request $request)
     {
         $user = $request->user();
-        $contentId = $request->query("content_id");
-        $content = Content::find($contentId);
-        return view("content.create", ["content" => $content, "user" => $user]);
+        return view("content.create", ["user" => $user]);
     }
 
     /**
@@ -69,9 +67,12 @@ class ContentsController
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Content $content)
     {
-        //
+        $user = $content->user;
+        // $contentId = $request->query("content_id");
+        // $content = Content::find($contentId);
+        return view("content.edit", ["content" => $content ,"user" => $user]);
     }
 
     /**
