@@ -3,6 +3,7 @@
         <p class="s-message">{{ session("success") }}</p>
     @endsession
     <main class="pt-large ta-center">
+        <p class="information guest-info">Thank you for visiting!<br/>This website is still under development.</p>
         <x-buttons.app-icon />
         {{ $slot }}
 

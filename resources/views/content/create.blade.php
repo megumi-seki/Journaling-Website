@@ -3,7 +3,7 @@
         <form action="{{ route('contents.store') }}" method="POST" class="flex-col">
                 @csrf
                 <input id="new-input" name="content_text" type="hidden" class="trix-input-to-edit">
-                <trix-editor toolbar="toolbar" name="new-content" class="editor-def txta-new editor-abled font-{{ $user->setting->font_style_id}}" input="new-input"  contenteditable="true"></trix-editor> 
+                <trix-editor toolbar="toolbar" name="new-content" class="editor-def txta-expanded editor-abled font-{{ $user->setting->font_style_id}}" input="new-input"  contenteditable="true"></trix-editor> 
                 <div class="flex justify-end">
                         @if ($user->setting->public_mode)
                         <label for="public" class="btn medium-btn hover-effect inline-flex justify-center gap-smallest mr-small">
