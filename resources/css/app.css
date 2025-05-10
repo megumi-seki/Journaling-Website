@@ -786,6 +786,7 @@ li a {
 
 .guest-info {
     top: 1rem;
+    bottom: unset;
 }
 
 @media (max-width: 1500px) {
