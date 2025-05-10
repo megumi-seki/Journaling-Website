@@ -1,6 +1,6 @@
 <x-guest-layout>
    
-    <form action="{{ route('forgetPassword.email') }}" method="POST" class="auth-form-width m-auto flex-col align-center gap-smallest mtb-small">
+    <form action="{{ route('forgetPassword.email') }}" method="POST" class="auth-form">
         @csrf
         <h2 class="title">Request Password Reset</h2>
         <div class="form-group mtb-small">

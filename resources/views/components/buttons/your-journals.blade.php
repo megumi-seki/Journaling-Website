@@ -1,4 +1,4 @@
-<a class="btn nav-btn reset-def bc-main c-white"
+<a class="btn nav-btn bg-main"
     href="{{ route('contents.index') }}">
     Your Journals
 </a>

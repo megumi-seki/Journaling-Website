@@ -1,4 +1,4 @@
-<x-app-layout mainPadding="pt-small" pageTitle="Everyone's Journals" :$user>
+<x-app-layout mainMergin="mtb-small" pageTitle="Everyone's Journals" :$user>
 
     <section id="filter-weapper" class="hidden-when-large hidden-when-medium">
         <form action="{{ route('everyone.filter')}}" method="GET" class="search-form filter-group bg-white">   
@@ -23,8 +23,7 @@
 
 </section>  
 
-<section id="contents-section-pub" data-offset="{{ count($contents) }}" class="flex-col gap-1 pb-small">
-
+<section id="contents-section" data-offset="{{ count($contents) }}">
     @forelse ($contents as $content)
     <div id="content-wrapper" class="flex-col">
         <div class="flex space-between align-center">

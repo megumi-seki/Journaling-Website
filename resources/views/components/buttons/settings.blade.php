@@ -1,4 +1,4 @@
-<a class="btn nav-btn reset-def"
+<a class="btn nav-btn"
     href="{{ route('settings.index') }}">
     Settings
 </a>

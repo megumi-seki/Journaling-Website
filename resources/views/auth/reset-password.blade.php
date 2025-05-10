@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <form action="{{ route('password.update') }}" method="POST" class="auth-form-width m-auto flex-col align-center gap-smallest mtb-small">
+    <form action="{{ route('password.update') }}" method="POST" class="auth-form">
         @csrf
         <h2 class="title">Reset Password</h2>
         <input type="hidden" name="token" value="{{ request('token') }}">

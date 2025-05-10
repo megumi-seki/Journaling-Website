@@ -1,5 +1,5 @@
 <x-guest-layout>
-        <form action="{{ route('signup') }}" method="POST" class="auth-form-width m-auto flex-col align-center gap-smallest mtb-small">
+        <form action="{{ route('signup') }}" method="POST" class="auth-form">
             @csrf
             <h2 class="title">Signup</h2>
             <div class="form-group">
@@ -30,7 +30,7 @@
                 </div>
             </div>
             <input type="password" name="password_confirmation" placeholder="Repeat the password to confirm" class="input-def">
-            <button class="primary-btn">Register</button>
+            <button class="btn large-btn bg-main">Register</button>
         </form>
 
         <x-google-facebook-oauth />

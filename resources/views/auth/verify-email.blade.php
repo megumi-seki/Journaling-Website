@@ -1,6 +1,6 @@
-<x-app-layout mainPadding="pt-small" pageTitle="Everyone's Journals">
+<x-app-layout mainMergin="mtb-small" pageTitle="Everyone's Journals">
     <form action="{{ route('verification.send') }}" method="POST"
-        class="auth-form-width  m-auto mtb-small">
+        class="auth-form">
         @csrf
         <div class="form-group mtb-small font-small">
             <h2 class="title">Verify Your Email Address</h2>

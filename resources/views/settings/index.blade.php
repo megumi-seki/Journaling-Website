@@ -2,8 +2,8 @@
     $fontSizes = ["Extra Small", "Small", "Default", "Large", "Extra Large"]
 @endphp
 
-<x-app-layout mainPadding="pt-medium" pageTitle="Settings" taCenter="ta-center" :$user>
-    <p class="bold">Settings</p>
+<x-app-layout mainMargin="mtb-medium" pageTitle="Settings" :$user>
+    <p class="bold ta-center">Settings</p>
     <form action="{{ route('settings.update') }}" method="POST" class="flex-col gap-small align-center mtb-small">
         @csrf
         @method("PUT")
@@ -52,8 +52,8 @@
             </select>
         </div>
         <div class="width-max gap-1 flex justify-end" class="input-def">
-            <button type="reset" class="btn bg-white color-main">Reset</button>
-            <button type="submit" class="btn">Save</button>
+            <button type="reset" class="btn medium-btn">Reset</button>
+            <button type="submit" class="btn medium-btn bg-main">Save</button>
         </div>
     </form>       
 </x-app-layout>

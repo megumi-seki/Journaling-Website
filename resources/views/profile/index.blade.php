@@ -1,6 +1,6 @@
-<x-app-layout mainPadding="pt-medium" gap="gap-2" pageTitle="Profile" taCenter="ta-center" :$user>
+<x-app-layout mainMargin="mtb-medium" gap="gap-2" pageTitle="Profile" :$user>
 <div>
-    <p class="bold">Your Profile Information</p>
+    <p class="bold ta-center">Your Profile Information</p>
     <form action="{{ route('profile.update') }}" method="POST" class="flex-col gap-small align-center mtb-small">
         @csrf
         @method("PUT")
@@ -48,14 +48,14 @@
             </div>
         </div>
         <div class="width-max flex gap-1 justify-end">
-            <button type="reset" class="btn bg-white color-main">Reset</button>
-            <button type="submit" class="btn">Update</button>
+            <button type="reset" class="btn medium-btn">Reset</button>
+            <button type="submit" class="btn medium-btn bg-main">Update</button>
         </div>
     </form>
 </div>
 
 <div>
-    <p class="bold">Update Password</p>
+    <p class="bold ta-center">Update Password</p>
     <form action="{{ route('profile.updatePassword') }}" method="POST" class="flex-col align-center gap-small mtb-small">
         @csrf
         @method("PUT")
@@ -78,7 +78,7 @@
             <input type="password" name="new_password_confirmation" placeholder="Repeat password" class="input-def">
         </div>
         <div class="width-max flex gap-1 justify-end">
-            <button class="btn">Update password</button>
+            <button class="btn medium-btn bg-main">Update</button>
         </div>
     </form>
 </div>

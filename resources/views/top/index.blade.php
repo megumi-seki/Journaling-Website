@@ -1,5 +1,5 @@
-<x-app-layout mainPadding="pt-medium max-w-80 m-auto" gap="gap-1">
-    <h1 class="pb-small">
+<x-app-layout mainMargin="mtb-small" gap="gap-1">
+    <h1>
         "Journaling"
     </h1>
     <p>

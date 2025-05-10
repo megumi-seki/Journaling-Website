@@ -1,6 +1,6 @@
 <x-guest-layout>
    
-        <form action="{{ route('login') }}" method="POST" class="auth-form-width m-auto flex-col align-center gap-smallest mtb-small">
+        <form action="{{ route('login') }}" method="POST" class="auth-form">
             @csrf
             <h2 class="title">Login</h2>
             <div class="form-group">
@@ -18,7 +18,7 @@
                 </div>
             </div>
             <a href="{{ route('forgetPassword.index') }}" class="reset-def color-main font-small ml-auto">Forgot Password?</a>
-            <button class="primary-btn">Login</button>
+            <button class="btn large-btn bg-main">Login</button>
         </form>
 
         <x-google-facebook-oauth />
