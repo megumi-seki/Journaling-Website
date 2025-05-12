@@ -28,7 +28,7 @@ class SocialiteController
             $dbUser = User::where("email", $user->email)->first();
 
             if ($dbUser) {
-                $dbUser->field = $user->id;
+                $dbUser->$field = $user->id;
                 $dbUser->save();
             } else {
                 $dbUser = User::create([
