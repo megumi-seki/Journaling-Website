@@ -10,7 +10,7 @@ class SettingsController
 {
     public function index(Request $request)
     {
-        $user = $request->user();
+        $user = $request->user()->load("setting");
         $settings = Setting::where("user_id", $user->id)->first();
         $fontStyles = FontStyle::all();
         return view("settings.index", ["settings"=> $settings, "user" => $user, "fontStyles" => $fontStyles]);

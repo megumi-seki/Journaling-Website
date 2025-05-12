@@ -18,12 +18,13 @@ class ContentsController
     public function index(Request $request)
     {
         $user = $request->user();
+        $setting = $user->setting;
         $contents = Content::where("user_id", $user->id)
             ->orderBy("created_at","desc")
             ->with(["hashtags", "sentHugUsers", "sentHeartUsers"])
             ->paginate(15);
             
-        return view("content.index", ["contents" => $contents, "user" => $user]);
+        return view("content.index", ["contents" => $contents,"user" => $user, "setting" => $setting]);
     }
 
     /**
@@ -31,7 +32,7 @@ class ContentsController
      */
     public function create(Request $request)
     {
-        $user = $request->user();
+        $user = $request->user()->load("setting");
         return view("content.create", ["user" => $user]);
     }
 
@@ -74,7 +75,7 @@ class ContentsController
     {
         $this->authorize('edit', arguments: $content);
 
-        $user = $content->user;
+        $user = $content->user->load("setting");
         return view("content.edit", ["content" => $content ,"user" => $user]);
     }
 

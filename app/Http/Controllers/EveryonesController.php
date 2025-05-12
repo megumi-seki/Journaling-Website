@@ -12,13 +12,13 @@ class EveryonesController
 {
     public function index(Request $request)
     {
-        $user = $request->user();
+        $user = $request->user()->load("setting");
         $contents = Content::where("public", 1)
             ->whereHas("user.setting", function($query) {
                 $query->where("public_mode", 1);
             })
             ->orderBy("created_at","desc")
-            ->with(["hashtags", "user", "publicTaggedUsers",  "sentHugUsers", "sentHeartUsers"])
+            ->with(["user.userIcon", "user.setting", "publicTaggedUsers",  "sentHugUsers", "sentHeartUsers"])
             ->paginate(15);
         return view("everyones.index", ["contents" => $contents, "user" => $user]);
     }
@@ -33,11 +33,12 @@ class EveryonesController
         $tag = $request->input("tag");
         $order = $request->input("order", "desc");
 
-        $query = Content::where("public", 1)
+        $query = Content::with(["sentHeartUsers", "sentHugUsers", "publicTaggedUsers", 
+            "user.setting", "user.userIcon"])
+            ->where("public", 1)
             ->whereHas("user.setting", function($query) {
                 $query->where("public_mode", 1);
-            })
-            ->with(["hashtags"]);
+            });
 
        if ($hashtag) {
             $query->whereHas("hashtags", function ($q) use ($hashtag) {

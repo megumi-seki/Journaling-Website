@@ -33,8 +33,8 @@
                 @csrf     
                     <input name="content_text" id="x" type="hidden">
                     <trix-toolbar id="y" class="new-small-toolbar"></trix-toolbar>
-                    <trix-editor toolbar="y" input="x" class="editor-def editor-abled font-{{ $user->setting->font_style_id }}"></trix-editor>
-                    @if ($user->setting->public_mode)
+                    <trix-editor toolbar="y" input="x" class="editor-def editor-abled font-{{ $setting->font_style_id }}"></trix-editor>
+                    @if ($setting->public_mode)
                     <label for="new-public" class="btn small-btn small-public-btn new-public-btn">
                         <input type="checkbox" id="new-public" name="public" class="small-checkbox ver-al">
                         public
@@ -55,8 +55,8 @@
         @forelse ($contents as $content)
         <div id="content-wrapper">
             <div class="flex">
-                <span class="ml-small mr-small font-small font-{{ $user->setting->font_style_id }}">{{ $content->created_at->isoFormat("dddd, MMMM D, YYYY h:mm A") }}</span> 
-                @if ($user->setting->public_mode)
+                <span class="ml-small mr-small font-small font-{{ $setting->font_style_id }}">{{ $content->created_at->isoFormat("dddd, MMMM D, YYYY h:mm A") }}</span> 
+                @if ($setting->public_mode)
                 <div class="flex align-center {{ $content->public ? '' : 'opacity' }}">
                     <img src="{{ asset('img/heart-with-colors.png') }}" alt="" class="heart">
                     <span class="font-small mr-smaller">        
@@ -76,10 +76,10 @@
                     @method("PATCH")
                     <input id="x-{{ $content->id }}" name="content_text" value="{{ $content->content_text }}" type="hidden" class="trix-input">
                     <trix-toolbar id="hidden-toolbar-{{ $content->id }}" class="small-toolbar hidden"></trix-toolbar>
-                    <trix-editor id="trix-editor" toolbar="hidden-toolbar-{{ $content->id }}" input="x-{{ $content->id }}" class="editor-def font-{{ $user->setting->font_style_id }}" contenteditable="false"></trix-editor>         
-                    <x-edit-remove-icon :public="$user->setting->public_mode" />
+                    <trix-editor id="trix-editor" toolbar="hidden-toolbar-{{ $content->id }}" input="x-{{ $content->id }}" class="editor-def font-{{ $setting->font_style_id }}" contenteditable="false"></trix-editor>         
+                    <x-edit-remove-icon :public="$setting->public_mode" />
                     <x-edit-icon />
-                    @if ($user->setting->public_mode)
+                    @if ($setting->public_mode)
                     <label for="public-{{ $content->id }}" class="btn small-btn small-public-btn hidden-when-medium btn-to-toggle">
                         <input disabled {{ $content->public ? "checked" : "" }} type="checkbox" id="public-{{ $content->id }}" name="public" class="small-checkbox ver-al">
                         public

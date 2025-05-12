@@ -13,7 +13,7 @@ class UserController
 {
     public function index(Request $request)
     {
-        $user = $request->user();
+        $user = $request->user()->load(["userIcon", "setting"]);
         $user_icons = UserIcon::all();
         return view("profile.index", ["user" => $user, "user_icons" => $user_icons]);
     }
