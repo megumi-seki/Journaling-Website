@@ -146,15 +146,15 @@ class ContentsController
         }
 
         if ($year) {
-            $query->whereRaw("strftime('%Y', created_at) = ?", [$year]);
+            $query->whereYear("created_at", $year);
         }
 
         if ($month) {
-            $query->whereRaw("strftime('%m', created_at) = ?", [str_pad($month, 2, "0", STR_PAD_LEFT)]);
+            $query->whereMonth("created_at", $month);
         }
 
         if ($dayOfWeek) {
-            $query->whereRaw("strftime('%w', created_at) = ?", [$dayOfWeek]);
+            $query->whereRaw("DAYOFWEEK(created_at) = ?", [$dayOfWeek]);
         }
 
         if ($tag) {
