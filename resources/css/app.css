@@ -700,7 +700,7 @@ select {
     align-items: center;    
     gap: 0.5rem;
     position: absolute;
-    top: 8.4rem;
+    top: 8.3rem;
     padding: 1rem 1.5rem;
     border-radius: 0.5rem;
     border: 0.06rem solid var(--bc-much-stronger);
@@ -919,7 +919,7 @@ select {
     }
 
     .filter-group {
-        top: 7.4rem;
+        top: 7.65rem;
     }
 
     .tag-wrapper, .p-tag-wrapper {

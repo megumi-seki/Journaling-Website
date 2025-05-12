@@ -122,6 +122,7 @@ class ContentsController
     public function filter(Request $request) 
     {
         $user = $request->user();
+        $setting = $user->setting;
         
         $hashtag = $request->input("hashtag");
         $keyword = $request->input("keyword");
@@ -164,7 +165,7 @@ class ContentsController
 
         $contents = $query->paginate(15)->withQueryString();
 
-        return view("content.index", ["contents" => $contents, "user" => $user]);
+        return view("content.index", ["contents" => $contents, "user" => $user, "setting" => $setting]);
 
     }
 

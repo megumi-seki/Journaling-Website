@@ -1,6 +1,6 @@
-<x-app-layout mainMergin="mtb-small" pageTitle="Everyone's Journals" :$user>
+<x-app-layout mainMargin="mtb-small" pageTitle="Everyone's Journals" :$user>
 
-    <section id="filter-weapper" class="hidden-when-large hidden-when-medium">
+    <section id="filter-weapper" class="hidden-when-large hidden">
         <form action="{{ route('everyone.filter')}}" method="GET" class="search-form filter-group bg-white">   
             <x-hashtag-dropdown />
             <x-keyword-dropdown />
