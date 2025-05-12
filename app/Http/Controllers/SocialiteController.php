@@ -40,9 +40,10 @@ class SocialiteController
             }
 
             Auth::login($dbUser);
-            return redirect()->intended(route("contents.index"));
+            return redirect(route("contents.index"));
         } catch (\Exception $e) {
-            return redirect()->back()->with("success", $e->getMessage() ?: "Something went wrong. Please try again later.");
+            return redirect(route("login.index"))
+                ->with("success", $e->getMessage() ?: "Something went wrong. Please try again later.");
         }
     }
 }
