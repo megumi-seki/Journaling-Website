@@ -3,6 +3,7 @@
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PasswordResetController;
 use App\Http\Controllers\SignupController;
+use App\Http\Controllers\SocialiteController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware("guest")->group(function() {
@@ -19,5 +20,10 @@ Route::middleware("guest")->group(function() {
         ->name("password.reset");
     Route::post("/reset-password", [PasswordResetController::class, "resetPassword"])
         ->name("password.update");
+
+    Route::get("login/oauth/{provider}", [SocialiteController::class, "redirectToProvider"])
+        ->name("login.oauth");
+    Route::get("callback/oauth/{provider}", [SocialiteController::class, "handleCallback"]);
+
 });
 
