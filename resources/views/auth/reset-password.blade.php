@@ -21,7 +21,7 @@
         <div class="form-group">
             <input type="password" name="password_confirmation" placeholder="Repeat the new password to confirm" class="input-def">
         </div>
-        <button type="submit" class="primary-btn mtb-smaller">Reset password</button>
+        <button type="submit" class="btn large-btn bg-main mtb-smaller">Reset password</button>
     </form>
 
     <x-slot:footerLink>

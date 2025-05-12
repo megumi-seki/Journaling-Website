@@ -6,7 +6,7 @@
             <h2 class="title">Verify Your Email Address</h2>
             <p class="mtb-smaller">Before proceeding, please check your email for a verification link.
             If you did not receive the email,</p>
-            <button class="primary-btn mtb-smaller">Please click here to request another link</button>
+            <button class="btn large-btn bg-main mtb-smaller">Please click here to request another link</button>
         </div>
     </form>
 </x-app-layout>

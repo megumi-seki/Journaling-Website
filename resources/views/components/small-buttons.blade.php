@@ -2,7 +2,7 @@
 
 <div class="btn-wrapper hidden-when-medium flex">
     <form action="{{ route('contents.edit', $content)}}" method="GET" class="inline-flex">
-        <button class="btn small-btn hover-effect">
+        <button class="btn small-btn hover-effect border-lt">
             Expand
         </button>
     </form>

@@ -1,6 +1,6 @@
 <x-app-layout mainMargin="mtb-small" pageTitle="Your Journals" :$user>
 
-    <section id="filter-weapper" class="hidden-when-large hidden-when-medium">
+    <section id="filter-weapper" class="hidden-when-large hidden">
         <form action="{{ route('content.filter' )}}" method="GET" class="search-form filter-group bg-white">   
             <x-hashtag-dropdown />
             <x-keyword-dropdown />
@@ -43,7 +43,7 @@
                 </form>
                 <div class="btn-wrapper flex">
                     <form action="{{ route('contents.create') }}" method="GET" class="inline-flex">
-                        <button class="btn small-btn hover-effect">Expand</button>
+                        <button class="btn small-btn hover-effect border-lt">Expand</button>
                     </form>
                     <button form="new-content" type="submit" class="btn small-btn hover-effect border-rb border-r-set">
                         Save

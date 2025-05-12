@@ -36,7 +36,6 @@ class SocialiteController
                     "email" => $user->email,
                     $field => $user->id,
                     "email_verified_at" => now(),
-                    "public_mode" => 0,
                     "user_icon_id" => 1,
                     "user_name" => "Annonymous"
                 ]);

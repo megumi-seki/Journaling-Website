@@ -49,7 +49,7 @@ document.addEventListener(("DOMContentLoaded"), function() {
         if (!toggleBtn) return
 
         toggleBtn.addEventListener("click", function() {
-            filterGroup.classList.toggle("hidden-when-medium");
+            filterGroup.classList.toggle("hidden");
         });
     }
 
@@ -80,7 +80,7 @@ document.addEventListener(("DOMContentLoaded"), function() {
         toggleBtns.forEach((btn) => {
             btn.addEventListener("click", function() {
                 const parent = btn.closest("div");
-                const elementsToToggle = parent.querySelectorAll(".btn-wrapper, .public-label, .edit-icon");
+                const elementsToToggle = parent.querySelectorAll(".btn-wrapper, .small-public-btn, .edit-icon");
 
                 elementsToToggle.forEach((element) => {
                     element.classList.toggle("hidden-when-medium")

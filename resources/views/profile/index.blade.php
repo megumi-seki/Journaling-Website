@@ -78,7 +78,7 @@
             <input type="password" name="new_password_confirmation" placeholder="Repeat password" class="input-def">
         </div>
         <div class="width-max flex gap-1 justify-end">
-            <button class="btn medium-btn bg-main">Update</button>
+            <button type="submit" class="btn medium-btn bg-main">Update</button>
         </div>
     </form>
 </div>

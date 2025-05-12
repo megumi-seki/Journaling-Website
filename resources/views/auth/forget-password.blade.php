@@ -11,7 +11,7 @@
             </div>
         </div>
        
-        <button class="primary-btn">Request</button>
+        <button class="btn large-btn bg-main">Request</button>
     </form>
 
     <x-google-facebook-oauth />

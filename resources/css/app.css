@@ -63,9 +63,9 @@ body, input, select, button {
 .font-15 { font-family: "Gloria Hallelujah", "Caveat", "Patric Hand", cursive, sans-serif; }
 
 .s-message {
+    position: absolute;
     text-align: center;
     width: 100%;
-    border-radius:  0.3rem;
     background-color: var(--success-message);
     color: var(--white);
     font-size: small;
@@ -93,6 +93,11 @@ li a {
     all: unset;
     cursor: pointer;
     color: var(--main-color);
+}
+
+select {    
+    background-color: var(--white);
+    color: var(--black);
 }
 
 .bc-body-color {
@@ -412,6 +417,10 @@ li a {
     margin-right: 1rem;
 }
 
+.mt-2 {
+    margin-top: 2rem;
+}
+
 .mtb-small {
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -561,6 +570,10 @@ li a {
 
 .border-rb {
     border-radius: 0 0 0.25rem 0;
+}
+
+.border-lt {
+    border-radius: 0.25rem 0 0 0;
 }
 
 .justify-end {
@@ -738,10 +751,6 @@ li a {
     display: none;
 }
 
-.hidden {
-    display: none;
-}
-
 .hover-effect:hover {
     background-color: var(--main-color);
     border-color: var(--main-color);
@@ -825,6 +834,10 @@ li a {
         padding: 1rem 0;
     }
 
+    .hidden-when-large {
+        display: block;
+    }
+
 }
 
 @media (max-width: 870px) {
@@ -863,10 +876,6 @@ li a {
     
     .large-btn {
         width: 25rem;
-    }
-
-    .hidden-when-large {
-        display: block;
     }
 
     .hidden-when-medium {
@@ -995,4 +1004,8 @@ li a {
     .page-title {
         display: none;
     }
+}
+
+.hidden {
+    display: none;
 }
