@@ -44,6 +44,7 @@
 
 body, input, select, button {
     font-size: 1rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .font-1 { font-family: Arial, Helvetica, sans-serif; }
@@ -432,8 +433,8 @@ select {
 }
 
 .mtb-medium {
-    margin-top: 5rem;
-    margin-bottom: 5rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
 }
 
 .ml-medium {
@@ -968,12 +969,12 @@ select {
     }
 
     .pt-medium {
-        padding-top: 4rem;
+        padding-top: 4.35rem;
     }
 
     .mtb-medium {
-        margin-top: 4rem;
-        margin-bottom: 4rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
     }
 
     .txta-expanded {
