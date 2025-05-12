@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name', 100);
             $table->string('user_name', 100)->nullable()->default("Annonymous");
             $table->string('email')->unique();
-            $table->string('phone', 45)->unique();
+            $table->string('phone', 45)->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('google_id')->nullable();

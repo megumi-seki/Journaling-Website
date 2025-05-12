@@ -24,6 +24,5 @@ Route::middleware("guest")->group(function() {
     Route::get("login/oauth/{provider}", [SocialiteController::class, "redirectToProvider"])
         ->name("login.oauth");
     Route::get("callback/oauth/{provider}", [SocialiteController::class, "handleCallback"]);
-
 });
 

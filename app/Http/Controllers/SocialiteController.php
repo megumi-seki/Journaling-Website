@@ -31,7 +31,7 @@ class SocialiteController
                 $dbUser->field = $user->id;
                 $dbUser->save();
             } else {
-                $dbUer = User::create([
+                $dbUser = User::create([
                     "name" => $user->name,
                     "email" => $user->email,
                     $field => $user->id,
