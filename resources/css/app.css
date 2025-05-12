@@ -984,9 +984,7 @@ select {
 
 @media (max-width: 420px) {
     .small-toolbar {
-        right: unset;
-        top: unset;
-        bottom: -2.3rem;
+        display: none;
     }
 
     .html-5 {
