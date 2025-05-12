@@ -33,7 +33,7 @@
                 @csrf     
                     <input name="content_text" id="x" type="hidden">
                     <trix-toolbar id="y" class="new-small-toolbar"></trix-toolbar>
-                    <trix-editor toolbar="y" input="x" class="editor-def set-h editor-abled font-{{ $setting->font_style_id }}"></trix-editor>
+                    <trix-editor toolbar="y" input="x" class="editor-def new-editor editor-abled font-{{ $setting->font_style_id }}"></trix-editor>
                     @if ($setting->public_mode)
                     <label for="new-public" class="btn small-btn small-public-btn new-public-btn">
                         <input type="checkbox" id="new-public" name="public" class="small-checkbox">

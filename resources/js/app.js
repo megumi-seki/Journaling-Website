@@ -122,14 +122,16 @@ document.addEventListener(("DOMContentLoaded"), function() {
                 if (isEditable) {
                     alert(`The change you made won't be saved. 
 Are you sure to cancel the edit?`);
-                    if (checkBox) {checkBox.checked = originallyIsChecked;}
+                    if (checkBox) checkBox.checked = originallyIsChecked;
                     trixInput.value = originalContentText;
                     trixEditor.editor.loadHTML(originalContentText);
                     trixEditor.setAttribute("contenteditable", "false");
                     btn.innerText = "Edit";
+                    if (!trixEditor.classList.contains("set-h")) trixEditor.classList.add("set-h");
                 } else {
                     trixEditor.setAttribute("contenteditable", "true");
                     btn.innerText = "Cancel";
+                    if (trixEditor.classList.contains("set-h")) trixEditor.classList.remove("set-h");
                 }
 
                 trixToolbar.classList.toggle("hidden");
@@ -399,13 +401,12 @@ Are you sure to cancel the edit?`);
     }
 
     const toggleEditorHeight = () => {
-        const section = document.getElementById("contents-section");
-        if (!section) return;
-        const editors = section.querySelectorAll("trix-editor");
+        const editors = document.querySelectorAll("trix-editor");
         if (!editors) return;
 
         editors.forEach((editor) => {
             editor.addEventListener("click", () => {
+            if (editor.getAttribute("contenteditable") === "true") return;
             editor.classList.toggle("set-h");
         });
     });

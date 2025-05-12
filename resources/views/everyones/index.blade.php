@@ -54,8 +54,3 @@
 {{ $contents->onEachSide(1)->links() }}
     <button class="toTopBtn btn-def-unset color-main ta-center font-small mtb-small {{ $contents->count() > 2 ? '' : 'hidden' }}">To top</button>
 </x-app-layout>
-
-
-{{-- TODO 
-    -render hashtags in journal and public page
- --}}

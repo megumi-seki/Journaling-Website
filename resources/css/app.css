@@ -130,6 +130,11 @@ select {
     color: var(--public-txta-color);
 }
 
+.new-editor {
+    overflow: auto;
+    height: 11rem;
+}
+
 .set-h {
     height: 11rem;
 }

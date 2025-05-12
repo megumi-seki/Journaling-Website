@@ -25,7 +25,7 @@ class ContentsController
             ->paginate(15);
             
         return view("content.index", 
-            ["contents" => $contents,"user" => $user, "setting" => $setting, "message" => "You dont have any journal yet"]);
+            ["contents" => $contents,"user" => $user, "setting" => $setting, "message" => "You don't have any journal yet"]);
     }
 
     /**
