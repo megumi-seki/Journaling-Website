@@ -35,7 +35,7 @@
                     <trix-toolbar id="y" class="new-small-toolbar"></trix-toolbar>
                     <trix-editor toolbar="y" input="x" class="editor-def new-editor editor-abled font-{{ $setting->font_style_id }}"></trix-editor>
                     @if ($setting->public_mode)
-                    <label for="new-public" class="btn small-btn small-public-btn new-public-btn">
+                    <label for="new-public" class="btn small-btn bg-main hover-effect small-public-btn new-public-btn">
                         <input type="checkbox" id="new-public" name="public" class="small-checkbox">
                         public
                     </label>
@@ -43,9 +43,9 @@
                 </form>
                 <div class="btn-wrapper flex">
                     <form action="{{ route('contents.create') }}" method="GET" class="inline-flex">
-                        <button class="btn small-btn hover-effect border-lt">Expand</button>
+                        <button class="btn small-btn hover-effect bg-main border-lt">Expand</button>
                     </form>
-                    <button form="new-content" type="submit" class="btn small-btn hover-effect border-rb border-r-set">
+                    <button form="new-content" type="submit" class="btn small-btn hover-effect bg-main border-rb border-r-set">
                         Save
                     </button>
                 </div>

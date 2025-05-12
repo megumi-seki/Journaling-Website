@@ -139,6 +139,7 @@ Are you sure to cancel the edit?`);
                 if (checkBox) {checkBox.disabled = !checkBox.disabled;}
                 btnsToToggle.forEach((btnToToggle) => {
                     btnToToggle.classList.toggle("hover-effect");
+                    btnToToggle.classList.toggle("bg-main");
                     btnToToggle.disabled = !btnToToggle.disabled;
                 });
 

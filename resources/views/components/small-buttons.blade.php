@@ -2,11 +2,11 @@
 
 <div class="btn-wrapper hidden-when-medium flex">
     <form action="{{ route('contents.edit', $content)}}" method="GET" class="inline-flex">
-        <button class="btn small-btn hover-effect border-lt">
+        <button class="btn small-btn bg-main hover-effect border-lt">
             Expand
         </button>
     </form>
-    <button class="btn small-btn edit-btn hover-effect">
+    <button class="btn small-btn bg-main edit-btn hover-effect">
         Edit
     </button>
     <button disabled form="content-{{ $content->id }}" type="submit" class="btn small-btn btn-to-toggle">
