@@ -10,7 +10,7 @@
         </form>
     </section>
 
-    <section id="search-section" class="search-wrapper mtb-small">
+    <section id="search-section" class="search-wrapper">
         <x-filter-button />
         <form action="{{ route('everyone.filter')}}" method="GET" class="search-form search-group bg-white">   
             <x-hashtag-dropdown />
@@ -31,7 +31,7 @@
                 <img src="{{ $content->user->userIcon->image_path }}" class="user-icon" alt="User Icon">
                 <span class="user-name font-small pl-smaller">{{ $content->user->user_name }}</span>
             </div>
-            <span class="ml-small font-small">{{ $content->created_at->isoFormat("MMMM D, YYYY h:mm A") }}</span> 
+            <span class="ml-small font-small">{{ $content->created_at->diffForHumans() }}</span> 
         </div>
         <div class="txta-wrapper">
             @unless($content->user_id == $user->id)
@@ -43,15 +43,16 @@
             @endunless
             <input id="x-{{ $content->id }}" value="{{ $content->content_text }}" type="hidden">
             <trix-toolbar id="my_toolbar" class="hidden"></trix-toolbar>
-            <trix-editor toolbar="my_toolbar" input="x-{{ $content->id }}" class="pub-editor font-{{ $content->user->setting->font_style_id }}" contenteditable="false"></trix-editor>
+            <trix-editor toolbar="my_toolbar" input="x-{{ $content->id }}" 
+                class="pub-editor set-h font-{{ $content->user->setting->font_style_id }}" contenteditable="false"></trix-editor>
         </div>
     </div>
     @empty
-        
+        <p class="font-small ta-center">{{ $message }}</p>
     @endforelse
 </section>
 {{ $contents->onEachSide(1)->links() }}
-<button class="toTopBtn btn-def-unset color-main ta-center font-small">To top</button>
+    <button class="toTopBtn btn-def-unset color-main ta-center font-small mtb-small {{ $contents->count() > 2 ? '' : 'hidden' }}">To top</button>
 </x-app-layout>
 
 

@@ -24,7 +24,8 @@ class ContentsController
             ->with(["hashtags", "sentHugUsers", "sentHeartUsers"])
             ->paginate(15);
             
-        return view("content.index", ["contents" => $contents,"user" => $user, "setting" => $setting]);
+        return view("content.index", 
+            ["contents" => $contents,"user" => $user, "setting" => $setting, "message" => "You dont have any journal yet"]);
     }
 
     /**
@@ -165,7 +166,8 @@ class ContentsController
 
         $contents = $query->paginate(15)->withQueryString();
 
-        return view("content.index", ["contents" => $contents, "user" => $user, "setting" => $setting]);
+        return view("content.index", 
+            ["contents" => $contents, "user" => $user, "setting" => $setting, "message" => "No journal matched to the filter"]);
 
     }
 

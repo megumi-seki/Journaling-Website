@@ -397,6 +397,19 @@ Are you sure to cancel the edit?`);
             });
         });
     }
+
+    const toggleEditorHeight = () => {
+        const section = document.getElementById("contents-section");
+        if (!section) return;
+        const editors = section.querySelectorAll("trix-editor");
+        if (!editors) return;
+
+        editors.forEach((editor) => {
+            editor.addEventListener("click", () => {
+            editor.classList.toggle("set-h");
+        });
+    });
+    }
     
     // TODO make confirmation function to delete a content
 
@@ -416,4 +429,5 @@ Are you sure to cancel the edit?`);
     profileSettingResetBtn();
     resetBtnOnExpanded();
     profileHiddenUserIconInput();
+    toggleEditorHeight();
 });

@@ -16,6 +16,7 @@
     --black: #000000;
     --main-color: #EE827D;
     --main-lighter: #f8b0ac;
+    --main-for-checkbox: #d66660;
     --body-color:#FFF9E2;
     --bc-stronger: #ffe57b;
     --bc-much-stronger: #fdd949;
@@ -117,9 +118,9 @@ select {
 }
 
 .editor-def, .pub-editor {
-    overflow: auto;
+    overflow: hidden;
     width: 100%;
-    height: 10rem;
+    height: auto;
     border-radius: 0.3rem;
     resize: none;
     padding: 1rem 2rem;
@@ -127,6 +128,10 @@ select {
     line-height: 1.5rem;
     background-color: var(--public-txta-bg);
     color: var(--public-txta-color);
+}
+
+.set-h {
+    height: 11rem;
 }
 
 .editor-abled {
@@ -198,6 +203,7 @@ select {
     right: 11.3rem;
     display: inline-flex;
     justify-content: center;
+    align-items: center;
     gap: 0.5rem;
     border: 0.06rem solid var(--main-color);
 }
@@ -239,10 +245,6 @@ select {
 
 .pt-medium {
     padding-top: 5rem;
-}
-
-.ptb-small {
-    padding: 2rem 0;
 }
 
 .pl-small {
@@ -395,7 +397,8 @@ select {
 }
 
 .txta-expanded {
-    height: 30rem;
+    height: 18.3rem;
+    overflow: auto;
 }
 
 .m-auto {
@@ -537,7 +540,6 @@ select {
 
 .txta-wrapper {
     position: relative;
-    flex: 1;
     margin-bottom: 2rem;
 }
 
@@ -589,14 +591,10 @@ select {
     font-weight: bold;
 }
 
-.ver-al {
-    vertical-align: -0.06rem;
-}
-
 .icons-on-pub {
     position: absolute;
     right: 1.3125rem;
-    top: 4rem;
+    bottom: 2rem;
 }
 
 .ml-minus-small {
@@ -624,7 +622,8 @@ select {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 1rem;
+    /* padding-bottom: 1rem; */
+    padding: 0 0 2rem;
 }
 
 .sidebar-icon {
@@ -700,7 +699,7 @@ select {
     align-items: center;    
     gap: 0.5rem;
     position: absolute;
-    top: 8.3rem;
+    top: 7.3rem;
     padding: 1rem 1.5rem;
     border-radius: 0.5rem;
     border: 0.06rem solid var(--bc-much-stronger);
@@ -745,7 +744,7 @@ select {
 }
 
 .small-checkbox {
-    accent-color: var(--white);
+    accent-color: var(--main-for-checkbox);
 }
 
 .hidden-when-large {
@@ -830,11 +829,6 @@ select {
     .search-btn {
         width: 10rem;
     }
-    
-    .ptb-small {
-        padding: 1rem 0;
-    }
-
     .hidden-when-large {
         display: block;
     }
@@ -919,7 +913,7 @@ select {
     }
 
     .filter-group {
-        top: 7.65rem;
+        top: 6.65rem;
     }
 
     .tag-wrapper, .p-tag-wrapper {
@@ -999,11 +993,19 @@ select {
     }
 
     .ml-small {
-        margin-left: 0;
+        margin-left: 0.5rem;
     }
 
     .page-title {
         display: none;
+    }
+
+    .max-w-80 {
+        max-width: 100%;
+    }
+
+    .txta-wrapper {
+        margin-bottom: 0.8rem;
     }
 }
 

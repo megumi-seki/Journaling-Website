@@ -11,7 +11,7 @@
         </form>
     </section>
 
-    <section id="search-bar" class="search-wrapper mtb-small">
+    <section id="search-bar" class="search-wrapper">
         <x-filter-button />
         <form action="{{ route('content.filter' )}}" method="GET" class="search-form search-group bg-white">   
             <x-year-month-dropdown />
@@ -25,18 +25,18 @@
     <x-order-dropdown-form />
     </section>  
 
-    <section id="contents-section">
-        <div id="content-wrapper">
+
+    <div id="new-content-wrapper">
             <span class="font-small ml-small">Your new journal</span>
             <div class="txta-wrapper">
                 <form action="{{ route('contents.store') }}" method="POST" id="new-content" class="txta-wrapper">  
                 @csrf     
                     <input name="content_text" id="x" type="hidden">
                     <trix-toolbar id="y" class="new-small-toolbar"></trix-toolbar>
-                    <trix-editor toolbar="y" input="x" class="editor-def editor-abled font-{{ $setting->font_style_id }}"></trix-editor>
+                    <trix-editor toolbar="y" input="x" class="editor-def set-h editor-abled font-{{ $setting->font_style_id }}"></trix-editor>
                     @if ($setting->public_mode)
                     <label for="new-public" class="btn small-btn small-public-btn new-public-btn">
-                        <input type="checkbox" id="new-public" name="public" class="small-checkbox ver-al">
+                        <input type="checkbox" id="new-public" name="public" class="small-checkbox">
                         public
                     </label>
                     @endif
@@ -50,8 +50,9 @@
                     </button>
                 </div>
             </div>
-        </div>
-
+    </div>
+    
+    <section id="contents-section">
         @forelse ($contents as $content)
         <div id="content-wrapper">
             <div class="flex">
@@ -76,12 +77,13 @@
                     @method("PATCH")
                     <input id="x-{{ $content->id }}" name="content_text" value="{{ $content->content_text }}" type="hidden" class="trix-input">
                     <trix-toolbar id="hidden-toolbar-{{ $content->id }}" class="small-toolbar hidden"></trix-toolbar>
-                    <trix-editor id="trix-editor" toolbar="hidden-toolbar-{{ $content->id }}" input="x-{{ $content->id }}" class="editor-def font-{{ $setting->font_style_id }}" contenteditable="false"></trix-editor>         
+                    <trix-editor id="trix-editor" toolbar="hidden-toolbar-{{ $content->id }}" input="x-{{ $content->id }}"
+                        class="editor-def set-h font-{{ $setting->font_style_id }}" contenteditable="false"></trix-editor>         
                     <x-edit-remove-icon :public="$setting->public_mode" />
                     <x-edit-icon />
                     @if ($setting->public_mode)
                     <label for="public-{{ $content->id }}" class="btn small-btn small-public-btn hidden-when-medium btn-to-toggle">
-                        <input disabled {{ $content->public ? "checked" : "" }} type="checkbox" id="public-{{ $content->id }}" name="public" class="small-checkbox ver-al">
+                        <input disabled {{ $content->public ? "checked" : "" }} type="checkbox" id="public-{{ $content->id }}" name="public" class="small-checkbox">
                         public
                     </label>
                     @endif
@@ -90,10 +92,10 @@
             </div>
         </div>
         @empty
-        <p class="font-small ta-center">You don't have any journal yet</p>
+        <p class="font-small ta-center">{{ $message }}</p>
         @endforelse
-       
+
     </section>
     {{ $contents->onEachSide(1)->links() }}
-    <button class="toTopBtn btn-def-unset color-main ta-center font-small">To top</button>
+    <button class="toTopBtn btn-def-unset color-main ta-center font-small mtb-small {{ $contents->count() > 1 ? '' : 'hidden' }}">To top</button>
 </x-app-layout>

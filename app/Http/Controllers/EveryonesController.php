@@ -20,7 +20,8 @@ class EveryonesController
             ->orderBy("created_at","desc")
             ->with(["user.userIcon", "user.setting", "publicTaggedUsers",  "sentHugUsers", "sentHeartUsers"])
             ->paginate(15);
-        return view("everyones.index", ["contents" => $contents, "user" => $user]);
+        return view("everyones.index", 
+            ["contents" => $contents, "user" => $user, "message" => "There is no public journal yet"]);
     }
 
     public function filter(Request $request) 
@@ -67,7 +68,8 @@ class EveryonesController
 
         $contents = $query->paginate(15)->withQueryString();
 
-        return view("everyones.index", ["contents" => $contents, "user" => $user]);
+        return view("everyones.index", 
+            ["contents" => $contents, "user" => $user, "message" => "No journal matched to the filter"]);
 
     }
 
