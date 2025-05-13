@@ -114,7 +114,7 @@ document.addEventListener(("DOMContentLoaded"), function() {
             const originalContentText = trixInput.value;
             const trixEditor = grandParent.querySelector("#trix-editor");
             const trixToolbar = grandParent.querySelector(".small-toolbar");
-            
+          
             btn.addEventListener("click", function() {
                 const btnsToToggle = grandParent.querySelectorAll(".btn-to-toggle");
                 const isEditable = trixEditor.getAttribute("contenteditable") === "true"
@@ -127,15 +127,14 @@ Are you sure to cancel the edit?`);
                     trixEditor.editor.loadHTML(originalContentText);
                     trixEditor.setAttribute("contenteditable", "false");
                     btn.innerText = "Edit";
-                    if (!trixEditor.classList.contains("set-h")) trixEditor.classList.add("set-h");
                 } else {
                     trixEditor.setAttribute("contenteditable", "true");
                     btn.innerText = "Cancel";
-                    if (trixEditor.classList.contains("set-h")) trixEditor.classList.remove("set-h");
                 }
 
                 trixToolbar.classList.toggle("hidden");
                 trixEditor.classList.toggle("editor-abled");
+                trixEditor.classList.toggle("scroll-auto");
                 if (checkBox) {checkBox.disabled = !checkBox.disabled;}
                 btnsToToggle.forEach((btnToToggle) => {
                     btnToToggle.classList.toggle("hover-effect");
@@ -411,7 +410,7 @@ Are you sure to cancel the edit?`);
             editor.classList.toggle("set-h");
         });
     });
-    }
+}
     
     // TODO make confirmation function to delete a content
 

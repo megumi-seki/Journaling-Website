@@ -139,6 +139,10 @@ select {
     height: 11rem;
 }
 
+.scroll-auto {
+    overflow: auto;
+}
+
 .editor-abled {
     background-color: var(--white);
     color: var(--black);
