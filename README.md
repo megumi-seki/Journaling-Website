@@ -23,21 +23,21 @@ This project is still under development, but you can either sign up or log in us
 -Custom night mode and color theme options per user (still in progress)  
 
 ## Teck Stack 
-**Frontend**
+**Frontend**  
 -HTML / CSS    
 -Javascript  
 -Trix Editor 
 
-**Backend**
+**Backend**   
 -PHP 8  
 -Laravel 12
 
 **Database**  
--SQlite (for development)
+-SQlite (for development)  
 -MySQL (for production)
 
-**Other tools**
--Laravel Herd
--Git / Github
+**Other tools**  
+-Laravel Herd  
+-Git / Github  
 -Warp
 
