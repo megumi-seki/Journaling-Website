@@ -1,7 +1,7 @@
 @props(["mainMargin" => "", "gap" => "", "pageTitle" => "", "user" => null])
 <x-base-layout :$user>
     <p class="information">Thank you for visiting!<br/>This website is still under development.</p>
-    <x-layouts.header :$pageTitle :$user />
+    <x-layouts.header :$pageTitle />
     <x-layouts.sidebar :$pageTitle />
     <main class="pt-medium">
             @session("success")

@@ -1,4 +1,4 @@
-<x-app-layout mainMargin="mtb-small" pageTitle="Your Journals" :$user>
+<x-app-layout mainMargin="mtb-small" pageTitle="Your Journal" :$user>
 
     <section id="filter-weapper" class="hidden-when-large hidden">
         <form action="{{ route('content.filter' )}}" method="GET" class="search-form filter-group bg-white">   

@@ -1,5 +1,4 @@
 @props(['pageTitle' => "", "user" => null])
-
 <div class="header">
     <x-buttons.app-icon :$user />
 
@@ -11,7 +10,6 @@
             
         </div>
     </div>
-
 
     <div class="nav-bar">
         <p class="mr-small page-title">{{ $pageTitle }}</p>

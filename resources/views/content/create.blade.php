@@ -1,4 +1,4 @@
-<x-app-layout mainMargin="mtb-medium" pageTitle="Your New Journal" :$user>
+<x-app-layout mainMargin="mtb-medium" pageTitle="New Entry" :$user>
         <trix-toolbar id="toolbar" class=""></trix-toolbar> 
         <form action="{{ route('contents.store') }}" method="POST" class="flex-col">
                 @csrf

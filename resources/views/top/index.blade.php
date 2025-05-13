@@ -1,4 +1,4 @@
-<x-app-layout mainMargin="mtb-small" gap="gap-1">
+<x-app-layout mainMargin="mtb-small" gap="gap-1" :$pageTitle >
     <h1>
         "Journaling"
     </h1>

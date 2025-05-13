@@ -1,14 +1,16 @@
-@props(['pageTitle' => ""])
+@props(['pageTitle' => "", "isAuth" =>false])
 
 @switch($pageTitle)
-@case("Your New Journal")
+@case("New Entry")
+@case("Edit Entry")
+@case("Top")
     <x-buttons.your-journals />
     <x-buttons.everyones-journals />
     <x-buttons.profile />
     <x-buttons.settings />
     <x-buttons.logout />
 @break
-@case("Your Journals")
+@case("Your Journal")
     <x-buttons.everyones-journals />
     <x-buttons.profile />
     <x-buttons.settings />

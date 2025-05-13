@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 
 class TopController
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view("top.index");
+        $pageTitle = $request->user() ? "Top" : "";
+        return view("top.index", ["pageTitle" => $pageTitle]);
     }
 }
