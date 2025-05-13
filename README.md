@@ -9,18 +9,18 @@ This project is still under development, but you can either sign up or log in us
 -password: `password`
 
 ## Features
--Write and save journal entries using the Trix Editor  
--Add hashtag to entries  
+-Write, save, update, and delete journal entries using the Trix Editor  
+-Add hashtags to entries  
 -Tag favorite entries  
--Set public / private mode per user  
+-Set public/private mode per user  
 -Set each journal entry to be public or private (for public users)  
 -Send and receive simple reactions: heart and hug  
--Filter entries by date, reactions, hashtags and keywords  
+-Filter entries by date, reactions, hashtags, and keywords  
 -Email verification required to access the public section  
--Google / Facebook OAuth login (Facebook login is still in proggress)  
+-Google/Facebook OAuth login (Facebook login is still in progress)  
 -Fully responsive UI for desktop and mobile  
 -Custom font style and screen size per user  
--Custom night mode and color theme options per user (still in proggress)  
+-Custom night mode and color theme options per user (still in progress)  
 
 ## Teck Stack 
 **Frontend**
