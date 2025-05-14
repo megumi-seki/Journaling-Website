@@ -7,8 +7,7 @@
                 <div class="flex justify-end">
                         @if ($user->setting->public_mode)
                         <label for="public" class="btn medium-btn hover-effect inline-flex justify-center align-center gap-smallest mr-small">
-                                <input name="public" type="checkbox" id="public" name="public" class="small-checkbox">
-                                        public
+                                <input name="public" type="checkbox" id="public" name="public" class="small-checkbox">public
                         </label>
                         @endif
                         <button type="submit" class="btn medium-btn bg-main mr-small">Save</button>

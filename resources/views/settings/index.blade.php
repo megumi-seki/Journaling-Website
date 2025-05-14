@@ -24,9 +24,9 @@
         <div class="form-group">
             <label for="colors" class="font-small pl-smaller">Colors</label>
             <select name="color_unit_id" id="colors" class="input-def">
-            @for ($i = 0; $i < 8; $i++)
-                <option value="{{ $i + 1 }}" {{ $i + 1 == $settings->color_unit_id ? "selected" :""}}>Colors {{ $i + 1 }}</option>
-            @endfor
+                @for ($i = 0; $i < 8; $i++)
+                    <option value="{{ $i + 1 }}" {{ $i + 1 == $settings->color_unit_id ? "selected" :""}}>Colors {{ $i + 1 }}</option>
+                @endfor
             </select>
         </div>
         <div class="form-group">

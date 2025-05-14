@@ -66,6 +66,7 @@ body, input, select, button {
 
 .s-message {
     position: absolute;
+    top: 68px;
     text-align: center;
     width: 100%;
     background-color: var(--success-message);
@@ -112,7 +113,7 @@ select {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.8rem 2rem;
+    padding: 8px 1.5rem;
     background-color: var(--white);
     z-index: 3;
 }
@@ -123,7 +124,7 @@ select {
     height: auto;
     border-radius: 0.3rem;
     resize: none;
-    padding: 1rem 2rem;
+    padding: 1rem 2rem 1.2rem;
     font-size: 1rem;
     line-height: 1.5rem;
     background-color: var(--public-txta-bg);
@@ -167,6 +168,7 @@ select {
 
 .app-icon {
     height: 50px;
+    margin-bottom: -2px;
 }
 
 .opacity {
@@ -631,7 +633,6 @@ select {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* padding-bottom: 1rem; */
     padding: 0 0 2rem;
 }
 
@@ -847,7 +848,7 @@ select {
 @media (max-width: 870px) {
 
     .editor-def {
-        padding: 0.5rem 3rem 0.5rem 1rem;
+        padding: 0.5rem 2.2rem 1.2rem 1rem;
     }
 
     .pub-editor {
@@ -913,12 +914,8 @@ select {
         width: 5rem;
     }
 
-    .header {
-        padding: 0.5rem;
-    }
-
     .editor-def {
-        padding: 0.5rem 2rem 0.5rem 1rem;
+        padding: 0.5rem 1.7rem 1.2rem 1rem;
     }
 
     .filter-group {

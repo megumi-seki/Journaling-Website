@@ -8,6 +8,5 @@
         {{ $slot }}
 
         {{ $footerLink }}
-             
     </main>
 </x-base-layout>

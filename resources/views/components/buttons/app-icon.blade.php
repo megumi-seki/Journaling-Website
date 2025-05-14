@@ -1,5 +1,5 @@
-@props(["user" => null])
+@props(["pageTitle" => null])
 
-<a href="{{ $user ? route('contents.index') : route('top') }}">
+<a href="{{ $pageTitle ? route('contents.index') : route('top') }}">
     <img class="app-icon" src="{{ asset('img/dearjournal-icon.png') }}" alt="app-icon">
 </a>

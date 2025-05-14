@@ -8,7 +8,7 @@ class TopController
 {
     public function index(Request $request)
     {
-        $pageTitle = $request->user() ? "Top" : "";
+        $pageTitle = $request->user() ? "Top" : null;
         return view("top.index", ["pageTitle" => $pageTitle]);
     }
 }

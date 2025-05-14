@@ -1,6 +1,6 @@
 <form action="{{ route('logout') }}" method="POST">
     @csrf
     <button class="btn nav-btn">
-    Logout
+        Logout
     </button> 
 </form>
