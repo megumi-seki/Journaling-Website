@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     {{-- TODO adjust CSP after hosting  --}}
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self'; script-src-elem 'self';">
+    {{-- <meta http-equiv="Content-Security-Policy" content="script-src 'self'; script-src-elem 'self';"> --}}
     <title>Dear Journal...</title>
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Caveat&family=Patrick+Hand&

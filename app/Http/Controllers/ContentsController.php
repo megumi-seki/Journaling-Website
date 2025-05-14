@@ -158,7 +158,7 @@ class ContentsController
             $query->whereRaw("DAYOFWEEK(created_at) = ?", [$dayOfWeek]);
         }
 
-        if ($tag) {
+        if ($tag !== null && $tag !== "") {
             $query->where("tag", $tag);
         }
 
