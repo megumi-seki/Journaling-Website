@@ -28,6 +28,11 @@ class SettingsController
             "font_size" => "required|int: 1, 2, 3, 4, 5",
         ]);
 
+        if ($data["public_mode"] === "1" && !$user->hasVerifiedEmail()) {
+            session(["url.intended" => url()->previous()]);
+            return redirect()->route("verification.notice");
+        }
+
         $setting->update($data);
 
         if (!$data["public_mode"]) {

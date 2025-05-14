@@ -15,8 +15,8 @@ class EmailVerifyController
     public function verify(EmailVerificationRequest $request)
     {
         $request->fulfill();
-        return redirect()->intended(route("contents.index"))
-            ->with("success", "Your email was verified. You can now use public mode");
+        return redirect()->intended(route("everyones"))
+            ->with("success", "Your email was verified. You can now activate public mode");
 
     }
 
