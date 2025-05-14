@@ -20,6 +20,7 @@ class UserController
 
     public function update(Request $request)
     {
+        //TODO improve phone valification
         $user = $request->user();
         $data = $request->validate([
             "name" => "required|string|max:255",
@@ -30,9 +31,6 @@ class UserController
         ]);
 
         $user->fill($data);
-
-        // TODO set conditions for email verification etc
-
         $user->save();
 
         return redirect()->route("profile.index")->with("success", "profile information was updated successfully");

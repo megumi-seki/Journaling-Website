@@ -29,6 +29,7 @@
     --public-txta-color: light-dark(rgb(84, 84, 84), rgb(170, 170, 170));
     --success-message: #4dcb4d;
     --error: #d20a0a;
+    --error-message: #f25e5e;
 }
 
 * {
@@ -64,7 +65,7 @@ body, input, select, button {
 .font-14 { font-family: "Dancing Script", "Caveat", "Patric Hand", cursive, sans-serif; }
 .font-15 { font-family: "Gloria Hallelujah", "Caveat", "Patric Hand", cursive, sans-serif; }
 
-.s-message {
+.s-message, .e-message {
     position: absolute;
     top: 68px;
     text-align: center;
@@ -72,6 +73,10 @@ body, input, select, button {
     background-color: var(--success-message);
     color: var(--white);
     font-size: small;
+}
+
+.e-message {
+    background-color: var(--error-message);
 }
 
 .btn-def-unset {

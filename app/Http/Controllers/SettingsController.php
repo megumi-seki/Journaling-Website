@@ -33,6 +33,11 @@ class SettingsController
             return redirect()->route("verification.notice");
         }
 
+        if ($data["public_mode"] === "1" && empty($user->phone)) {
+            return redirect()->route("profile.index")
+                ->with("error", "Please provide valid phone information to activate public mode");
+        }
+
         $setting->update($data);
 
         if (!$data["public_mode"]) {

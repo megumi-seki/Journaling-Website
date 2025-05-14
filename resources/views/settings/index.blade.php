@@ -11,7 +11,7 @@
             <label for="public-mode" class="font-small pl-smaller">Public Mode <span class="font-smaller">(enables journal visibility, but doesn't automatically publish contents)</span></label>
             <select name="public_mode" id="public-mode" class="input-def">
                 <option value="0" {{ !$settings->public_mode ? "selected": "" }}>Off</option>
-                <option value="1" {{ $settings->public_mode ? "selected": "" }}>On (email verification required)</option>
+                <option value="1" {{ $settings->public_mode ? "selected": "" }}>On (email verification & valid phone number required)</option>
             </select> 
         </div>
         <div class="form-group">

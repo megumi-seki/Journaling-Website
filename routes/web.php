@@ -37,7 +37,7 @@ Route::middleware("auth")->group(function() {
 
     Route::post("/logout", [LoginController::class, "logout"])->name("logout");
 
-    Route::middleware("verified")->group(function() {
+    Route::middleware(["verified", "phone"])->group(function() {
         Route::get("/everyones", [EveryonesController::class,"index"])
             ->name("everyones");
         Route::get("/everyone/filter", [EveryonesController::class,"filter"])
@@ -45,7 +45,6 @@ Route::middleware("auth")->group(function() {
         Route::patch("everyone/{content}/restore-tag", [EveryonesController::class, "restorePublicTag"]);
         Route::patch("everyone/{content}/restore-heart", [EveryonesController::class, "restoreHeart"]);
         Route::patch("everyone/{content}/restore-hug", [EveryonesController::class, "restoreHug"]);
-
     });
 
 });

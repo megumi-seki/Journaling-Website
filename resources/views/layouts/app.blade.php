@@ -7,6 +7,9 @@
         @session("success")
             <p class="s-message">{{ session("success") }}</p>
         @endsession
+        @session("error")
+            <p class="e-message">{{ session("error") }}</p>
+        @endsession
         <div class="flex-col max-w-80 m-auto {{ $gap }} {{ $mainMargin }}">
             {{ $slot }}
         </div>
