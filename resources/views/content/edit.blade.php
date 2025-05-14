@@ -1,5 +1,5 @@
 <x-app-layout mainMargin="mtb-medium" pageTitle="Edit Entry" :$user>
-        <trix-toolbar id="toolbar" class=""></trix-toolbar> 
+        <trix-toolbar id="toolbar" class="toolbar-on-expanded"></trix-toolbar> 
         <form action="{{ route('contents.update', $content) }}" method="POST" class="flex-col">
                 @csrf
                 @method("PATCH")

@@ -1,5 +1,5 @@
 <x-app-layout mainMargin="mtb-medium" pageTitle="New Entry" :$user>
-        <trix-toolbar id="toolbar" class=""></trix-toolbar> 
+        <trix-toolbar id="toolbar" class="toolbar-on-expanded"></trix-toolbar> 
         <form action="{{ route('contents.store') }}" method="POST" class="flex-col">
                 @csrf
                 <input id="new-input" name="content_text" type="hidden" class="trix-input-to-edit">

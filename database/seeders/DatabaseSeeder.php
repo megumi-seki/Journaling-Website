@@ -22,16 +22,17 @@ class DatabaseSeeder extends Seeder
     {
         ColorUnit::factory()
             ->sequence(
-                ["name" => "warm colors"],
-                ["name" => "cool colors"],
-                ["name" => "primary colors"],
-                ["name" => "secondary colors"],
-                ["name" => "pastel colors"],
-                ["name" => "earth tone colors"],
-                ["name" => "neutral colors"],
-                ["name" => "bright colors"]
+                ["name" => "default"],
+                ["name" => "blue"],
+                ["name" => "brown"],
+                ["name" => "orange"],
+                ["name" => "wine-red"],
+                ["name" => "mint-green"],
+                ["name" => "masterd"],
+                ["name" => "yellow"],
+                ["name" => "gray"]
             )
-            ->count(8)
+            ->count(9)
             ->create();
             
         FontStyle::factory()

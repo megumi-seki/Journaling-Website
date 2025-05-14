@@ -1,6 +1,6 @@
 <x-app-layout mainMargin="mtb-small" pageTitle="Your Journal" :$user>
     <section id="filter-weapper" class="hidden-when-large hidden">
-        <form action="{{ route('content.filter' )}}" method="GET" class="search-form filter-group bg-white">   
+        <form action="{{ route('content.filter' )}}" method="GET" class="search-form filter-group bg-s-form">   
             <x-hashtag-dropdown />
             <x-keyword-dropdown />
             <x-year-month-dropdown />
@@ -12,7 +12,7 @@
 
     <section id="search-bar" class="search-wrapper">
         <x-filter-button />
-        <form action="{{ route('content.filter' )}}" method="GET" class="search-form search-group bg-white">   
+        <form action="{{ route('content.filter' )}}" method="GET" class="search-form search-group bg-s-form">   
             <x-year-month-dropdown />
             <x-day-of-week-dropdown />
             <x-tag-dropdown />

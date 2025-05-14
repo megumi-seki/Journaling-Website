@@ -15,7 +15,7 @@
     &family=Poppins&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-    <body class="bc-body-color">
+    <body class="bc-body-color theme {{ $user && $user->setting->screen_mode ? 'dark-theme' : '' }} {{ $user ? 'theme-'.$user->setting->color_unit_id : '' }} ">
         {{ $slot }}
     </body>
 </html>

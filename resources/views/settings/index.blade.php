@@ -1,5 +1,6 @@
 @php
-    $fontSizes = ["Extra Small", "Small", "Default", "Large", "Extra Large"]
+    $fontSizes = ["Extra Small", "Small", "Default", "Large", "Extra Large"];
+    $themes = ["Default", "Blue", "Brown", "Orange","Wine Red", "Mint Green", "Mustard", "Yellow", "Gray"];
 @endphp
 
 <x-app-layout mainMargin="mtb-medium" pageTitle="Settings" :$user>
@@ -15,22 +16,22 @@
             </select> 
         </div>
         <div class="form-group">
-            <label for="screen-mode" class="font-small pl-smaller">Screen Mode</label>
+            <label for="screen-mode" class="font-small pl-smaller">Night Mode</label>
             <select name="screen_mode" id="screen-mode" class="input-def">
-                <option value="0" {{ !$settings->screen_mode ? "selected": "" }}>Light mode</option>
-                <option value="1" {{ $settings->screen_mode ? "selected": "" }}>Dark mode</option>
+                <option value="0" {{ !$settings->screen_mode ? "selected": "" }}>Off</option>
+                <option value="1" {{ $settings->screen_mode ? "selected": "" }}>On</option>
             </select>
         </div>
         <div class="form-group">
-            <label for="colors" class="font-small pl-smaller">Colors</label>
+            <label for="colors" class="font-small pl-smaller">Color Theme</label>
             <select name="color_unit_id" id="colors" class="input-def">
-                @for ($i = 0; $i < 8; $i++)
-                    <option value="{{ $i + 1 }}" {{ $i + 1 == $settings->color_unit_id ? "selected" :""}}>Colors {{ $i + 1 }}</option>
-                @endfor
+                @foreach ($themes as $theme)
+                    <option value="{{ $loop->iteration }}" {{ $loop->iteration == $settings->color_unit_id ? "selected" : ""}}>{{ $theme }}</option>                  
+                @endforeach
             </select>
         </div>
         <div class="form-group">
-            <label for="font-size" class="font-small pl-smaller">Font Size</label>
+            <label for="font-size" class="font-small pl-smaller">Screen Size</label>
             <select name="font_size" id="font-size" class="input-def">
                 @foreach ($fontSizes as $fontSize)
                     <option value="{{ $loop->iteration }}" {{ $loop->iteration == $settings->font_size ? "selected" :""}}>
