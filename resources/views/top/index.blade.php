@@ -42,7 +42,7 @@
     </div>
     <div class="divider"></div>
     <footer class="mtb-small">
-        <p>credits</p>
+        <p><b>credits</b></p>
         <div class="credit-links">
         <p><a href="https://www.flaticon.com/free-icons/embrace" title="embrace icons" class="font-small">Embrace icons created by narak0rn - Flaticon</a></p>
         <p><a href="https://www.flaticon.com/free-icons/hug" title="hug icons" class="font-small">Hug icons created by narak0rn - Flaticon</a></p>
