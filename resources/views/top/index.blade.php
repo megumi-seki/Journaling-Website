@@ -16,16 +16,16 @@
         <div class="second-top-image">
             <div class="img-description-2">
                 <p class="underline mtb-smaller"><b>Everyone's Journals</b></p>
-                <p>If you choose to, you can share some of your entries in public section.</p>
-                <p>While staying true to the core pourpose of journaling, 
-                    this site gently lets you to feel the warmth of others through likes and hugs,
+                <p>If you choose to, you can share some of your entries in the public section.</p>
+                <p>While staying true to the core purpose of journaling, 
+                    this site gently lets you feel the warmth of others through likes and hugs,
                     without follower counts or comments that might distract from self-reflection.</p>
             </div>
             <img src="{{ asset('img/everyones-page.png')}}" alt="Your Journal Page" class="top-img mt-minus">
         </div>
         <div class="top-pagecustom mtb-small">
             <p class="underline"><b>Page Customization</b></p>
-            <p class="img-description-3">You can customize your journal's theme color, font style, and layout to match your personal style!</p>
+            <p class="img-description-3">You can customize your journal's theme color, font style, and layout to match your personal style.</p>
             <div class="pagecustom-imgs">
                 <img src="{{ asset(path: 'img/nightmode-page-new.png')}}" alt="Custom Theme Color Example" class="top-img">
                 <img src="{{ asset('img/winered-page-new.png')}}" alt="Custom Theme Color Example" class="top-img">
