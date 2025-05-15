@@ -5,7 +5,7 @@
 ## Website 
 You can visit the website of this project from <a href="https://dear-journal.com/">here</a>.  
 This project is still under development, but you can either sign up or log in using demo user information:  
--email: `oarmstrong@example.com`  
+-email: `esporer@example.net`  
 -password: `password`
 
 ## Features
@@ -20,7 +20,7 @@ This project is still under development, but you can either sign up or log in us
 -Google/Facebook OAuth login (Facebook login is still in progress)  
 -Fully responsive UI for desktop and mobile  
 -Custom font style and screen size per user  
--Custom night mode and color theme options per user (still in progress)  
+-Custom night mode and color theme options per user 
 
 ## Teck Stack 
 **Frontend**  
