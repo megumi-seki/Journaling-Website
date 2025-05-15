@@ -24,7 +24,7 @@
     </section>  
 
     <section id="new-content-wrapper">
-        <span class="font-small ml-small">Your new journal</span>
+        <span class="font-small ml-small">New Entry</span>
         <div class="txta-wrapper">
             <form action="{{ route('contents.store') }}" method="POST" id="new-content" class="txta-wrapper">  
                 @csrf     

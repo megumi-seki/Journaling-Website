@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EmailVerifyController
 {
     public function notice()
     {
-        return view("auth.verify-email");
+        $user = Auth::user();
+        return view("auth.verify-email", ["user" => $user]);
     }
 
     public function verify(EmailVerificationRequest $request)

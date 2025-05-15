@@ -1,4 +1,4 @@
-<x-app-layout mainMergin="mtb-small" pageTitle="Everyone's Journals">
+<x-app-layout mainMergin="mtb-small" pageTitle="Everyone's Journals" :$user>
     <form action="{{ route('verification.send') }}" method="POST"
         class="auth-form">
         @csrf

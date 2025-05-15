@@ -154,6 +154,12 @@
 .font-14 { font-family: "Dancing Script", "Caveat", "Patric Hand", cursive, sans-serif; }
 .font-15 { font-family: "Gloria Hallelujah", "Caveat", "Patric Hand", cursive, sans-serif; }
 
+.cutive-mono {
+    font-family: "Cutive Mono", "Courier New", Courier, monospace;
+}
+
+
+
 
 * {
     box-sizing: border-box;
@@ -927,6 +933,82 @@ li a {
     bottom: unset;
 }
 
+.top-header {
+    margin: 1rem auto;
+    width: 80%;
+    padding: 1.8rem 3rem;
+    border-radius: 4rem;
+}
+
+.first-top-image, .second-top-image {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.top-img {
+    width: 100%;
+    border-radius: 1rem;
+    border: 1px solid var(--black);
+}
+
+.img-description-1, .img-description-2 {
+    display: flex;
+    flex-direction: column;
+    padding: 5rem 2rem;
+    align-items: flex-start;
+    line-height: 1.5rem;
+    gap: 0.5rem;
+}
+
+.img-description-2 {
+    padding: 2rem;
+}
+
+.img-description-3 {
+    padding: 1rem 2rem;
+}
+
+.underline {
+    border-bottom: 1px dashed var(--black);
+}
+
+.mr-auto {
+    margin-right: auto;
+}
+
+.mt-minus {
+    margin-top: -6rem;
+}
+
+.top-pagecustom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pagecustom-imgs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.top-custom-img {
+    width: 100%;
+}
+
+.credit-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.divider {
+    border: 0.1px solid var(--black);
+    margin-top: 3rem;
+}
+
+
 @media (max-width: 1500px) {
     .nav-bar {
         gap: 0.3rem;
@@ -961,7 +1043,26 @@ li a {
     .hidden-when-large {
         display: block;
     }
+}
 
+@media (max-width: 980px) {
+    .first-top-image {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .img-description-1, .img-description-2{
+        padding: 1rem 2rem;
+    }
+
+    .second-top-image {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mt-minus {
+    margin-top: 0;
+    }
 }
 
 @media (max-width: 870px) {
@@ -1014,6 +1115,22 @@ li a {
         right: 0.5rem;
     }
 
+}
+
+@media (max-width: 600px) {
+    .top-header {
+        width: 90%;
+        padding: 1rem;
+        border-radius: 4rem;
+    }
+
+    .credit-links {
+        display: unset;
+    }
+
+    footer {
+        margin: 1rem;
+    }
 }
 
 @media (max-width: 560px) {
@@ -1129,6 +1246,10 @@ li a {
 
     .txta-wrapper {
         margin-bottom: 0.8rem;
+    }
+
+    .top-header {
+        font-size: 0.88rem;
     }
 }
 
