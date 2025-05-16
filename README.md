@@ -19,7 +19,7 @@ You may either sign up yourself or log in using the following demo credentials:
 -Filter entries by date, reactions, hashtags, and keywords  
 -Pagination for journal entries  
 -Email verification required to access the public section  
--Google/Facebook OAuth login
+-Google/Facebook OAuth login  
 -Fully responsive UI for desktop and mobile  
 -Custom font style and screen size per user  
 -Custom night mode and color theme options per user 
