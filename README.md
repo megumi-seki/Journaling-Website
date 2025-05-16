@@ -17,7 +17,7 @@ You may either sign up yourself or log in using the following demo credentials:
 -Set each journal entry to be public or private (for public users)  
 -Send and receive simple reactions: heart and hug  
 -Filter entries by date, reactions, hashtags, and keywords  
--Pagination for journal entries 
+-Pagination for journal entries  
 -Email verification required to access the public section  
 -Google/Facebook OAuth login
 -Fully responsive UI for desktop and mobile  
