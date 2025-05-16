@@ -58,7 +58,7 @@ class ContentsController
             if (!$exists) { $content->hashtags()->attach($hashtag); }
         }
 
-        return redirect()->route("contents.index")->with("success", "new journal was saved successfully");
+        return redirect()->route("contents.index")->with("success", "Journal entry saved");
     }
 
     /**
@@ -98,7 +98,7 @@ class ContentsController
             if (!$exists) { $content->hashtags()->attach($hashtag); }
         }
 
-        return redirect()->route("contents.index")->with("success", "the content was updated successfully");
+        return redirect()->route("contents.index")->with("success", "Journal entry updated");
     }
 
     /**
@@ -117,7 +117,7 @@ class ContentsController
             }
         }
         // TODO update to confirm for delete 
-        return redirect()->route("contents.index")->with("success","the content was successdully deleted");
+        return redirect()->route("contents.index")->with("success","Journal entry deleted");
     }
 
     public function filter(Request $request) 
@@ -167,7 +167,7 @@ class ContentsController
         $contents = $query->paginate(15)->withQueryString();
 
         return view("content.index", 
-            ["contents" => $contents, "user" => $user, "setting" => $setting, "message" => "No journal matched to the filter"]);
+            ["contents" => $contents, "user" => $user, "setting" => $setting, "message" => "No journal entries matched the filter"]);
 
     }
 

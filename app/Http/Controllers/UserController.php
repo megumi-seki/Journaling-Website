@@ -33,7 +33,7 @@ class UserController
         $user->fill($data);
         $user->save();
 
-        return redirect()->route("profile.index")->with("success", "profile information was updated successfully");
+        return redirect()->route("profile.index")->with("success", "Profile updated successfully");
     }
 
     public function updatePassword(Request $request)
@@ -53,6 +53,6 @@ class UserController
 
         $user->update(["password" => Hash::make($request->new_password)]);
 
-        return redirect()->route("profile.index")->with("success", "password was updated successfully");
+        return redirect()->route("profile.index")->with("success", "Password updated successfully");
     }
 }

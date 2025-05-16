@@ -9,10 +9,10 @@
         @csrf
         @method("PUT")
         <div class="form-group">
-            <label for="public-mode" class="font-small pl-smaller">Public Mode <span class="font-smaller">(This enables your journal visibility, but does not automatically publish contents)</span></label>
+            <label for="public-mode" class="font-small pl-smaller">Public Mode <span class="font-smaller">(This enables your journal visibility, but does not automatically publish its contents)</span></label>
             <select name="public_mode" id="public-mode" class="input-def">
                 <option value="0" {{ !$settings->public_mode ? "selected": "" }}>Off</option>
-                <option value="1" {{ $settings->public_mode ? "selected": "" }}>On (email verification & valid phone number required)</option>
+                <option value="1" {{ $settings->public_mode ? "selected": "" }}>On (email verification & phone number required)</option>
             </select> 
         </div>
         <div class="form-group">

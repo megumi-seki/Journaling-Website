@@ -59,6 +59,6 @@ class PasswordResetController
             return redirect()->route("login.index")->with("success", __($status));
         }
 
-        return back()->withErrors(["email" => "We couldn't reset your password. Please verify your information and try again."]);
+        return back()->withErrors(["email" => "We couldn't reset your password. Please check your information and try again."]);
     }
 }

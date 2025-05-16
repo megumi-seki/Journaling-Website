@@ -44,6 +44,6 @@ class SettingsController
             $user->contents()->update(["public" => 0]);
         }
 
-        return redirect()->route("settings.index")->with("success", "the settings were updated successfully");
+        return redirect()->route("settings.index")->with("success", "Settings updated");
     }
 }

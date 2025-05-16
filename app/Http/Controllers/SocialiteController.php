@@ -47,7 +47,7 @@ class SocialiteController
             return redirect(route("contents.index"));
         } catch (\Exception $e) {
             return redirect(route("login.index"))
-                ->with("error", $e->getMessage() ?: "Something went wrong. Please try again later.");
+                ->with("error",  "Sorry, something went wrong.");
         }
     }
 }

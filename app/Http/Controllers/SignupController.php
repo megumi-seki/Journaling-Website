@@ -44,7 +44,7 @@ class SignupController
 
         Auth::login($user);
 
-        return redirect()->route("contents.index")->with("success", "user registered. please verify your email");
+        return redirect()->route("contents.index")->with("success", "User registered. Please verify your email");
     }
 }
 

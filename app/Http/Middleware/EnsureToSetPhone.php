@@ -17,7 +17,7 @@ class EnsureToSetPhone
     {
         if (empty($request->user()->phone)) {
             return redirect()->route("profile.index")
-                ->with("error", "Please provide phone information to view public section");
+                ->with("error", "Please provide your phone number to access the public section");
         }
 
         return $next($request);

@@ -18,13 +18,13 @@ class EmailVerifyController
     {
         $request->fulfill();
         return redirect()->intended(route("everyones"))
-            ->with("success", "Your email was verified. You can now activate public mode");
+            ->with("success", "Your email has been verified. You can now enable public mode");
 
     }
 
     public function send(Request $request)
     {
         $request->user()->sendEmailVerificationNotification();
-        return back()->with("success", "Verification link was sent. Please check your email.");
+        return back()->with("success", "Verification link has been sent. Please check your email.");
     }
 }

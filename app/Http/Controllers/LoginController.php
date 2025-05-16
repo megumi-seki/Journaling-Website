@@ -38,6 +38,6 @@ class LoginController
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route("top")->with("success", "You logged out. See you again soon:)");
+        return redirect()->route("top")->with("success", "Logged out successfully. See you again soon!");
     }
 }

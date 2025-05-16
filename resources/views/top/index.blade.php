@@ -1,4 +1,4 @@
-<x-app-layout mainMargin="mtb-small" :$pageTitle >
+<x-app-layout mainMargin="mtb-small" :$pageTitle :$user>
     <div class="flex-col gap-2">
         <div class="top-header ta-center bg-white">
             <h1 class="cutive-mono">Dear Journal...</h1>
@@ -42,7 +42,7 @@
     </div>
     <div class="divider"></div>
     <footer class="mtb-small">
-        <p><b>credits</b></p>
+        <p><b>Credits</b></p>
         <div class="credit-links">
         <p><a href="https://www.flaticon.com/free-icons/embrace" title="embrace icons" class="font-small">Embrace icons created by narak0rn - Flaticon</a></p>
         <p><a href="https://www.flaticon.com/free-icons/hug" title="hug icons" class="font-small">Hug icons created by narak0rn - Flaticon</a></p>

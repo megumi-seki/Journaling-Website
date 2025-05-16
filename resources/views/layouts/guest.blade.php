@@ -6,7 +6,7 @@
         <p class="e-message">{{ session("error") }}</p>
     @endsession
     <main class="pt-large ta-center">
-        <p class="information guest-info">Thank you for visiting!<br/>This website is still under development.</p>
+        <p class="information guest-info">Thank you for visiting!<br />This website is currently accessible for demonstration purposes only.</p>
         <x-buttons.app-icon />
         {{ $slot }}
 
