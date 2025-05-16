@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('contents', function (Blueprint $table) {
             $table->id();
             $table->foreignId("user_id")->constrained("users");
-            $table->string("title")->nullable();
             $table->longText("content_text");
             $table->boolean("tag")->default(0);
             $table->boolean("public")->default(0);

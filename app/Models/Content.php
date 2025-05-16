@@ -10,7 +10,6 @@ class Content extends Model
 {
     use HasFactory, SoftDeletes;
     protected $fillable = [
-        "title",
         "content_text",
         "tag",
         "public",
