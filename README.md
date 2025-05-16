@@ -3,7 +3,7 @@
  On this website, you can keep your journal private, or choose to share your entries in the public section. There, people can connect in a gentle and modest way by sending hearts and hugs to the entries that emotionally resonate with them.
 
 ## Website 
-This website is currently accessible for demonstration purposes.  
+This website is currently accessible for demonstration purposes only.  
 You can visit it <a href="https://dear-journal.com/">here</a>.  
 You may either sign up yourself or log in using the following demo credentials:  
 -Email: `esporer@example.net`  
@@ -16,7 +16,7 @@ You may either sign up yourself or log in using the following demo credentials:
 -Set public/private mode per user  
 -Set each journal entry to be public or private (for public users)  
 -Send and receive simple reactions: heart and hug  
--Filter entries by date, reactions, hashtags, and keywords 
+-Filter entries by date, reactions, hashtags, and keywords  
 -Pagination for journal entries 
 -Email verification required to access the public section  
 -Google/Facebook OAuth login
